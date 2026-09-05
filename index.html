@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login — GudangPro</title>
+  <meta name="description" content="Masuk ke GudangPro — sistem manajemen gudang modern dengan pencatatan stok real-time." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Google Identity Services -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div class="page">
+
+    <!-- ── Left Side ── -->
+    <div class="left-side">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+            <path d="M9 22V12h6v10" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <span>GudangPro</span>
+      </div>
+
+      <h1>Kelola stok gudang<br>dengan mudah.</h1>
+      <p>Pantau barang masuk, keluar, dan lokasi penyimpanan secara real-time.</p>
+
+
+    
+    
+      <ul class="feature-list">
+        <li>
+          <span class="dot dot-green"></span>
+          Pencatatan stok masuk &amp; keluar
+        </li>
+        <li>
+          <span class="dot dot-blue"></span>
+          Lokasi rak dan zona gudang
+        </li>
+        <li>
+          <span class="dot dot-orange"></span>
+          Laporan harian otomatis
+        </li>
+      </ul>
+
+      <div class="left-badge">
+        <div class="badge-stat">
+          <span class="badge-num">2.4k</span>
+          <span class="badge-label">Barang tercatat</span>
+        </div>
+        <div class="badge-divider"></div>
+        <div class="badge-stat">
+          <span class="badge-num">98%</span>
+          <span class="badge-label">Akurasi stok</span>
+        </div>
+        <div class="badge-divider"></div>
+        <div class="badge-stat">
+          <span class="badge-num">24/7</span>
+          <span class="badge-label">Monitoring</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Right Side ── -->
+    <div class="right-side">
+      <div class="login-box">
+        <h2>Masuk ke akun</h2>
+        <p class="subtitle">Gunakan Google atau kredensial yang diberikan admin.</p>
+
+        <!-- Google Sign-In Container (Official Google Cloud + Fallback) -->
+        <div id="googleBtnWrapper">
+          <!-- Official Google Identity Services Button Container -->
+          <div id="officialGoogleBtn" style="display:none; justify-content:center; width: 100%; min-height: 44px; margin-bottom: 4px;"></div>
+
+          <!-- Fallback/Connect Button -->
+          <button type="button" id="googleSignInBtn" class="btn-google">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+            </svg>
+            <span id="googleSignInBtnText">Masuk dengan Google</span>
+          </button>
+        </div>
+
+        <!-- Google Cloud Status Indicator -->
+        <div class="g-cloud-status" id="gCloudStatusBadge">
+          <span class="g-status-dot" id="gStatusDot"></span>
+          <span class="g-status-text" id="gStatusText">Google Cloud: Belum Terhubung</span>
+          <button type="button" class="g-status-btn" id="btnOpenCloudGuide">Panduan Setup</button>
+        </div>
+
+        <div class="divider">
+          <span>atau masuk dengan akun</span>
+        </div>
+
+        <!-- Login Form -->
+        <form id="loginForm">
+
+          <div class="field" id="group-username">
+            <label for="username">Email / Username</label>
+            <input type="text" id="username" name="username" placeholder="admin@gudangpro.id" autocomplete="username" />
+            <span class="err" id="username-error"></span>
+          </div>
+
+          <div class="field" id="group-password">
+            <label for="password">Kata Sandi</label>
+            <div class="pwd-wrap">
+              <input type="password" id="password" name="password" placeholder="••••••••" autocomplete="current-password" />
+              <button type="button" id="togglePassword" class="pwd-toggle" aria-label="Tampilkan">
+                <svg class="eye-open" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="1.8" />
+                  <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8" />
+                </svg>
+                <svg class="eye-closed" width="16" height="16" viewBox="0 0 24 24" fill="none" style="display:none">
+                  <path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                  <line x1="1" y1="1" x2="23" y2="23" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                </svg>
+              </button>
+            </div>
+            <span class="err" id="password-error"></span>
+          </div>
+
+          <div class="form-row">
+            <label class="remember">
+              <input type="checkbox" id="remember" name="remember" />
+              <span>Ingat saya</span>
+            </label>
+            <a href="#" id="forgotPasswordLink" class="link-small">Lupa kata sandi?</a>
+          </div>
+
+          <button type="submit" id="btnLogin">
+            <span class="btn-text">Masuk</span>
+            <span class="btn-loader" style="display:none">
+              <svg class="spin" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.3)" stroke-width="2.5"/>
+                <path d="M12 2a10 10 0 0110 10" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+              Memproses...
+            </span>
+          </button>
+
+        </form>
+
+        <p class="footer-note">
+          Belum punya akun? <a href="#" id="registerLink" class="link-small">Hubungi Admin</a>
+        </p>
+
+        <div id="toast" class="toast"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── Modal Google Sign-In Chooser ── -->
+  <div class="g-modal-overlay" id="googleModalOverlay" style="display:none">
+    <div class="g-modal" id="googleModal">
+      <div class="g-modal-header">
+        <div class="g-logo">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+          </svg>
+        </div>
+        <h3 class="g-modal-title">Pilih akun Google</h3>
+        <p class="g-modal-sub">untuk melanjutkan ke <strong>GudangPro</strong></p>
+        <button type="button" class="g-modal-close" id="closeGoogleModal" aria-label="Tutup">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+
+      <div class="g-modal-body">
+        <div class="g-accounts-list" id="gAccountsList">
+          <!-- Akun demo / tersimpan -->
+          <div class="g-account-item" data-name="Budi Santoso" data-email="budi.santoso@gmail.com" data-pic="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80">
+            <div class="g-avatar">
+              <span class="g-avatar-letter g-avatar-blue">B</span>
+            </div>
+            <div class="g-account-info">
+              <span class="g-acc-name">Budi Santoso</span>
+              <span class="g-acc-email">budi.santoso@gmail.com</span>
+            </div>
+          </div>
+
+          <div class="g-account-item" data-name="Siti Rahma" data-email="siti.rahma@gmail.com">
+            <div class="g-avatar">
+              <span class="g-avatar-letter g-avatar-purple">S</span>
+            </div>
+            <div class="g-account-info">
+              <span class="g-acc-name">Siti Rahma</span>
+              <span class="g-acc-email">siti.rahma@gmail.com</span>
+            </div>
+          </div>
+
+          <div class="g-account-item" data-name="Admin Gudang" data-email="admin.gudang@gmail.com">
+            <div class="g-avatar">
+              <span class="g-avatar-letter g-avatar-green">A</span>
+            </div>
+            <div class="g-account-info">
+              <span class="g-acc-name">Admin Gudang</span>
+              <span class="g-acc-email">admin.gudang@gmail.com</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="g-divider-line"></div>
+
+        <!-- Tombol tambah/pakai akun lain -->
+        <button type="button" class="g-btn-other" id="btnUseOtherGoogle">
+          <div class="g-icon-circle">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2"/><path d="M5.5 21a6.5 6.5 0 0113 0" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <span>Gunakan akun Google lain</span>
+        </button>
+
+        <!-- Form Custom Google Account -->
+        <div id="customGoogleForm" class="g-custom-form" style="display:none">
+          <div class="field" style="margin-bottom:10px">
+            <label for="customGName">Nama Lengkap Akun Google</label>
+            <input type="text" id="customGName" placeholder="Contoh: Muhammad Rian" />
+          </div>
+          <div class="field" style="margin-bottom:14px">
+            <label for="customGEmail">Alamat Email Google (@gmail.com)</label>
+            <input type="email" id="customGEmail" placeholder="nama@gmail.com" />
+          </div>
+          <div class="g-custom-actions">
+            <button type="button" class="btn btn-secondary btn-sm" id="btnCancelCustomGoogle">Batal</button>
+            <button type="button" class="btn btn-primary btn-sm" id="btnSubmitCustomGoogle">Lanjutkan Masuk</button>
+          </div>
+        </div>
+
+        <!-- Opsi Konfigurasi Client ID Google Cloud -->
+        <div class="g-client-id-section">
+          <button type="button" class="g-client-toggle-btn" id="toggleClientIdConfig">
+            <span>Konfigurasi Google Cloud Client ID (Opsional)</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+          <div id="clientIdBox" class="g-client-box" style="display:none">
+            <label for="inputGoogleClientId">Google Client ID</label>
+            <input type="text" id="inputGoogleClientId" placeholder="apps.googleusercontent.com..." />
+            <p class="g-hint">Jika diisi, login akan mencoba menggunakan popup resmi Google Identity Services.</p>
+            <button type="button" class="btn btn-secondary btn-xs" id="btnSaveClientId">Simpan Client ID</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="g-modal-footer">
+        <p>Dengan melanjutkan, Google akan membagikan nama, alamat email, dan foto profil Anda kepada GudangPro.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Modal Panduan & Hubungkan Google Cloud OAuth 2.0 ── -->
+  <div class="g-modal-overlay" id="googleCloudGuideModalOverlay" style="display:none">
+    <div class="g-modal g-modal-guide" id="googleCloudGuideModal">
+      <div class="g-modal-header" style="text-align:left; border-bottom:1px solid #eee; padding-bottom:16px;">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="width:36px; height:36px; border-radius:8px; background:#f1f3f4; display:flex; align-items:center; justify-content:center;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" fill="#4285F4"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="g-modal-title" style="font-size:1.15rem; margin:0">Hubungkan Google Cloud OAuth 2.0</h3>
+            <p class="g-modal-sub" style="margin:2px 0 0">Aktifkan login langsung menggunakan akun Google Anda</p>
+          </div>
+        </div>
+        <button type="button" class="g-modal-close" id="closeGuideModal" aria-label="Tutup">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+
+      <div class="g-modal-body" style="padding:18px 20px; max-height: 70vh; overflow-y: auto;">
+
+        <div class="guide-steps-list">
+          <!-- Step 1 -->
+          <div class="guide-step-item">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <strong>Buka Google Cloud Console</strong>
+              <p>Masuk ke halaman kredensial Google Cloud melalui tautan berikut:</p>
+              <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noopener noreferrer" class="guide-ext-link">
+                <span>console.cloud.google.com/apis/credentials</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="guide-step-item">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <strong>Buat OAuth Client ID</strong>
+              <p>Klik tombol <code>+ CREATE CREDENTIALS</code> di bagian atas &gt; pilih <strong>OAuth client ID</strong> &gt; pilih Application type: <strong>Web application</strong>.</p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="guide-step-item">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <strong>Tambahkan Authorized JavaScript origins</strong>
+              <p>Di bagian <em>Authorized JavaScript origins</em>, tambahkan URL lokal berikut:</p>
+              <div class="copy-box">
+                <code id="originUrlCode">http://localhost:8000</code>
+                <button type="button" class="btn-copy-code" id="btnCopyOrigin">Salin URL</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="guide-step-item">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <strong>Salin Client ID Anda &amp; Tempel di Bawah Ini:</strong>
+              <p>Setelah selesai, klik <em>CREATE</em> dan salin Client ID Anda (berakhiran <code>.apps.googleusercontent.com</code>):</p>
+              <div style="margin-top:8px">
+                <input type="text" id="guideInputClientId" class="guide-input-field" placeholder="Contoh: 1234567890-abcdefgh.apps.googleusercontent.com" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="g-modal-footer" style="display:flex; justify-content:space-between; align-items:center; padding:14px 20px;">
+        <button type="button" class="btn btn-secondary btn-sm" id="btnUseDemoGoogle">Gunakan Pilihan Akun (Tanpa Setup)</button>
+        <button type="button" class="btn btn-primary btn-sm" id="btnConnectGoogleCloud">Hubungkan Sekarang</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
