@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Selamat, Anda Berhasil Masuk! — GudangPro</title>
-  <meta name="description" content="Konfirmasi login berhasil ke sistem GudangPro." />
+  <title>Dashboard Gudang — GudangPro Enterprise</title>
+  <meta name="description" content="Sistem Manajemen Inventaris & Pergudangan GudangPro." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <!-- Supabase JS CDN -->
@@ -14,112 +14,314 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body class="dashboard-body">
+<body>
 
-  <!-- ════════════════════ TOP NAVBAR ════════════════════ -->
-  <header class="app-topbar">
-    <div class="topbar-inner">
-      <div class="brand">
+  <div class="app-layout">
+
+    <!-- ════════════════════ SIDEBAR ════════════════════ -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
         <div class="brand-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
             <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
             <path d="M9 22V12h6v10" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
           </svg>
         </div>
-        <span>GudangPro</span>
+        <div style="display:flex; align-items:center; gap:6px;">
+          <span style="font-weight:700;">GudangPro</span>
+          <span class="badge-tag" style="font-size:0.65rem; padding:2px 6px;">Enterprise</span>
+        </div>
       </div>
 
-      <div class="topbar-user">
-        <div class="user-chip">
+      <nav class="sidebar-nav">
+        <div class="nav-section">Operasional Utama</div>
+        <a href="#" class="nav-item active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/></svg>
+          <span>Dashboard Utama</span>
+        </a>
+        <a href="#inventorySection" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" stroke="currentColor" stroke-width="1.8"/><polyline points="3.27 6.96 12 12.01 20.73 6.96" stroke="currentColor" stroke-width="1.8"/><line x1="12" y1="22.08" x2="12" y2="12" stroke="currentColor" stroke-width="1.8"/></svg>
+          <span>Data Stok &amp; Barang</span>
+        </a>
+        <a href="#" class="nav-item" id="navInbound">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3v12M17 10l-5 5-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 17v2a2 2 0 002 2h14a2 2 0 002-2v-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span>Barang Masuk (Inbound)</span>
+        </a>
+        <a href="#" class="nav-item" id="navOutbound">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 15V3M7 8l5-5 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 17v2a2 2 0 002 2h14a2 2 0 002-2v-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span>Barang Keluar (Outbound)</span>
+        </a>
+
+        <div class="nav-section">Manajemen &amp; Lokasi</div>
+        <a href="#" class="nav-item" id="navRacks">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="1.8"/><line x1="3" y1="15" x2="21" y2="15" stroke="currentColor" stroke-width="1.8"/><line x1="12" y1="4" x2="12" y2="20" stroke="currentColor" stroke-width="1.8"/></svg>
+          <span>Lokasi Rak &amp; Zona</span>
+        </a>
+        <a href="#" class="nav-item" id="navAudit">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3L22 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span>Audit Stok Barcode</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-user-pill">
           <div class="user-avatar-sm" id="headerAvatar"></div>
-          <div class="user-text">
-            <span class="user-name-sm" id="headerUserName">—</span>
+          <div class="sidebar-user-info">
+            <span class="user-name-sm" id="headerUserName">Memuat...</span>
             <span class="user-email-sm" id="headerUserEmail">—</span>
           </div>
         </div>
-        <button type="button" class="btn-logout-chip" id="btnLogout" title="Keluar dan kembali ke halaman login">
+      </div>
+    </aside>
+
+    <!-- ════════════════════ APP HEADER ════════════════════ -->
+    <header class="app-header">
+      <div class="header-left" style="display:flex; align-items:center; gap:14px;">
+        <div class="warehouse-selector">
+          <span class="pulse-dot"></span>
+          <span style="font-weight:600; font-size:0.85rem;">Hub Gudang:</span>
+          <span style="color:var(--text); font-weight:700; font-size:0.85rem;">Pusat Cikarang (Zona A)</span>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <div class="search-wrap" style="width:260px;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.8"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="1.8"/></svg>
+          <input type="text" id="globalSearchInput" class="search-input" placeholder="Cari SKU, nama barang, rak..." style="width:100%;" />
+        </div>
+
+        <button type="button" class="btn-logout" id="btnLogout" title="Keluar dari sesi akun">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><polyline points="16 17 21 12 16 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><line x1="21" y1="12" x2="9" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
           <span>Keluar</span>
         </button>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <!-- ════════════════════ MAIN CONTENT ════════════════════ -->
-  <main class="dashboard-main">
+    <!-- ════════════════════ MAIN DASHBOARD ════════════════════ -->
+    <main class="app-main">
 
-    <section class="welcome-view">
-      <div class="welcome-container">
-
-        <!-- Glowing Celebration Hero Card -->
-        <div class="welcome-card">
-          <div class="confetti-badge">
-            <span class="celebrate-emoji">🎉</span>
+      <!-- ── User Greeting & Verification Banner ── -->
+      <section class="dashboard-hero-banner">
+        <div class="banner-left">
+          <div class="profile-avatar-box" style="margin-bottom:0;">
+            <div class="profile-avatar-lg" id="welcomeAvatar" style="width:54px; height:54px;"></div>
+            <span class="source-badge" id="welcomeSourceBadge" style="width:22px; height:22px;"></span>
           </div>
-
-          <span class="status-pill">
-            <span class="pulse-dot"></span> Sesi Autentikasi Aktif
-          </span>
-
-          <h1 class="welcome-heading">Selamat, Anda Berhasil Masuk!</h1>
-          <p class="welcome-subtext">
-            Akun Anda telah berhasil terhubung dan diverifikasi dengan aman ke dalam sistem GudangPro.
-          </p>
-
-          <!-- User Identity Profile Card -->
-          <div class="profile-card">
-            <div class="profile-avatar-box">
-              <div class="profile-avatar-lg" id="welcomeAvatar">
-                <!-- Foto Google atau Monogram Avatar -->
-              </div>
-              <span class="source-badge" id="welcomeSourceBadge">
-                <!-- Icon Google atau Manual -->
+          <div>
+            <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:4px;">
+              <h1 class="banner-heading" style="font-size:1.35rem; font-weight:700; color:#fff; margin:0;">
+                Selamat Datang, <span id="welcomeName">Pengguna</span>!
+              </h1>
+              <span id="welcomeRole" class="badge badge-blue" style="font-size:0.75rem; padding:3px 10px;">Staff Gudang</span>
+              <span class="status-pill" style="padding:3px 10px; font-size:0.75rem;">
+                <span class="pulse-dot"></span> Sesi Aktif
               </span>
             </div>
+            <p class="banner-subtext" style="font-size:0.83rem; color:var(--muted2); margin:0;">
+              <span id="welcomeEmail">—</span> • Terhubung via <span id="welcomeMethod" style="display:inline-flex; vertical-align:middle;">Supabase Cloud Auth</span> • Waktu Masuk: <span id="welcomeLoginTime" style="color:var(--text); font-weight:500;">—</span>
+            </p>
+          </div>
+        </div>
 
-            <div class="profile-details">
-              <h2 class="profile-name" id="welcomeName">—</h2>
-              <p class="profile-email">
-                <span id="welcomeEmail">—</span>
-                <span class="profile-divider">•</span>
-                <span id="welcomeRole" style="color:var(--accent); font-weight:600;">Staff Gudang</span>
-              </p>
+        <div class="banner-actions">
+          <button type="button" class="btn btn-primary" id="btnOpenAddModal">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><line x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <span>Tambah Barang</span>
+          </button>
+          <button type="button" class="btn btn-secondary" id="btnLogoutMain" title="Keluar">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><polyline points="16 17 21 12 16 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><line x1="21" y1="12" x2="9" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <span>Keluar</span>
+          </button>
+        </div>
+      </section>
 
-              <div class="profile-meta-grid">
-                <div class="meta-item">
-                  <span class="meta-label">Metode Masuk</span>
-                  <span class="meta-value" id="welcomeMethod">Google Sign-In</span>
-                </div>
-                <div class="meta-item">
-                  <span class="meta-label">Waktu Masuk</span>
-                  <span class="meta-value" id="welcomeLoginTime">—</span>
-                </div>
-                <div class="meta-item">
-                  <span class="meta-label">Status Sesi</span>
-                  <span class="meta-value text-success" id="welcomeStatus">Aktif &amp; Terverifikasi</span>
-                </div>
-                <div class="meta-item">
-                  <span class="meta-label">Keamanan Akun</span>
-                  <span class="meta-value" style="color:#5ee59f">Dilindungi Enkripsi</span>
-                </div>
-              </div>
+      <!-- ── 4 KPI Stats Grid ── -->
+      <section class="stats-grid">
+        <!-- Stat 1: Total SKU -->
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-label">Total Item / SKU</span>
+            <div class="stat-icon blue">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/></svg>
+            </div>
+          </div>
+          <div class="stat-value" id="statTotalSku">2.480</div>
+          <div class="stat-delta">
+            <span class="up">↑ +12%</span> dibanding bulan lalu
+          </div>
+        </div>
+
+        <!-- Stat 2: Barang Masuk -->
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-label">Barang Masuk (Hari Ini)</span>
+            <div class="stat-icon green">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M19 12l-7 7-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+          <div class="stat-value" id="statInboundToday">+142</div>
+          <div class="stat-delta">
+            <span class="up">↑ 8 Batch</span> Inbound terverifikasi
+          </div>
+        </div>
+
+        <!-- Stat 3: Barang Keluar -->
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-label">Barang Keluar (Hari Ini)</span>
+            <div class="stat-icon orange">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+          <div class="stat-value" id="statOutboundToday">-85</div>
+          <div class="stat-delta">
+            <span class="down">↓ 15 Order</span> Delivery Out
+          </div>
+        </div>
+
+        <!-- Stat 4: Stok Kritis -->
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-label">Peringatan Stok Kritis</span>
+            <div class="stat-icon red">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="9" x2="12" y2="13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+          <div class="stat-value" id="statLowStock" style="color:var(--error);">4</div>
+          <div class="stat-delta">
+            <span class="down">Perlu Restock</span> Segera ke suplier
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Live Inventory Panel & Table ── -->
+      <section class="panel" id="inventorySection">
+        <div class="panel-header">
+          <div style="display:flex; align-items:center; gap:10px;">
+            <div style="width:30px; height:30px; border-radius:7px; background:rgba(91,141,239,.12); color:var(--accent); display:flex; align-items:center; justify-content:center;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" stroke="currentColor" stroke-width="1.8"/></svg>
+            </div>
+            <div>
+              <h2 class="panel-title">Manajemen Stok &amp; Data Inventaris</h2>
+              <p style="font-size:0.78rem; color:var(--muted); margin:0;">Pantau dan kelola stok barang gudang secara real-time</p>
             </div>
           </div>
 
-          <!-- Action Button: Keluar Kembali ke Login -->
-          <div class="welcome-actions">
-            <button type="button" class="btn btn-primary btn-lg" id="btnLogoutMain">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><polyline points="16 17 21 12 16 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="21" y1="12" x2="9" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-              <span>Keluar (Kembali ke Halaman Login)</span>
+          <div class="panel-actions">
+            <!-- Filter Kategori -->
+            <select id="filterCategory" class="filter-select">
+              <option value="">Semua Kategori</option>
+              <option value="Elektronik">Elektronik</option>
+              <option value="Packaging & Kertas">Packaging &amp; Kertas</option>
+              <option value="Perlengkapan Logistik">Perlengkapan Logistik</option>
+              <option value="Sparepart & Alat">Sparepart &amp; Alat</option>
+            </select>
+
+            <!-- Search Table -->
+            <div class="search-wrap">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.8"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="1.8"/></svg>
+              <input type="text" id="inventorySearchInput" class="search-input" placeholder="Cari nama barang / SKU..." />
+            </div>
+
+            <!-- Tombol Tambah Barang -->
+            <button type="button" class="btn btn-primary btn-sm" id="btnOpenAddModalTable">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><line x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              <span>+ Tambah Barang</span>
             </button>
           </div>
-
         </div>
 
-      </div>
-    </section>
+        <div class="table-wrap">
+          <table id="inventoryTable">
+            <thead>
+              <tr>
+                <th>KODE SKU</th>
+                <th>NAMA BARANG</th>
+                <th>KATEGORI</th>
+                <th>LOKASI RAK</th>
+                <th>JUMLAH STOK</th>
+                <th>STATUS</th>
+                <th style="text-align:right;">AKSI</th>
+              </tr>
+            </thead>
+            <tbody id="inventoryTableBody">
+              <!-- Item akan dirender otomatis via dashboard.js -->
+            </tbody>
+          </table>
+        </div>
 
-  </main>
+        <div class="pagination">
+          <span id="paginationInfo">Menampilkan 6 barang inventaris</span>
+          <div class="page-btns">
+            <button type="button" class="page-btn active">1</button>
+            <button type="button" class="page-btn" disabled>2</button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- ════════════════════ MODAL TAMBAH BARANG ════════════════════ -->
+  <div class="g-modal-overlay" id="addInventoryModalOverlay" style="display:none">
+    <div class="g-modal g-modal-guide" style="max-width:480px;">
+      <div class="g-modal-header" style="text-align:left; border-bottom:1px solid var(--border2); padding-bottom:16px;">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="width:36px; height:36px; border-radius:8px; background:rgba(91,141,239,0.15); display:flex; align-items:center; justify-content:center; color:var(--accent);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <div>
+            <h3 class="g-modal-title" style="font-size:1.1rem; margin:0">Tambah Barang Baru ke Gudang</h3>
+            <p class="g-modal-sub" style="margin:2px 0 0">Pencatatan SKU dan lokasi penyimpanan rak</p>
+          </div>
+        </div>
+        <button type="button" class="g-modal-close" id="closeAddModal" aria-label="Tutup">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+
+      <form id="addInventoryForm">
+        <div class="g-modal-body" style="padding:18px 20px;">
+          <div class="field" style="margin-bottom:12px;">
+            <label for="itemSku">Kode SKU</label>
+            <input type="text" id="itemSku" placeholder="Contoh: SKU-ELK-108" required />
+          </div>
+
+          <div class="field" style="margin-bottom:12px;">
+            <label for="itemName">Nama Barang</label>
+            <input type="text" id="itemName" placeholder="Contoh: Barcode Scanner Wireless 2D" required />
+          </div>
+
+          <div class="field" style="margin-bottom:12px;">
+            <label for="itemCategory">Kategori</label>
+            <select id="itemCategory" class="auth-select" required>
+              <option value="Elektronik">Elektronik</option>
+              <option value="Packaging & Kertas">Packaging &amp; Kertas</option>
+              <option value="Perlengkapan Logistik">Perlengkapan Logistik</option>
+              <option value="Sparepart & Alat">Sparepart &amp; Alat</option>
+            </select>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px;">
+            <div class="field">
+              <label for="itemLocation">Lokasi Rak / Zona</label>
+              <input type="text" id="itemLocation" placeholder="Contoh: Rak B-03" required />
+            </div>
+            <div class="field">
+              <label for="itemQty">Jumlah Stok Awal</label>
+              <input type="number" id="itemQty" min="0" placeholder="Contoh: 150" required />
+            </div>
+          </div>
+        </div>
+
+        <div class="g-modal-footer" style="display:flex; justify-content:flex-end; gap:10px; padding:14px 20px;">
+          <button type="button" class="btn btn-secondary btn-sm" id="btnCancelAddModal">Batal</button>
+          <button type="submit" class="btn btn-primary btn-sm" id="btnSubmitAddItem">Simpan Barang</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
   <!-- Toast Notification -->
   <div id="toast" class="toast"></div>

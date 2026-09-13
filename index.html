@@ -29,44 +29,91 @@
             <path d="M9 22V12h6v10" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
           </svg>
         </div>
-        <span>GudangPro</span>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="font-weight:700; letter-spacing:-0.02em;">GudangPro</span>
+          <span class="badge-tag">Enterprise v2.4</span>
+        </div>
       </div>
 
-      <h1>Kelola stok gudang<br>dengan mudah.</h1>
-      <p>Pantau barang masuk, keluar, dan lokasi penyimpanan secara real-time.</p>
+      <div class="hero-text-block">
+        <span class="system-status-pill">
+          <span class="pulse-dot"></span> Sistem Pergudangan &amp; Cloud Sync Aktif
+        </span>
+        <h1>Otomasi logistik &amp;<br>kontrol stok real-time.</h1>
+        <p>Kelola barang masuk, keluar, kapasitas rak multi-zona, dan audit inventaris terpadu yang terhubung langsung ke database Supabase Cloud.</p>
+      </div>
 
+      <!-- Warehouse Operations Live Preview Mockup Card -->
+      <div class="preview-mockup-card">
+        <div class="mockup-header">
+          <div class="mockup-title">
+            <span class="live-pulse"></span>
+            <span>Aktivitas Pergudangan Terkini</span>
+          </div>
+          <span class="mockup-tag">Hub Cikarang</span>
+        </div>
 
-    
-    
-      <ul class="feature-list">
-        <li>
-          <span class="dot dot-green"></span>
-          Pencatatan stok masuk &amp; keluar
-        </li>
-        <li>
-          <span class="dot dot-blue"></span>
-          Lokasi rak dan zona gudang
-        </li>
-        <li>
-          <span class="dot dot-orange"></span>
-          Laporan harian otomatis
-        </li>
-      </ul>
+        <div class="mockup-feed-list">
+          <div class="feed-item">
+            <div class="feed-icon in">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M19 12l-7 7-7-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="feed-details">
+              <span class="feed-name">Stok Masuk: +450 Box Kertas A4 PaperOne</span>
+              <span class="feed-sub">Lokasi: Rak B-04 • Petugas: Budi S.</span>
+            </div>
+            <span class="feed-time">Baru saja</span>
+          </div>
+
+          <div class="feed-item">
+            <div class="feed-icon out">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="feed-details">
+              <span class="feed-name">Stok Keluar: -80 Unit Router TP-Link AX1500</span>
+              <span class="feed-sub">Tujuan: Ekspedisi J&amp;T Cargo • DO-8821</span>
+            </div>
+            <span class="feed-time">4 mnt lalu</span>
+          </div>
+
+          <div class="feed-item">
+            <div class="feed-icon verify">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="feed-details">
+              <span class="feed-name">Audit Barcode QR: Pallet #419 Terverifikasi</span>
+              <span class="feed-sub">Akurasi stok tercatat 100% cocok</span>
+            </div>
+            <span class="feed-time">12 mnt lalu</span>
+          </div>
+        </div>
+
+        <!-- Capacity Meter -->
+        <div class="mockup-capacity">
+          <div class="cap-header">
+            <span>Kapasitas Gudang Terpakai</span>
+            <span class="cap-val">78% (2.480 / 3.200 Pallet)</span>
+          </div>
+          <div class="cap-bar-track">
+            <div class="cap-bar-fill" style="width: 78%"></div>
+          </div>
+        </div>
+      </div>
 
       <div class="left-badge">
         <div class="badge-stat">
-          <span class="badge-num">2.4k</span>
-          <span class="badge-label">Barang tercatat</span>
+          <span class="badge-num">2.480</span>
+          <span class="badge-label">Item SKU Aktif</span>
         </div>
         <div class="badge-divider"></div>
         <div class="badge-stat">
-          <span class="badge-num">98%</span>
-          <span class="badge-label">Akurasi stok</span>
+          <span class="badge-num">99.9%</span>
+          <span class="badge-label">Akurasi Audit</span>
         </div>
         <div class="badge-divider"></div>
         <div class="badge-stat">
-          <span class="badge-num">24/7</span>
-          <span class="badge-label">Monitoring</span>
+          <span class="badge-num">256-Bit</span>
+          <span class="badge-label">SSL Cloud Sync</span>
         </div>
       </div>
     </div>
@@ -137,13 +184,17 @@
           <form id="loginForm">
             <div class="field" id="group-username">
               <label for="username">Email / Username</label>
-              <input type="text" id="username" name="username" placeholder="admin@gudangpro.id" autocomplete="username" />
+              <div class="input-icon-wrap">
+                <svg class="field-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/><polyline points="3 7 12 13 21 7" stroke="currentColor" stroke-width="1.8"/></svg>
+                <input type="text" id="username" name="username" placeholder="admin@gudangpro.id" autocomplete="username" />
+              </div>
               <span class="err" id="username-error"></span>
             </div>
 
             <div class="field" id="group-password">
               <label for="password">Kata Sandi</label>
-              <div class="pwd-wrap">
+              <div class="pwd-wrap input-icon-wrap">
+                <svg class="field-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" stroke-width="1.8"/></svg>
                 <input type="password" id="password" name="password" placeholder="••••••••" autocomplete="current-password" />
                 <button type="button" id="togglePassword" class="pwd-toggle" aria-label="Tampilkan">
                   <svg class="eye-open" width="16" height="16" viewBox="0 0 24 24" fill="none">
@@ -192,30 +243,40 @@
           <form id="registerForm">
             <div class="field" id="group-reg-name">
               <label for="regName">Nama Lengkap</label>
-              <input type="text" id="regName" placeholder="Contoh: Rian Saputra" autocomplete="name" />
+              <div class="input-icon-wrap">
+                <svg class="field-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M5.5 21a6.5 6.5 0 0113 0" stroke="currentColor" stroke-width="1.8"/></svg>
+                <input type="text" id="regName" placeholder="Contoh: Rian Saputra" autocomplete="name" />
+              </div>
               <span class="err" id="reg-name-error"></span>
             </div>
 
             <div class="field" id="group-reg-email">
               <label for="regEmail">Alamat Email</label>
-              <input type="email" id="regEmail" placeholder="nama@gudangpro.id" autocomplete="email" />
+              <div class="input-icon-wrap">
+                <svg class="field-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/><polyline points="3 7 12 13 21 7" stroke="currentColor" stroke-width="1.8"/></svg>
+                <input type="email" id="regEmail" placeholder="nama@gudangpro.id" autocomplete="email" />
+              </div>
               <span class="err" id="reg-email-error"></span>
             </div>
 
             <div class="field" id="group-reg-role">
               <label for="regRole">Peran / Jabatan Gudang</label>
-              <select id="regRole" class="auth-select">
-                <option value="Staff Gudang">Staff Gudang (Pencatatan Stok Masuk &amp; Keluar)</option>
-                <option value="Operator Rak">Operator Rak (Manajemen Rak &amp; Zona)</option>
-                <option value="Supervisor Logistik">Supervisor Logistik (Verifikasi &amp; Approval)</option>
-                <option value="Administrator">Administrator Gudang (Akses Penuh)</option>
-              </select>
+              <div class="input-icon-wrap">
+                <svg class="field-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z" stroke="currentColor" stroke-width="1.8"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" stroke="currentColor" stroke-width="1.8"/></svg>
+                <select id="regRole" class="auth-select">
+                  <option value="Staff Gudang">Staff Gudang (Pencatatan Stok Masuk &amp; Keluar)</option>
+                  <option value="Operator Rak">Operator Rak (Manajemen Rak &amp; Zona)</option>
+                  <option value="Supervisor Logistik">Supervisor Logistik (Verifikasi &amp; Approval)</option>
+                  <option value="Administrator">Administrator Gudang (Akses Penuh)</option>
+                </select>
+              </div>
               <span class="err" id="reg-role-error"></span>
             </div>
 
             <div class="field" id="group-reg-password">
               <label for="regPassword">Kata Sandi</label>
-              <div class="pwd-wrap">
+              <div class="pwd-wrap input-icon-wrap">
+                <svg class="field-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" stroke-width="1.8"/></svg>
                 <input type="password" id="regPassword" placeholder="Minimal 6 karakter" autocomplete="new-password" />
                 <button type="button" id="toggleRegPassword" class="pwd-toggle" aria-label="Tampilkan">
                   <svg class="eye-open" width="16" height="16" viewBox="0 0 24 24" fill="none">
@@ -233,7 +294,8 @@
 
             <div class="field" id="group-reg-confirm">
               <label for="regConfirmPassword">Konfirmasi Kata Sandi</label>
-              <div class="pwd-wrap">
+              <div class="pwd-wrap input-icon-wrap">
+                <svg class="field-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" stroke-width="1.8"/></svg>
                 <input type="password" id="regConfirmPassword" placeholder="Ulangi kata sandi di atas" autocomplete="new-password" />
                 <button type="button" id="toggleRegConfirmPassword" class="pwd-toggle" aria-label="Tampilkan">
                   <svg class="eye-open" width="16" height="16" viewBox="0 0 24 24" fill="none">
