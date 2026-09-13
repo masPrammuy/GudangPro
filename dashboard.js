@@ -205,10 +205,10 @@ function renderInventoryTable(filterKeyword, filterCat) {
     else if (item.category.indexOf('Sparepart') !== -1) catBadge = 'badge-orange';
 
     tr.innerHTML =
-      '<td class="td-sku"><strong>' + escapeHtml(item.sku) + '</strong></td>' +
-      '<td>' + escapeHtml(item.name) + '</td>' +
+      '<td class="td-sku"><strong><span class="barcode-lines">||| | ||</span>' + escapeHtml(item.sku) + '</strong></td>' +
+      '<td><strong>' + escapeHtml(item.name) + '</strong></td>' +
       '<td><span class="badge ' + catBadge + '">' + escapeHtml(item.category) + '</span></td>' +
-      '<td><span style="display:inline-flex; align-items:center; gap:4px; font-weight:500;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="1.8"/></svg> ' + escapeHtml(item.location) + '</span></td>' +
+      '<td><span class="rack-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="1.8"/><line x1="3" y1="15" x2="21" y2="15" stroke="currentColor" stroke-width="1.8"/><line x1="12" y1="4" x2="12" y2="20" stroke="currentColor" stroke-width="1.8"/></svg> ' + escapeHtml(item.location) + '</span></td>' +
       '<td><strong style="font-size:0.95rem;">' + item.qty + '</strong> <span style="font-size:0.75rem; color:var(--muted);">Unit</span></td>' +
       '<td><span class="badge ' + badgeClass + '">' + item.status + '</span></td>' +
       '<td style="text-align:right;">' +

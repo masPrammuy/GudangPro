@@ -45,12 +45,15 @@
 
       <!-- Warehouse Operations Live Preview Mockup Card -->
       <div class="preview-mockup-card">
+        <!-- Laser Barcode Scanner Beam Animation -->
+        <div class="scanner-beam"></div>
+
         <div class="mockup-header">
           <div class="mockup-title">
             <span class="live-pulse"></span>
-            <span>Aktivitas Pergudangan Terkini</span>
+            <span>Aktivitas Terminal Pergudangan (Live Feed)</span>
           </div>
-          <span class="mockup-tag">Hub Cikarang</span>
+          <span class="mockup-tag" style="color:var(--accent); border-color:rgba(245,158,11,0.3);">Gate 03 • Hub Cikarang</span>
         </div>
 
         <div class="mockup-feed-list">
@@ -60,7 +63,7 @@
             </div>
             <div class="feed-details">
               <span class="feed-name">Stok Masuk: +450 Box Kertas A4 PaperOne</span>
-              <span class="feed-sub">Lokasi: Rak B-04 • Petugas: Budi S.</span>
+              <span class="feed-sub">Lokasi: RAK-B04-L2 • Petugas Forklift: Budi S.</span>
             </div>
             <span class="feed-time">Baru saja</span>
           </div>
@@ -71,7 +74,7 @@
             </div>
             <div class="feed-details">
               <span class="feed-name">Stok Keluar: -80 Unit Router TP-Link AX1500</span>
-              <span class="feed-sub">Tujuan: Ekspedisi J&amp;T Cargo • DO-8821</span>
+              <span class="feed-sub">Tujuan: Loading Dock 02 • Ekspedisi J&amp;T Cargo</span>
             </div>
             <span class="feed-time">4 mnt lalu</span>
           </div>
@@ -82,7 +85,7 @@
             </div>
             <div class="feed-details">
               <span class="feed-name">Audit Barcode QR: Pallet #419 Terverifikasi</span>
-              <span class="feed-sub">Akurasi stok tercatat 100% cocok</span>
+              <span class="feed-sub">Akurasi stok tercatat 100% cocok dengan Supabase</span>
             </div>
             <span class="feed-time">12 mnt lalu</span>
           </div>
@@ -91,12 +94,19 @@
         <!-- Capacity Meter -->
         <div class="mockup-capacity">
           <div class="cap-header">
-            <span>Kapasitas Gudang Terpakai</span>
+            <span>Kapasitas Rak Gudang Utama Terpakai</span>
             <span class="cap-val">78% (2.480 / 3.200 Pallet)</span>
           </div>
           <div class="cap-bar-track">
             <div class="cap-bar-fill" style="width: 78%"></div>
           </div>
+        </div>
+
+        <!-- Dock Indicators -->
+        <div style="display:flex; gap:6px; margin-top:12px; flex-wrap:wrap;">
+          <span class="dock-badge">🚛 Dock 01: Inbound 40ft</span>
+          <span class="dock-badge" style="color:#10b981; border-color:rgba(16,185,129,0.3); background:rgba(16,185,129,0.12);">📦 Dock 02: Dispatch Kargo</span>
+          <span class="dock-badge" style="color:var(--accent); border-color:rgba(245,158,11,0.3); background:rgba(245,158,11,0.12);">🏷️ RFID Reader: Online</span>
         </div>
       </div>
 
