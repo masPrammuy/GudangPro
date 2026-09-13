@@ -135,19 +135,58 @@
         </div>
       </section>
 
+      <!-- ── Panduan Cepat untuk Pengguna Baru (Onboarding Guide) ── -->
+      <section class="onboarding-banner" id="onboardingBanner">
+        <div class="onboarding-header">
+          <div class="onboarding-title-wrap">
+            <span class="onboarding-badge">Panduan Cepat</span>
+            <h2 class="onboarding-title">3 Langkah Mudah Mulai Mengelola GudangPro</h2>
+          </div>
+          <button type="button" class="btn-dismiss-onboarding" id="btnDismissOnboarding" title="Tutup panduan ini">
+            <span>Sembunyikan Panduan</span> &times;
+          </button>
+        </div>
+
+        <div class="onboarding-grid">
+          <div class="onboarding-card">
+            <div class="onboarding-step-circle">1</div>
+            <div>
+              <div class="onboarding-card-title">Cek Inventaris Barang</div>
+              <p class="onboarding-card-desc">Gunakan kolom pencarian atau filter kategori di tabel bawah untuk menemukan barang yang ingin Anda kelola.</p>
+            </div>
+          </div>
+
+          <div class="onboarding-card">
+            <div class="onboarding-step-circle">2</div>
+            <div>
+              <div class="onboarding-card-title">Catat Barang Baru</div>
+              <p class="onboarding-card-desc">Klik tombol biru <strong>"+ Tambah Barang"</strong> di atas atau di tabel untuk mendaftarkan barang baru ke rak gudang.</p>
+            </div>
+          </div>
+
+          <div class="onboarding-card">
+            <div class="onboarding-step-circle">3</div>
+            <div>
+              <div class="onboarding-card-title">Update Jumlah Stok Cepat</div>
+              <p class="onboarding-card-desc">Gunakan tombol <strong>+10</strong> (tambah) atau <strong>-5</strong> (kurang) di tabel untuk memperbarui stok dalam 1 klik.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- ── 4 KPI Stats Grid ── -->
       <section class="stats-grid">
         <!-- Stat 1: Total SKU -->
         <div class="stat-card">
           <div class="stat-header">
-            <span class="stat-label">Total Item / SKU</span>
+            <span class="stat-label">Total Ragam Barang (SKU)</span>
             <div class="stat-icon blue">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/></svg>
             </div>
           </div>
           <div class="stat-value" id="statTotalSku">2.480</div>
           <div class="stat-delta">
-            <span class="up">↑ +12%</span> dibanding bulan lalu
+            <span class="up">↑ +12%</span> jenis barang aktif tercatat
           </div>
         </div>
 
@@ -175,21 +214,21 @@
           </div>
           <div class="stat-value" id="statOutboundToday">-85</div>
           <div class="stat-delta">
-            <span class="down">↓ 15 Order</span> Delivery Out
+            <span class="down">↓ 15 Order</span> Pengiriman kurir/kargo
           </div>
         </div>
 
         <!-- Stat 4: Stok Kritis -->
         <div class="stat-card">
           <div class="stat-header">
-            <span class="stat-label">Peringatan Stok Kritis</span>
+            <span class="stat-label">Perlu Ditambah (Stok Menipis)</span>
             <div class="stat-icon red">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="9" x2="12" y2="13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
             </div>
           </div>
           <div class="stat-value" id="statLowStock" style="color:var(--error);">4</div>
           <div class="stat-delta">
-            <span class="down">Perlu Restock</span> Segera ke suplier
+            <span class="down">Stok Segera Habis</span> Perlu restock ulang
           </div>
         </div>
       </section>
@@ -324,13 +363,13 @@
           <table id="inventoryTable">
             <thead>
               <tr>
-                <th>KODE SKU</th>
+                <th>KODE / SKU</th>
                 <th>NAMA BARANG</th>
                 <th>KATEGORI</th>
-                <th>LOKASI RAK</th>
-                <th>JUMLAH STOK</th>
+                <th>LETAK RAK</th>
+                <th>SISA STOK</th>
                 <th>STATUS</th>
-                <th style="text-align:right;">AKSI</th>
+                <th style="text-align:right;">AKSI CEPAT</th>
               </tr>
             </thead>
             <tbody id="inventoryTableBody">

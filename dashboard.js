@@ -325,6 +325,22 @@ function bindEvents() {
   if (btnLogout) btnLogout.addEventListener('click', logout);
   if (btnLogoutMain) btnLogoutMain.addEventListener('click', logout);
 
+  // Onboarding Banner (Panduan Pengguna Baru)
+  var onboardingBanner = document.getElementById('onboardingBanner');
+  var btnDismiss = document.getElementById('btnDismissOnboarding');
+  if (onboardingBanner && localStorage.getItem('gp_hide_onboarding') === 'true') {
+    onboardingBanner.style.display = 'none';
+  }
+  if (btnDismiss && onboardingBanner) {
+    btnDismiss.addEventListener('click', function () {
+      onboardingBanner.style.display = 'none';
+      try {
+        localStorage.setItem('gp_hide_onboarding', 'true');
+      } catch (e) { }
+      showToast('Panduan disembunyikan. Anda dapat membukanya kembali dari menu.', 'info');
+    });
+  }
+
   // Modal Tambah Barang
   var btnOpenAdd = document.getElementById('btnOpenAddModal');
   var btnOpenAddTable = document.getElementById('btnOpenAddModalTable');
