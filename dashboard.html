@@ -8,6 +8,9 @@
   <meta name="description" content="Konfirmasi login berhasil ke sistem GudangPro." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Supabase JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-client.js"></script>
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -76,7 +79,11 @@
 
             <div class="profile-details">
               <h2 class="profile-name" id="welcomeName">—</h2>
-              <p class="profile-email" id="welcomeEmail">—</p>
+              <p class="profile-email">
+                <span id="welcomeEmail">—</span>
+                <span class="profile-divider">•</span>
+                <span id="welcomeRole" style="color:var(--accent); font-weight:600;">Staff Gudang</span>
+              </p>
 
               <div class="profile-meta-grid">
                 <div class="meta-item">
