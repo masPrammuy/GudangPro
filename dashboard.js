@@ -1,20 +1,23 @@
-/* ─── GudangPro — Enterprise Dashboard Logic ────────────────────────────────────
+/* ─── GudangPro Apparel — Sistem Manajemen Produksi & Stok Konveksi ──────────────
    1. Autentikasi Guard & User Profile Rendering
-   2. Manajemen Data Stok & Inventaris Interaktif
-   3. Tambah, Update, & Hapus Barang Gudang
-   4. Filter Kategori & Pencarian Realtime
-   5. Sinkronisasi Sesi Supabase & Logout
+   2. Manajemen Data Stok Bahan Kain, Aksesoris, & Baju Jadi
+   3. Fitur Peringatan Dini Stok Minimum (Low Stock Alert System)
+   4. Tambah, Update (+10/-5), & Hapus Item Produksi
+   5. Filter Kategori Konveksi & Pencarian Realtime
+   6. Sinkronisasi Sesi Supabase & Logout
 ─────────────────────────────────────────────────────────────────────────────── */
 
 'use strict';
 
 var DEFAULT_INVENTORY = [
-  { id: '1', sku: 'SKU-ELK-042', name: 'Barcode Scanner Wireless 2D Honeywell', category: 'Elektronik', location: 'Rak A-01', qty: 38, status: 'Tersedia' },
-  { id: '2', sku: 'SKU-PKG-110', name: 'Kardus Box Single Wall 30x20x15 cm', category: 'Packaging & Kertas', location: 'Zona B-04', qty: 650, status: 'Tersedia' },
-  { id: '3', sku: 'SKU-ELK-088', name: 'Thermal Receipt Printer Bluetooth 80mm', category: 'Elektronik', location: 'Rak A-03', qty: 7, status: 'Menipis' },
-  { id: '4', sku: 'SKU-LGS-201', name: 'Hand Pallet Truck Hydraulic 3 Ton', category: 'Perlengkapan Logistik', location: 'Zona Transit C', qty: 2, status: 'Menipis' },
-  { id: '5', sku: 'SKU-PKG-024', name: 'Stretch Film Plastik Wrapping 50cm', category: 'Packaging & Kertas', location: 'Zona B-02', qty: 120, status: 'Tersedia' },
-  { id: '6', sku: 'SKU-SPR-315', name: 'Roda Castor Heavy Duty Pallet 4 Inch', category: 'Sparepart & Alat', location: 'Rak C-05', qty: 0, status: 'Habis' }
+  { id: '1', sku: 'KAN-CMB-01', name: 'Kain Katun Combed 30s Hitam Reaktif', category: 'Kain & Bahan Baku', location: 'Rak Kain A-01', qty: 45, minStock: 15, unit: 'Roll', status: 'Tersedia' },
+  { id: '2', sku: 'BNG-JHT-08', name: 'Benang Jahit Spun Polyester Putih Extra (40/2)', category: 'Aksesoris Jahit', location: 'Rak Aksesoris B-02', qty: 8, minStock: 20, unit: 'Lusin', status: 'Menipis' },
+  { id: '3', sku: 'KNC-KMG-14', name: 'Kancing Kemeja Lubang Empat 14mm Putih Mutiara', category: 'Aksesoris Jahit', location: 'Rak Aksesoris B-05', qty: 450, minStock: 100, unit: 'Pcs', status: 'Tersedia' },
+  { id: '4', sku: 'CUT-KAOS-L', name: 'Pola Potong Kaos Polos Lengan Pendek Combed (L)', category: 'Pola & Hasil Cutting', location: 'Meja Cutting C-01', qty: 65, minStock: 25, unit: 'Lusin', status: 'Tersedia' },
+  { id: '5', sku: 'BJU-OVR-BLK', name: 'Kaos Polos Oversize Katun 24s Hitam Size L (Siap Kirim)', category: 'Baju Jadi (Siap Kirim)', location: 'Rak Baju D-03', qty: 6, minStock: 30, unit: 'Pcs', status: 'Menipis' },
+  { id: '6', sku: 'RST-YKK-60', name: 'Resleting Jaket YKK Metal Open End 60cm Hitam', category: 'Aksesoris Jahit', location: 'Rak Aksesoris B-01', qty: 0, minStock: 50, unit: 'Pcs', status: 'Habis' },
+  { id: '7', sku: 'BJU-KMG-FLN', name: 'Kemeja Pria Flanel Kotak Tartan Lengan Panjang (M)', category: 'Baju Jadi (Siap Kirim)', location: 'Rak Baju D-01', qty: 32, minStock: 15, unit: 'Pcs', status: 'Tersedia' },
+  { id: '8', sku: 'PKG-OPP-30', name: 'Plastik Kemasan Baju OPP Seal Tebal 30x40 cm + Hangtag', category: 'Packaging & Hangtag', location: 'Rak Packing D-05', qty: 500, minStock: 150, unit: 'Pcs', status: 'Tersedia' }
 ];
 
 var inventoryList = [];
@@ -61,7 +64,7 @@ function renderUserProfile(user) {
 
   if (welcomeName) welcomeName.textContent = user.name || 'Pengguna';
   if (welcomeEmail) welcomeEmail.textContent = user.email || '';
-  if (welcomeRole) welcomeRole.textContent = user.role || 'Staff Gudang';
+  if (welcomeRole) welcomeRole.textContent = user.role || 'Staff Konveksi';
 
   var timeStr = user.loginTime || new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' }) + ' WIB';
   var dateStr = user.loginDate || new Date().toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'short', year: 'numeric' });
@@ -78,7 +81,7 @@ function renderUserProfile(user) {
     } else if (isSupabase) {
       welcomeMethod.innerHTML = '<span class="source-tag" style="background:rgba(16,185,129,0.12); color:#10b981; border:1px solid rgba(16,185,129,0.3); padding:2px 8px; border-radius:5px; font-weight:600; font-size:0.75rem; display:inline-flex; align-items:center; gap:5px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M11.95 2L3 13.5h7.5L8.5 22l11.5-12.5h-7.5L14 2h-2.05z" fill="#10B981"/></svg> Supabase Cloud</span>';
     } else {
-      var srcLabel = user.source === 'local' ? 'Akun Lokal Gudang' : 'Kredensial Manual';
+      var srcLabel = user.source === 'local' ? 'Akun Lokal Konveksi' : 'Kredensial Manual';
       welcomeMethod.innerHTML = '<span class="source-tag manual" style="font-size:0.75rem;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="11" rx="2" stroke="currentColor" stroke-width="2"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" stroke-width="2"/></svg> ' + srcLabel + '</span>';
     }
   }
@@ -122,15 +125,31 @@ function renderAvatar(container, name, pictureUrl, size) {
   }
 }
 
-// ── INVENTORY MANAGEMENT LOGIC ──────────────────────────────────────────────
+// ── INVENTORY MANAGEMENT LOGIC (APPAREL & LOW-STOCK ALERT) ─────────────────
 
 function initInventory() {
   try {
-    var saved = localStorage.getItem('gp_inventory');
-    inventoryList = saved ? JSON.parse(saved) : DEFAULT_INVENTORY.slice();
+    var saved = localStorage.getItem('gp_apparel_inventory');
+    if (!saved) {
+      // Migrate old generic inventory if exists or use new apparel default
+      inventoryList = DEFAULT_INVENTORY.slice();
+      localStorage.setItem('gp_apparel_inventory', JSON.stringify(inventoryList));
+    } else {
+      inventoryList = JSON.parse(saved);
+    }
   } catch (e) {
     inventoryList = DEFAULT_INVENTORY.slice();
   }
+
+  // Ensure every item has minStock and unit
+  inventoryList.forEach(function (item) {
+    if (typeof item.minStock === 'undefined' || item.minStock === null) {
+      item.minStock = 15;
+    }
+    if (!item.unit) {
+      item.unit = 'Pcs';
+    }
+  });
 
   renderInventoryTable();
   updateStats();
@@ -138,7 +157,7 @@ function initInventory() {
 
 function saveInventory() {
   try {
-    localStorage.setItem('gp_inventory', JSON.stringify(inventoryList));
+    localStorage.setItem('gp_apparel_inventory', JSON.stringify(inventoryList));
   } catch (e) { }
   updateStats();
 }
@@ -148,12 +167,54 @@ function updateStats() {
   var statLowStock = document.getElementById('statLowStock');
 
   if (statTotalSku) {
-    statTotalSku.textContent = (inventoryList.length + 2474).toLocaleString('id-ID');
+    statTotalSku.textContent = (inventoryList.length + 1842).toLocaleString('id-ID');
   }
 
+  var lowItems = inventoryList.filter(function (i) {
+    var min = typeof i.minStock === 'number' ? i.minStock : 15;
+    return i.qty <= min;
+  });
+
   if (statLowStock) {
-    var lowCount = inventoryList.filter(function (i) { return i.qty < 10; }).length;
-    statLowStock.textContent = lowCount;
+    statLowStock.textContent = lowItems.length;
+    if (lowItems.length > 0) {
+      statLowStock.style.color = 'var(--error)';
+    } else {
+      statLowStock.style.color = 'var(--success)';
+    }
+  }
+
+  renderLowStockAlertBanner(lowItems);
+}
+
+function renderLowStockAlertBanner(lowItems) {
+  var banner = document.getElementById('lowStockAlertBanner');
+  var countBadge = document.getElementById('lowStockCountBadge');
+  var tagsContainer = document.getElementById('lowStockItemTags');
+
+  if (!banner) return;
+
+  if (lowItems.length === 0) {
+    banner.style.display = 'none';
+    return;
+  }
+
+  banner.style.display = 'flex';
+
+  if (countBadge) {
+    countBadge.textContent = lowItems.length + ' Item Kritis';
+  }
+
+  if (tagsContainer) {
+    tagsContainer.innerHTML = '';
+    lowItems.forEach(function (item) {
+      var tag = document.createElement('span');
+      var isZero = item.qty === 0;
+      tag.className = 'low-stock-tag' + (isZero ? ' zero' : '');
+      tag.innerHTML = (isZero ? '🚨 Habis: ' : '⚠️ ') + escapeHtml(item.name) +
+        ' <strong>(' + item.qty + ' / Min: ' + item.minStock + ' ' + (item.unit || 'Pcs') + ')</strong>';
+      tagsContainer.appendChild(tag);
+    });
   }
 }
 
@@ -178,44 +239,73 @@ function renderInventoryTable(filterKeyword, filterCat) {
 
   if (filtered.length === 0) {
     var emptyRow = document.createElement('tr');
-    emptyRow.innerHTML = '<td colspan="7" class="empty-state">Tidak ada barang yang cocok dengan filter pencarian.</td>';
+    emptyRow.innerHTML = '<td colspan="7" class="empty-state">Tidak ada bahan atau pakaian yang cocok dengan filter pencarian.</td>';
     tbody.appendChild(emptyRow);
-    if (paginationInfo) paginationInfo.textContent = 'Menampilkan 0 barang';
+    if (paginationInfo) paginationInfo.textContent = 'Menampilkan 0 item';
     return;
   }
 
   filtered.forEach(function (item) {
     var tr = document.createElement('tr');
 
-    var badgeClass = 'badge-green';
-    if (item.qty === 0) {
-      badgeClass = 'badge-red';
-      item.status = 'Habis';
-    } else if (item.qty < 10) {
-      badgeClass = 'badge-orange';
-      item.status = 'Menipis';
+    var minThreshold = typeof item.minStock === 'number' ? item.minStock : 15;
+    var isZero = (item.qty === 0);
+    var isLow = (item.qty <= minThreshold);
+
+    if (isZero) {
+      tr.className = 'row-danger';
+      item.status = '🚨 Stok Habis';
+    } else if (isLow) {
+      tr.className = 'row-warning';
+      item.status = '⚠️ Stok Minimum!';
     } else {
-      badgeClass = 'badge-green';
       item.status = 'Tersedia';
     }
 
+    // Category badge class
     var catBadge = 'badge-blue';
-    if (item.category.indexOf('Packaging') !== -1) catBadge = 'badge-purple';
-    else if (item.category.indexOf('Logistik') !== -1) catBadge = 'badge-teal';
-    else if (item.category.indexOf('Sparepart') !== -1) catBadge = 'badge-orange';
+    if (item.category.indexOf('Kain') !== -1) catBadge = 'badge-kain';
+    else if (item.category.indexOf('Aksesoris') !== -1) catBadge = 'badge-aksesoris';
+    else if (item.category.indexOf('Cutting') !== -1) catBadge = 'badge-cutting';
+    else if (item.category.indexOf('Baju Jadi') !== -1) catBadge = 'badge-baju';
+    else if (item.category.indexOf('Packaging') !== -1 || item.category.indexOf('Hangtag') !== -1) catBadge = 'badge-kemasan';
+
+    // Status Badge Markup
+    var statusMarkup = '';
+    if (isZero) {
+      statusMarkup = '<span class="badge badge-red" style="font-weight:700;">🚨 Stok Habis</span>';
+    } else if (isLow) {
+      statusMarkup = '<span class="badge badge-orange" style="border:1.5px solid #d97706; font-weight:700;">⚠️ Stok Minimum!</span>';
+    } else {
+      statusMarkup = '<span class="badge badge-green">Tersedia</span>';
+    }
+
+    // Stock Column Markup with Minimum Threshold Hint
+    var stockDetailHint = '';
+    if (isZero) {
+      stockDetailHint = '<span class="stock-zero-hint">🚨 Habis! (Batas Min: ' + minThreshold + ')</span>';
+    } else if (isLow) {
+      stockDetailHint = '<span class="stock-min-hint">⚠️ Sisa ' + item.qty + ' (Batas Min: ' + minThreshold + ')</span>';
+    } else {
+      stockDetailHint = '<span style="font-size:0.72rem; color:var(--muted); display:block;">Aman (Min: ' + minThreshold + ' ' + (item.unit || 'Pcs') + ')</span>';
+    }
 
     tr.innerHTML =
       '<td class="td-sku"><strong><span class="barcode-lines">||| | ||</span>' + escapeHtml(item.sku) + '</strong></td>' +
       '<td><strong>' + escapeHtml(item.name) + '</strong></td>' +
       '<td><span class="badge ' + catBadge + '">' + escapeHtml(item.category) + '</span></td>' +
       '<td><span class="rack-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="1.8"/><line x1="3" y1="15" x2="21" y2="15" stroke="currentColor" stroke-width="1.8"/><line x1="12" y1="4" x2="12" y2="20" stroke="currentColor" stroke-width="1.8"/></svg> ' + escapeHtml(item.location) + '</span></td>' +
-      '<td><strong style="font-size:0.95rem;">' + item.qty + '</strong> <span style="font-size:0.75rem; color:var(--muted);">Unit</span></td>' +
-      '<td><span class="badge ' + badgeClass + '">' + item.status + '</span></td>' +
+      '<td>' +
+        '<strong style="font-size:0.95rem;">' + item.qty + '</strong> ' +
+        '<span style="font-size:0.78rem; color:var(--text-muted); font-weight:600;">' + (item.unit || 'Pcs') + '</span>' +
+        stockDetailHint +
+      '</td>' +
+      '<td>' + statusMarkup + '</td>' +
       '<td style="text-align:right;">' +
         '<div class="td-actions" style="justify-content:flex-end;">' +
-          '<button type="button" class="btn btn-secondary btn-sm btn-action-add" data-id="' + item.id + '" title="Tambah 10 Unit">+10</button>' +
-          '<button type="button" class="btn btn-secondary btn-sm btn-action-sub" data-id="' + item.id + '" title="Kurangi 5 Unit">-5</button>' +
-          '<button type="button" class="btn btn-danger btn-sm btn-action-del" data-id="' + item.id + '" title="Hapus Barang">' +
+          '<button type="button" class="btn btn-secondary btn-sm btn-action-add" data-id="' + item.id + '" title="Tambah 10 ' + (item.unit || 'Unit') + '">+10</button>' +
+          '<button type="button" class="btn btn-secondary btn-sm btn-action-sub" data-id="' + item.id + '" title="Kurangi 5 ' + (item.unit || 'Unit') + '">-5</button>' +
+          '<button type="button" class="btn btn-danger btn-sm btn-action-del" data-id="' + item.id + '" title="Hapus Item">' +
             '<svg width="13" height="13" viewBox="0 0 24 24" fill="none"><polyline points="3 6 5 6 21 6" stroke="currentColor" stroke-width="2"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2" stroke="currentColor" stroke-width="2"/></svg>' +
           '</button>' +
         '</div>' +
@@ -225,7 +315,7 @@ function renderInventoryTable(filterKeyword, filterCat) {
   });
 
   if (paginationInfo) {
-    paginationInfo.textContent = 'Menampilkan ' + filtered.length + ' dari ' + inventoryList.length + ' barang';
+    paginationInfo.textContent = 'Menampilkan ' + filtered.length + ' dari ' + inventoryList.length + ' item bahan & pakaian';
   }
 
   attachTableActionListeners();
@@ -244,7 +334,7 @@ function attachTableActionListeners() {
         item.qty += 10;
         saveInventory();
         renderInventoryTable(getCurrentKeyword(), getCurrentCat());
-        showToast('Stok ' + item.sku + ' bertambah +10 unit.', 'success');
+        showToast('Stok ' + item.name + ' bertambah +10 ' + (item.unit || 'Pcs') + '.', 'success');
       }
     };
   });
@@ -255,13 +345,27 @@ function attachTableActionListeners() {
       var item = inventoryList.find(function (i) { return i.id === id; });
       if (item) {
         if (item.qty <= 0) {
-          showToast('Stok ' + item.sku + ' sudah 0 (habis).', 'error');
+          showToast('⚠️ Stok ' + item.name + ' sudah 0 (habis)! Segera lakukan pengadaan.', 'error');
           return;
         }
+
+        var oldQty = item.qty;
         item.qty = Math.max(0, item.qty - 5);
+        var minThreshold = typeof item.minStock === 'number' ? item.minStock : 15;
+
         saveInventory();
         renderInventoryTable(getCurrentKeyword(), getCurrentCat());
-        showToast('Stok ' + item.sku + ' berkurang -5 unit.', 'info');
+
+        // Peringatan Stok Minimum Real-Time
+        if (item.qty === 0) {
+          showToast('🚨 PERINGATAN KRITIS: Stok ' + item.name + ' telah HABIS (0)!', 'error');
+        } else if (item.qty <= minThreshold && oldQty > minThreshold) {
+          showToast('⚠️ PERINGATAN: Stok ' + item.name + ' tersisa ' + item.qty + ' ' + (item.unit || 'Pcs') + ' (mencapai batas minimum ' + minThreshold + ')!', 'error');
+        } else if (item.qty <= minThreshold) {
+          showToast('⚠️ Stok ' + item.name + ' berkurang menjadi ' + item.qty + ' ' + (item.unit || 'Pcs') + ' (di bawah batas minimum ' + minThreshold + ').', 'info');
+        } else {
+          showToast('Stok ' + item.name + ' berkurang -5 ' + (item.unit || 'Pcs') + '.', 'info');
+        }
       }
     };
   });
@@ -269,32 +373,37 @@ function attachTableActionListeners() {
   delBtns.forEach(function (btn) {
     btn.onclick = function () {
       var id = btn.getAttribute('data-id');
-      var idx = inventoryList.findIndex(function (i) { return i.id === id; });
-      if (idx !== -1) {
-        var name = inventoryList[idx].name;
-        inventoryList.splice(idx, 1);
-        saveInventory();
-        renderInventoryTable(getCurrentKeyword(), getCurrentCat());
-        showToast('Barang "' + name + '" berhasil dihapus dari inventaris.', 'info');
+      var item = inventoryList.find(function (i) { return i.id === id; });
+      if (item) {
+        if (confirm('Yakin ingin menghapus item "' + item.name + '" dari sistem inventaris konveksi?')) {
+          inventoryList = inventoryList.filter(function (i) { return i.id !== id; });
+          saveInventory();
+          renderInventoryTable(getCurrentKeyword(), getCurrentCat());
+          showToast('Item "' + item.name + '" berhasil dihapus.', 'info');
+        }
       }
     };
   });
 }
 
 function getCurrentKeyword() {
-  var s1 = document.getElementById('inventorySearchInput');
-  var s2 = document.getElementById('globalSearchInput');
-  return (s1 && s1.value) || (s2 && s2.value) || '';
+  var invSearch = document.getElementById('inventorySearchInput');
+  return invSearch ? invSearch.value : '';
 }
 
 function getCurrentCat() {
-  var catEl = document.getElementById('filterCategory');
-  return catEl ? catEl.value : '';
+  var catFilter = document.getElementById('filterCategory');
+  return catFilter ? catFilter.value : '';
 }
 
-function escapeHtml(text) {
-  var map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
-  return (text || '').replace(/[&<>"']/g, function (m) { return map[m]; });
+function escapeHtml(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 }
 
 // ── MODAL TAMBAH BARANG ─────────────────────────────────────────────────────
@@ -325,19 +434,30 @@ function bindEvents() {
   if (btnLogout) btnLogout.addEventListener('click', logout);
   if (btnLogoutMain) btnLogoutMain.addEventListener('click', logout);
 
-  // Onboarding Banner (Panduan Pengguna Baru)
+  // Onboarding Banner (Panduan Pengguna Baru Konveksi)
   var onboardingBanner = document.getElementById('onboardingBanner');
   var btnDismiss = document.getElementById('btnDismissOnboarding');
-  if (onboardingBanner && localStorage.getItem('gp_hide_onboarding') === 'true') {
+  if (onboardingBanner && localStorage.getItem('gp_hide_apparel_onboarding') === 'true') {
     onboardingBanner.style.display = 'none';
   }
   if (btnDismiss && onboardingBanner) {
     btnDismiss.addEventListener('click', function () {
       onboardingBanner.style.display = 'none';
       try {
-        localStorage.setItem('gp_hide_onboarding', 'true');
+        localStorage.setItem('gp_hide_apparel_onboarding', 'true');
       } catch (e) { }
-      showToast('Panduan disembunyikan. Anda dapat membukanya kembali dari menu.', 'info');
+      showToast('Panduan konveksi disembunyikan. Anda dapat membukanya kembali kapan saja.', 'info');
+    });
+  }
+
+  // Tombol scroll ke tabel saat klik di low stock alert banner
+  var btnScrollToLowStock = document.getElementById('btnScrollToLowStock');
+  if (btnScrollToLowStock) {
+    btnScrollToLowStock.addEventListener('click', function () {
+      var invSec = document.getElementById('inventorySection');
+      if (invSec) {
+        invSec.scrollIntoView({ behavior: 'smooth' });
+      }
     });
   }
 
@@ -359,7 +479,7 @@ function bindEvents() {
     });
   }
 
-  // Submit Tambah Barang
+  // Submit Tambah Barang (Bahan Kain, Aksesoris & Baju Jadi)
   if (addForm) {
     addForm.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -367,21 +487,26 @@ function bindEvents() {
       var name = (document.getElementById('itemName').value || '').trim();
       var cat = document.getElementById('itemCategory').value;
       var loc = (document.getElementById('itemLocation').value || '').trim();
+      var unit = document.getElementById('itemUnit') ? document.getElementById('itemUnit').value : 'Pcs';
       var qty = parseInt(document.getElementById('itemQty').value, 10) || 0;
+      var minStockInput = document.getElementById('itemMinStock');
+      var minStock = minStockInput ? (parseInt(minStockInput.value, 10) || 15) : 15;
 
       if (!sku || !name || !loc) {
-        showToast('Mohon lengkapi semua data barang.', 'error');
+        showToast('Mohon lengkapi data barang dan lokasi penyimpanan.', 'error');
         return;
       }
 
       var newItem = {
-        id: 'ITM-' + Date.now(),
+        id: 'APL-' + Date.now(),
         sku: sku,
         name: name,
         category: cat,
         location: loc,
+        unit: unit,
         qty: qty,
-        status: qty === 0 ? 'Habis' : (qty < 10 ? 'Menipis' : 'Tersedia')
+        minStock: minStock,
+        status: qty === 0 ? '🚨 Stok Habis' : (qty <= minStock ? '⚠️ Stok Minimum!' : 'Tersedia')
       };
 
       inventoryList.unshift(newItem);
@@ -389,7 +514,12 @@ function bindEvents() {
       renderInventoryTable(getCurrentKeyword(), getCurrentCat());
       hideAddModal();
       addForm.reset();
-      showToast('Barang baru "' + name + '" berhasil ditambahkan!', 'success');
+
+      if (qty <= minStock) {
+        showToast('Item baru "' + name + '" dicatat. PERINGATAN: Stok saat ini (' + qty + ' ' + unit + ') telah mencapai atau di bawah batas minimum (' + minStock + ')!', 'error');
+      } else {
+        showToast('Item baru "' + name + '" (' + qty + ' ' + unit + ') berhasil dicatat!', 'success');
+      }
     });
   }
 
@@ -423,14 +553,14 @@ function bindEvents() {
   var navRacks = document.getElementById('navRacks');
   var navAudit = document.getElementById('navAudit');
 
-  if (navInbound) navInbound.onclick = function (e) { e.preventDefault(); showToast('Membuka modul Barang Masuk (Inbound)...', 'info'); };
-  if (navOutbound) navOutbound.onclick = function (e) { e.preventDefault(); showToast('Membuka modul Barang Keluar (Outbound)...', 'info'); };
-  if (navRacks) navRacks.onclick = function (e) { e.preventDefault(); showToast('Membuka manajemen Rak & Zona...', 'info'); };
-  if (navAudit) navAudit.onclick = function (e) { e.preventDefault(); showToast('Membuka modul Audit Barcode...', 'info'); };
+  if (navInbound) navInbound.onclick = function (e) { e.preventDefault(); showToast('Membuka modul Bahan Baku Masuk (Roll Kain & Aksesoris)...', 'info'); };
+  if (navOutbound) navOutbound.onclick = function (e) { e.preventDefault(); showToast('Membuka modul Pengiriman Baju Jadi (Kargo & Kurir)...', 'info'); };
+  if (navRacks) navRacks.onclick = function (e) { e.preventDefault(); showToast('Membuka denah rak gulungan kain & baju jadi...', 'info'); };
+  if (navAudit) navAudit.onclick = function (e) { e.preventDefault(); showToast('Membuka audit stok fisik & barcode garmen...', 'info'); };
 }
 
 async function logout() {
-  showToast('Sedang keluar dari sesi...', 'info');
+  showToast('Sedang keluar dari sesi workshop...', 'info');
   if (window.GudangProSupabase) {
     try {
       await window.GudangProSupabase.logout();
@@ -450,5 +580,5 @@ function showToast(msg, type) {
   toast.textContent = msg;
   toast.className = 'toast ' + (type || 'info');
   requestAnimationFrame(function () { toast.classList.add('show'); });
-  toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 3500);
+  toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 4000);
 }

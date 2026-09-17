@@ -1745,6 +1745,175 @@ td {
    RESPONSIVE LAYOUT
    ═══════════════════════════════════════════════════════════════════════ */
 
+
+/* ═══════════════════════════════════════════════════════════════════════
+   LOW STOCK WARNING ALERT SYSTEM & APPAREL THEME (KONVEKSI PAKAIAN)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.low-stock-alert-banner {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef2f2 100%);
+  border: 1px solid #fde68a;
+  border-left: 5px solid #f59e0b;
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.12);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  animation: alertFadeIn 0.3s ease-out;
+}
+
+@keyframes alertFadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.low-stock-alert-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.low-stock-alert-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: #fef3c7;
+  color: #d97706;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(217, 119, 6, 0.15);
+}
+
+.low-stock-alert-text h4 {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #92400e;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.low-stock-alert-pill {
+  background: #dc2626;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 12px;
+  letter-spacing: 0.03em;
+}
+
+.low-stock-alert-text p {
+  font-size: 0.82rem;
+  color: #78350f;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.low-stock-item-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.low-stock-tag {
+  background: #ffffff;
+  border: 1px solid #fcd34d;
+  color: #b45309;
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.low-stock-tag.zero {
+  border-color: #fca5a5;
+  color: #b91c1c;
+  background: #fff1f2;
+}
+
+/* Row highlighting in table for low stock */
+tr.row-warning {
+  background: #fffbeb !important;
+}
+
+tr.row-warning:hover {
+  background: #fef3c7 !important;
+}
+
+tr.row-danger {
+  background: #fef2f2 !important;
+}
+
+tr.row-danger:hover {
+  background: #fee2e2 !important;
+}
+
+.stock-min-hint {
+  display: block;
+  font-size: 0.73rem;
+  color: #d97706;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.stock-zero-hint {
+  display: block;
+  font-size: 0.73rem;
+  color: #dc2626;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+/* Toast warning for low stock */
+.toast-warn {
+  background: #ffffff;
+  color: #92400e;
+  border: 1px solid #fde68a;
+  border-left: 4px solid #f59e0b;
+}
+
+/* Apparel specific tag badges */
+.badge-kain {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+.badge-aksesoris {
+  background: #f5f3ff;
+  color: #6d28d9;
+  border: 1px solid #ddd6fe;
+}
+
+.badge-cutting {
+  background: #fff7ed;
+  color: #c2410c;
+  border: 1px solid #fed7aa;
+}
+
+.badge-baju {
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+}
+
+.badge-kemasan {
+  background: #f0fdfa;
+  color: #0f766e;
+  border: 1px solid #99f6e4;
+}
+
 @media (max-width: 1024px) {
   .app-layout {
     grid-template-columns: 1fr;

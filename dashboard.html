@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard Gudang — GudangPro Enterprise</title>
-  <meta name="description" content="Sistem Manajemen Inventaris & Pergudangan GudangPro." />
+  <title>Dashboard Produksi & Stok — GudangPro Apparel</title>
+  <meta name="description" content="Sistem Manajemen Produksi Pakaian, Stok Roll Kain, Aksesoris Jahit & Baju Jadi GudangPro Apparel." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <!-- Supabase JS CDN -->
@@ -29,7 +29,7 @@
         </div>
         <div style="display:flex; align-items:center; gap:6px;">
           <span style="font-weight:700;">GudangPro</span>
-          <span class="badge-tag" style="font-size:0.65rem; padding:2px 6px;">Enterprise</span>
+          <span class="badge-tag" style="font-size:0.65rem; padding:2px 6px;">Apparel</span>
         </div>
       </div>
 
@@ -41,25 +41,25 @@
         </a>
         <a href="#inventorySection" class="nav-item">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" stroke="currentColor" stroke-width="1.8"/><polyline points="3.27 6.96 12 12.01 20.73 6.96" stroke="currentColor" stroke-width="1.8"/><line x1="12" y1="22.08" x2="12" y2="12" stroke="currentColor" stroke-width="1.8"/></svg>
-          <span>Data Stok &amp; Barang</span>
+          <span>Stok Kain &amp; Baju</span>
         </a>
         <a href="#" class="nav-item" id="navInbound">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3v12M17 10l-5 5-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 17v2a2 2 0 002 2h14a2 2 0 002-2v-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-          <span>Barang Masuk (Inbound)</span>
+          <span>Bahan Masuk (Inbound)</span>
         </a>
         <a href="#" class="nav-item" id="navOutbound">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 15V3M7 8l5-5 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 17v2a2 2 0 002 2h14a2 2 0 002-2v-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-          <span>Barang Keluar (Outbound)</span>
+          <span>Kirim Baju (Outbound)</span>
         </a>
 
         <div class="nav-section">Manajemen &amp; Lokasi</div>
         <a href="#" class="nav-item" id="navRacks">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="1.8"/><line x1="3" y1="15" x2="21" y2="15" stroke="currentColor" stroke-width="1.8"/><line x1="12" y1="4" x2="12" y2="20" stroke="currentColor" stroke-width="1.8"/></svg>
-          <span>Lokasi Rak &amp; Zona</span>
+          <span>Zona Rak Konveksi</span>
         </a>
         <a href="#" class="nav-item" id="navAudit">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3L22 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-          <span>Audit Stok Barcode</span>
+          <span>Audit Stok Pakaian</span>
         </a>
       </nav>
 
@@ -80,7 +80,7 @@
         <div class="warehouse-selector">
           <span class="pulse-dot"></span>
           <span style="font-weight:600; font-size:0.85rem;">Hub Gudang:</span>
-          <span style="color:var(--text); font-weight:700; font-size:0.85rem;">Pusat Cikarang (Zona A)</span>
+          <span style="color:var(--text); font-weight:700; font-size:0.85rem;">Sentra Konveksi Bandung (Lini Aktif)</span>
         </div>
       </div>
 
@@ -112,7 +112,7 @@
               <h1 class="banner-heading" style="font-size:1.35rem; font-weight:700; color:#fff; margin:0;">
                 Selamat Datang, <span id="welcomeName">Pengguna</span>!
               </h1>
-              <span id="welcomeRole" class="badge badge-blue" style="font-size:0.75rem; padding:3px 10px;">Staff Gudang</span>
+              <span id="welcomeRole" class="badge badge-blue" style="font-size:0.75rem; padding:3px 10px;">Staff Konveksi</span>
               <span class="status-pill" style="padding:3px 10px; font-size:0.75rem;">
                 <span class="pulse-dot"></span> Sesi Aktif
               </span>
@@ -151,24 +151,24 @@
           <div class="onboarding-card">
             <div class="onboarding-step-circle">1</div>
             <div>
-              <div class="onboarding-card-title">Cek Inventaris Barang</div>
-              <p class="onboarding-card-desc">Gunakan kolom pencarian atau filter kategori di tabel bawah untuk menemukan barang yang ingin Anda kelola.</p>
+              <div class="onboarding-card-title">Cek Stok Kain &amp; Baju Jadi</div>
+              <p class="onboarding-card-desc">Gunakan filter kategori di tabel untuk memantau stok roll kain, benang, kancing, atau baju siap kirim.</p>
             </div>
           </div>
 
           <div class="onboarding-card">
             <div class="onboarding-step-circle">2</div>
             <div>
-              <div class="onboarding-card-title">Catat Barang Baru</div>
-              <p class="onboarding-card-desc">Klik tombol biru <strong>"+ Tambah Barang"</strong> di atas atau di tabel untuk mendaftarkan barang baru ke rak gudang.</p>
+              <div class="onboarding-card-title">Atur Batas Stok Minimum</div>
+              <p class="onboarding-card-desc">Klik tombol biru <strong>"+ Tambah Barang"</strong> dan isi batas minimum stok agar Anda selalu mendapat peringatan restock.</p>
             </div>
           </div>
 
           <div class="onboarding-card">
             <div class="onboarding-step-circle">3</div>
             <div>
-              <div class="onboarding-card-title">Update Jumlah Stok Cepat</div>
-              <p class="onboarding-card-desc">Gunakan tombol <strong>+10</strong> (tambah) atau <strong>-5</strong> (kurang) di tabel untuk memperbarui stok dalam 1 klik.</p>
+              <div class="onboarding-card-title">Peringatan Otomatis Realtime</div>
+              <p class="onboarding-card-desc">Saat stok mencapai atau di bawah batas minimum, banner peringatan kuning-merah dan notifikasi toast akan langsung muncul.</p>
             </div>
           </div>
         </div>
@@ -179,7 +179,7 @@
         <!-- Stat 1: Total SKU -->
         <div class="stat-card">
           <div class="stat-header">
-            <span class="stat-label">Total Ragam Barang (SKU)</span>
+            <span class="stat-label">Total Bahan &amp; Baju (SKU)</span>
             <div class="stat-icon blue">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/></svg>
             </div>
@@ -193,7 +193,7 @@
         <!-- Stat 2: Barang Masuk -->
         <div class="stat-card">
           <div class="stat-header">
-            <span class="stat-label">Barang Masuk (Hari Ini)</span>
+            <span class="stat-label">Bahan/Kain Masuk (Hari Ini)</span>
             <div class="stat-icon green">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M19 12l-7 7-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
@@ -207,7 +207,7 @@
         <!-- Stat 3: Barang Keluar -->
         <div class="stat-card">
           <div class="stat-header">
-            <span class="stat-label">Barang Keluar (Hari Ini)</span>
+            <span class="stat-label">Baju Terkirim (Hari Ini)</span>
             <div class="stat-icon orange">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
@@ -221,105 +221,127 @@
         <!-- Stat 4: Stok Kritis -->
         <div class="stat-card">
           <div class="stat-header">
-            <span class="stat-label">Perlu Ditambah (Stok Menipis)</span>
+            <span class="stat-label">⚠️ Peringatan Stok Minimum</span>
             <div class="stat-icon red">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="9" x2="12" y2="13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
             </div>
           </div>
           <div class="stat-value" id="statLowStock" style="color:var(--error);">4</div>
           <div class="stat-delta">
-            <span class="down">Stok Segera Habis</span> Perlu restock ulang
+            <span class="down">Capai Batas Minimum</span> Segera restock bahan
           </div>
         </div>
       </section>
 
-      <!-- ── Denah & Kapasitas Zona Rak Pergudangan ── -->
+      <!-- ── Denah & Kapasitas 4 Zona Workshop Konveksi Pakaian ── -->
       <section class="zones-panel">
         <div class="zones-header">
           <div class="zones-title">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="1.8"/><line x1="3" y1="15" x2="21" y2="15" stroke="currentColor" stroke-width="1.8"/><line x1="12" y1="4" x2="12" y2="20" stroke="currentColor" stroke-width="1.8"/></svg>
-            <span>Denah &amp; Kapasitas Zona Penyimpanan Gudang</span>
+            <span>Denah &amp; Kapasitas 4 Zona Workshop Konveksi Pakaian</span>
           </div>
-          <span style="font-size:0.75rem; color:var(--muted); font-weight:500;">Realtime Rack Telemetry • Hub Cikarang</span>
+          <span style="font-size:0.75rem; color:var(--muted); font-weight:500;">Realtime Workshop Telemetry • Sentra Konveksi</span>
         </div>
 
         <div class="zone-grid">
-          <!-- Zona A -->
+          <!-- Zona A: Kain Roll -->
           <div class="zone-card">
             <div class="zone-card-top">
               <span class="zone-code">
                 <span class="zone-dot amber"></span>
-                ZONA A (Rak 01-10)
+                ZONA A (Gudang Kain Roll)
               </span>
-              <span class="badge badge-orange" style="font-size:0.68rem; padding:1px 6px;">85% Kapasitas</span>
+              <span class="badge badge-orange" style="font-size:0.68rem; padding:1px 6px;">75% Terpakai</span>
             </div>
-            <p class="zone-type">High-Value Electronics &amp; IT Device</p>
+            <p class="zone-type">Katun Combed, Rayon, Fleece &amp; Denim</p>
             <div class="zone-meter">
-              <span>Terisi: 680 / 800 Pallet</span>
-              <span style="font-weight:600; color:var(--accent);">85%</span>
+              <span>Terisi: 450 / 600 Roll</span>
+              <span style="font-weight:600; color:var(--accent);">75%</span>
             </div>
             <div class="zone-bar-track">
-              <div class="zone-bar-fill amber" style="width: 85%;"></div>
+              <div class="zone-bar-fill amber" style="width: 75%;"></div>
             </div>
           </div>
 
-          <!-- Zona B -->
+          <!-- Zona B: Aksesoris & Benang -->
           <div class="zone-card">
             <div class="zone-card-top">
               <span class="zone-code">
                 <span class="zone-dot green"></span>
-                ZONA B (Rak 11-24)
+                ZONA B (Aksesoris &amp; Benang)
               </span>
-              <span class="badge badge-green" style="font-size:0.68rem; padding:1px 6px;">62% Normal</span>
+              <span class="badge badge-green" style="font-size:0.68rem; padding:1px 6px;">55% Stabil</span>
             </div>
-            <p class="zone-type">Packaging, Kertas &amp; Fast-Moving</p>
+            <p class="zone-type">Benang Jahit, Kancing, Resleting &amp; Karet</p>
             <div class="zone-meter">
-              <span>Terisi: 744 / 1.200 Pallet</span>
-              <span style="font-weight:600; color:var(--success);">62%</span>
+              <span>Terisi: 330 / 600 Slot</span>
+              <span style="font-weight:600; color:var(--success);">55%</span>
             </div>
             <div class="zone-bar-track">
-              <div class="zone-bar-fill green" style="width: 62%;"></div>
+              <div class="zone-bar-fill green" style="width: 55%;"></div>
             </div>
           </div>
 
-          <!-- Zona C -->
+          <!-- Zona C: Cutting & Sablon -->
           <div class="zone-card">
             <div class="zone-card-top">
               <span class="zone-code">
                 <span class="zone-dot red"></span>
-                ZONA C (Rak 25-32)
+                ZONA C (Meja Potong &amp; WIP)
               </span>
-              <span class="badge badge-red" style="font-size:0.68rem; padding:1px 6px;">92% Hampir Penuh</span>
+              <span class="badge badge-red" style="font-size:0.68rem; padding:1px 6px;">88% Padat Jahit</span>
             </div>
-            <p class="zone-type">Heavy Pallet &amp; Raw Material Cargo</p>
+            <p class="zone-type">Pola Cutting, Bordir &amp; Antrean Jahit</p>
             <div class="zone-meter">
-              <span>Terisi: 552 / 600 Pallet</span>
-              <span style="font-weight:600; color:var(--error);">92%</span>
+              <span>Antrean: 440 / 500 Batch</span>
+              <span style="font-weight:600; color:var(--error);">88%</span>
             </div>
             <div class="zone-bar-track">
-              <div class="zone-bar-fill red" style="width: 92%;"></div>
+              <div class="zone-bar-fill red" style="width: 88%;"></div>
             </div>
           </div>
 
-          <!-- Zona D -->
+          <!-- Zona D: Baju Jadi & Packing -->
           <div class="zone-card">
             <div class="zone-card-top">
               <span class="zone-code">
                 <span class="zone-dot cyan"></span>
-                ZONA D (Staging Inbound)
+                ZONA D (Baju Jadi Siap Kirim)
               </span>
-              <span class="badge badge-teal" style="font-size:0.68rem; padding:1px 6px;">35% Tersedia</span>
+              <span class="badge badge-teal" style="font-size:0.68rem; padding:1px 6px;">40% Tersedia</span>
             </div>
-            <p class="zone-type">Loading Dock Transit &amp; QC Sorting</p>
+            <p class="zone-type">Kaos, Kemeja, Hoodie Lolos QC &amp; Polybag</p>
             <div class="zone-meter">
-              <span>Terisi: 210 / 600 Pallet</span>
-              <span style="font-weight:600; color:var(--cargo-cyan);">35%</span>
+              <span>Terisi: 400 / 1.000 Pcs</span>
+              <span style="font-weight:600; color:var(--cargo-cyan);">40%</span>
             </div>
             <div class="zone-bar-track">
-              <div class="zone-bar-fill cyan" style="width: 35%;"></div>
+              <div class="zone-bar-fill cyan" style="width: 40%;"></div>
             </div>
           </div>
         </div>
+      </section>
+
+      <!-- ── Dynamic Low Stock Warning Alert Banner (Peringatan Stok Minimum) ── -->
+      <section class="low-stock-alert-banner" id="lowStockAlertBanner" style="display:none;">
+        <div class="low-stock-alert-content">
+          <div class="low-stock-alert-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="9" x2="12" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div class="low-stock-alert-text">
+            <h4>
+              <span>⚠️ Peringatan: Stok Bahan / Baju Mencapai Batas Minimum!</span>
+              <span class="low-stock-alert-pill" id="lowStockCountBadge">0 Item Kritis</span>
+            </h4>
+            <p id="lowStockAlertMessage">Segera lakukan restock bahan kain/aksesoris atau jadwal ulang proses potong untuk item berikut agar jalur jahit tidak terhenti:</p>
+            <div class="low-stock-item-tags" id="lowStockItemTags">
+              <!-- Item tags rendered dynamically -->
+            </div>
+          </div>
+        </div>
+        <button type="button" class="btn btn-sm btn-secondary" id="btnScrollToLowStock" style="align-self:center; white-space:nowrap;">
+          Lihat di Tabel ↓
+        </button>
       </section>
 
       <!-- ── Live Inventory Panel & Table ── -->
@@ -336,13 +358,14 @@
           </div>
 
           <div class="panel-actions">
-            <!-- Filter Kategori -->
+            <!-- Filter Kategori Konveksi -->
             <select id="filterCategory" class="filter-select">
               <option value="">Semua Kategori</option>
-              <option value="Elektronik">Elektronik</option>
-              <option value="Packaging & Kertas">Packaging &amp; Kertas</option>
-              <option value="Perlengkapan Logistik">Perlengkapan Logistik</option>
-              <option value="Sparepart & Alat">Sparepart &amp; Alat</option>
+              <option value="Kain & Bahan Baku">Kain &amp; Bahan Baku</option>
+              <option value="Aksesoris Jahit">Aksesoris Jahit</option>
+              <option value="Pola & Hasil Cutting">Pola &amp; Hasil Cutting</option>
+              <option value="Baju Jadi (Siap Kirim)">Baju Jadi (Siap Kirim)</option>
+              <option value="Packaging & Hangtag">Packaging &amp; Hangtag</option>
             </select>
 
             <!-- Search Table -->
@@ -364,10 +387,10 @@
             <thead>
               <tr>
                 <th>KODE / SKU</th>
-                <th>NAMA BARANG</th>
+                <th>NAMA BAHAN / PAKAIAN</th>
                 <th>KATEGORI</th>
-                <th>LETAK RAK</th>
-                <th>SISA STOK</th>
+                <th>LOKASI PENYIMPANAN</th>
+                <th>JUMLAH STOK (SISA / MIN)</th>
                 <th>STATUS</th>
                 <th style="text-align:right;">AKSI CEPAT</th>
               </tr>
@@ -400,8 +423,8 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" stroke="currentColor" stroke-width="2"/></svg>
           </div>
           <div>
-            <h3 class="g-modal-title" style="font-size:1.1rem; margin:0">Tambah Barang Baru ke Gudang</h3>
-            <p class="g-modal-sub" style="margin:2px 0 0">Pencatatan SKU dan lokasi penyimpanan rak</p>
+            <h3 class="g-modal-title" style="font-size:1.1rem; margin:0">Tambah Bahan Baku / Baju Baru</h3>
+            <p class="g-modal-sub" style="margin:2px 0 0">Pencatatan stok kain, aksesoris, baju jadi & batas minimum</p>
           </div>
         </div>
         <button type="button" class="g-modal-close" id="closeAddModal" aria-label="Tutup">
@@ -412,33 +435,53 @@
       <form id="addInventoryForm">
         <div class="g-modal-body" style="padding:18px 20px;">
           <div class="field" style="margin-bottom:12px;">
-            <label for="itemSku">Kode SKU</label>
-            <input type="text" id="itemSku" placeholder="Contoh: SKU-ELK-108" required />
+            <label for="itemSku">Kode SKU / Kode Barang</label>
+            <input type="text" id="itemSku" placeholder="Contoh: KAN-CMB-01 / BJU-KAOS-04" required />
           </div>
 
           <div class="field" style="margin-bottom:12px;">
-            <label for="itemName">Nama Barang</label>
-            <input type="text" id="itemName" placeholder="Contoh: Barcode Scanner Wireless 2D" required />
+            <label for="itemName">Nama Bahan Baku / Pakaian</label>
+            <input type="text" id="itemName" placeholder="Contoh: Kain Katun Combed 30s Hitam / Kaos Oversize L" required />
           </div>
 
           <div class="field" style="margin-bottom:12px;">
-            <label for="itemCategory">Kategori</label>
+            <label for="itemCategory">Kategori Konveksi</label>
             <select id="itemCategory" class="auth-select" required>
-              <option value="Elektronik">Elektronik</option>
-              <option value="Packaging & Kertas">Packaging &amp; Kertas</option>
-              <option value="Perlengkapan Logistik">Perlengkapan Logistik</option>
-              <option value="Sparepart & Alat">Sparepart &amp; Alat</option>
+              <option value="Kain & Bahan Baku">Kain &amp; Bahan Baku</option>
+              <option value="Aksesoris Jahit">Aksesoris Jahit</option>
+              <option value="Pola & Hasil Cutting">Pola &amp; Hasil Cutting</option>
+              <option value="Baju Jadi (Siap Kirim)">Baju Jadi (Siap Kirim)</option>
+              <option value="Packaging & Hangtag">Packaging &amp; Hangtag</option>
             </select>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1.2fr 0.8fr; gap:12px; margin-bottom:12px;">
+            <div class="field">
+              <label for="itemLocation">Lokasi Rak / Area Simpan</label>
+              <input type="text" id="itemLocation" placeholder="Contoh: Rak Kain A-01 / Rak Baju D-02" required />
+            </div>
+            <div class="field">
+              <label for="itemUnit">Satuan Barang</label>
+              <select id="itemUnit" class="auth-select" required>
+                <option value="Roll">Roll</option>
+                <option value="Pcs">Pcs</option>
+                <option value="Lusin">Lusin</option>
+                <option value="Meter">Meter</option>
+                <option value="Kg">Kg</option>
+                <option value="Pack">Pack</option>
+              </select>
+            </div>
           </div>
 
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px;">
             <div class="field">
-              <label for="itemLocation">Lokasi Rak / Zona</label>
-              <input type="text" id="itemLocation" placeholder="Contoh: Rak B-03" required />
+              <label for="itemQty">Jumlah Stok Sekarang</label>
+              <input type="number" id="itemQty" min="0" placeholder="Contoh: 50" required />
             </div>
             <div class="field">
-              <label for="itemQty">Jumlah Stok Awal</label>
-              <input type="number" id="itemQty" min="0" placeholder="Contoh: 150" required />
+              <label for="itemMinStock">⚠️ Batas Stok Minimum (Alert)</label>
+              <input type="number" id="itemMinStock" min="1" value="15" placeholder="Contoh: 15" required />
+              <span class="field-hint" style="color:#d97706; font-size:0.72rem;">Beri peringatan jika stok &le; angka ini</span>
             </div>
           </div>
         </div>
