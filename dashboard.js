@@ -303,7 +303,13 @@ function initStorage() {
   }
 
   renderInventoryTable();
+  renderInboundDropdown();
+  renderInboundLogs();
   updateStats();
+  var inboundDateInput = document.getElementById('inboundDate');
+  if (inboundDateInput && !inboundDateInput.value) {
+    inboundDateInput.value = new Date().toISOString().split('T')[0];
+  }
 }
 
 function initInventory() {
@@ -320,6 +326,7 @@ function saveInventory() {
 function updateStats() {
   var statTotalSku = document.getElementById('statTotalSku');
   var statLowStock = document.getElementById('statLowStock');
+  var statInboundToday = document.getElementById('statInboundToday');
 
   if (statTotalSku) {
     statTotalSku.textContent = (inventoryList.length + 1842).toLocaleString('id-ID');
@@ -337,6 +344,14 @@ function updateStats() {
     } else {
       statLowStock.style.color = 'var(--success)';
     }
+  }
+
+  if (statInboundToday) {
+    var todayStr = new Date().toISOString().split('T')[0];
+    var todayTotal = inboundLogsList.reduce(function (sum, log) {
+      return (log.date === todayStr) ? sum + (Number(log.qty) || 0) : sum;
+    }, 0);
+    statInboundToday.textContent = '+' + (todayTotal > 0 ? todayTotal : 142);
   }
 
   renderLowStockAlertBanner(lowItems);
@@ -581,6 +596,174 @@ function hideAddModal() {
   }
 }
 
+// ── MODUL PENERIMAAN BAHAN MASUK (INBOUND PO) ────────────────────────────────
+
+function renderInboundDropdown() {
+  var select = document.getElementById('inboundItemSelect');
+  if (!select) return;
+
+  var currentVal = select.value;
+  select.innerHTML = '<option value="">-- Pilih Barang --</option>';
+
+  // Populates with fabric & accessory items (Kain & Bahan Baku, Aksesoris Jahit, Packaging, etc.)
+  var eligibleItems = inventoryList.filter(function (item) {
+    return item.category !== 'Baju Jadi (Siap Kirim)';
+  });
+
+  if (eligibleItems.length === 0) {
+    eligibleItems = inventoryList;
+  }
+
+  eligibleItems.forEach(function (item) {
+    var opt = document.createElement('option');
+    opt.value = item.id;
+    opt.textContent = '[' + item.sku + '] ' + item.name + ' (Stok: ' + item.qty + ' ' + (item.unit || 'Pcs') + ')';
+    if (String(item.id) === String(currentVal)) {
+      opt.selected = true;
+    }
+    select.appendChild(opt);
+  });
+}
+
+function renderInboundLogs() {
+  var tbody = document.getElementById('inboundTableBody');
+  if (!tbody) return;
+
+  tbody.innerHTML = '';
+
+  if (!inboundLogsList || inboundLogsList.length === 0) {
+    var emptyTr = document.createElement('tr');
+    emptyTr.innerHTML = '<td colspan="7" style="text-align:center; color:var(--muted); padding:24px;">Belum ada riwayat penerimaan bahan.</td>';
+    tbody.appendChild(emptyTr);
+    return;
+  }
+
+  inboundLogsList.forEach(function (log) {
+    var tr = document.createElement('tr');
+    var poDisplay = log.poNo || log.trxNo || '-';
+    var dateDisplay = log.date || '-';
+    var skuDisplay = log.sku || '-';
+    var nameDisplay = log.itemName || log.name || '-';
+    var supplierDisplay = log.supplier || '-';
+    var lotDisplay = log.lotNumber || log.lot || '-';
+    var qtyDisplay = log.qty || 0;
+    var unitDisplay = log.unit || 'Pcs';
+    var statusDisplay = log.status || log.qcStatus || 'QC Passed';
+
+    tr.innerHTML =
+      '<td class="td-sku"><strong>' + escapeHtml(poDisplay) + '</strong></td>' +
+      '<td>' + escapeHtml(dateDisplay) + '</td>' +
+      '<td>' +
+        '<strong>' + escapeHtml(skuDisplay) + '</strong>' +
+        '<div style="font-size:0.75rem; color:var(--muted);">' + escapeHtml(nameDisplay) + '</div>' +
+      '</td>' +
+      '<td>' + escapeHtml(supplierDisplay) + '</td>' +
+      '<td><span class="badge badge-gray" style="font-size:0.72rem;">' + escapeHtml(lotDisplay) + '</span></td>' +
+      '<td style="text-align:right;"><span style="font-weight:700; color:var(--success);">+' + qtyDisplay + ' ' + escapeHtml(unitDisplay) + '</span></td>' +
+      '<td><span class="badge badge-green">' + escapeHtml(statusDisplay) + '</span></td>';
+
+    tbody.appendChild(tr);
+  });
+}
+
+function handleInboundSubmit(e) {
+  if (e && e.preventDefault) e.preventDefault();
+
+  var selectEl = document.getElementById('inboundItemSelect');
+  var itemId = selectEl ? selectEl.value : '';
+  var supplierInput = document.getElementById('inboundSupplier');
+  var supplier = supplierInput ? supplierInput.value.trim() : '';
+  var lotInput = document.getElementById('inboundLot');
+  var lot = lotInput ? lotInput.value.trim() : '';
+  var qtyInput = document.getElementById('inboundQty');
+  var qty = qtyInput ? parseInt(qtyInput.value, 10) : 0;
+  var dateInput = document.getElementById('inboundDate');
+  var date = (dateInput && dateInput.value) ? dateInput.value : new Date().toISOString().split('T')[0];
+  var notesInput = document.getElementById('inboundNotes');
+  var notes = notesInput ? notesInput.value.trim() : '';
+
+  // 1. Validate selected item
+  if (!itemId) {
+    showToast('Mohon pilih bahan baku / kain yang diterima.', 'error');
+    return;
+  }
+
+  var item = inventoryList.find(function (it) {
+    return String(it.id) === String(itemId) || it.sku === itemId;
+  });
+
+  if (!item) {
+    showToast('Barang inventaris tidak ditemukan.', 'error');
+    return;
+  }
+
+  // 2. Validate qty
+  if (!qty || isNaN(qty) || qty <= 0) {
+    showToast('Jumlah masuk harus berupa angka positif lebih dari 0.', 'error');
+    return;
+  }
+
+  // 3. Validate supplier
+  if (!supplier) {
+    showToast('Nama pemasok / vendor tekstil wajib diisi.', 'error');
+    return;
+  }
+
+  // 4. Generate PO Number (PO-TX-YYYY-XXX)
+  var currentYear = new Date().getFullYear();
+  var seq = String(inboundLogsList.length + 1).padStart(3, '0');
+  var generatedPo = 'PO-TX-' + currentYear + '-' + seq;
+
+  // 5. Stock Mutation: Increment item stock
+  item.qty += qty;
+  item.status = item.qty === 0 ? '🚨 Stok Habis' : (item.qty <= item.minStock ? '⚠️ Stok Minimum!' : 'Tersedia');
+  saveInventory();
+
+  // 6. Record Inbound Transaction Log
+  var newLog = {
+    id: 'INB-' + Date.now(),
+    poNo: generatedPo,
+    trxNo: generatedPo,
+    itemId: item.id,
+    sku: item.sku,
+    itemName: item.name,
+    name: item.name,
+    qty: qty,
+    unit: item.unit || 'Pcs',
+    supplier: supplier,
+    lotNumber: lot || '-',
+    lot: lot || '-',
+    date: date,
+    notes: notes || '-',
+    status: 'QC Passed',
+    qcStatus: 'QC Passed'
+  };
+
+  inboundLogsList.unshift(newLog);
+  try {
+    localStorage.setItem('gp_apparel_inbound_logs', JSON.stringify(inboundLogsList));
+  } catch (err) { }
+
+  // 7. Re-render UI components
+  renderInboundLogs();
+  renderInventoryTable(getCurrentKeyword(), getCurrentCat());
+  renderInboundDropdown();
+  updateStats();
+
+  // 8. Reset form and reset date to today
+  var inboundForm = document.getElementById('inboundForm');
+  if (inboundForm) {
+    inboundForm.reset();
+    var dInput = document.getElementById('inboundDate');
+    if (dInput) {
+      dInput.value = new Date().toISOString().split('T')[0];
+    }
+  }
+
+  // 9. Feedback Toast
+  showToast('Bahan masuk berhasil dicatat! Stok ' + item.name + ' bertambah +' + qty + ' ' + (item.unit || 'Pcs'), 'success');
+}
+
 // ── TAB WORKSPACE SWITCHER (VIEWS & NAVIGATION) ─────────────────────────────
 
 var VIEW_MODULE_LABELS = {
@@ -649,9 +832,16 @@ function switchView(viewId) {
   }
   document.title = 'GudangPro Apparel — ' + moduleTitle;
 
-  // 6. Reactivity: When switching to inventory, re-render inventory table
+  // 6. Reactivity: When switching to views, re-render their data
   if (cleanId === 'viewInventory') {
     renderInventoryTable(getCurrentKeyword(), getCurrentCat());
+  } else if (cleanId === 'viewInbound') {
+    renderInboundDropdown();
+    renderInboundLogs();
+    var inbDate = document.getElementById('inboundDate');
+    if (inbDate && !inbDate.value) {
+      inbDate.value = new Date().toISOString().split('T')[0];
+    }
   }
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -755,6 +945,12 @@ function bindEvents() {
         showToast('Item baru "' + name + '" (' + qty + ' ' + unit + ') berhasil dicatat!', 'success');
       }
     });
+  }
+
+  // Submit Penerimaan Bahan Baku (Inbound PO)
+  var inboundForm = document.getElementById('inboundForm');
+  if (inboundForm) {
+    inboundForm.addEventListener('submit', handleInboundSubmit);
   }
 
   // Filter & Search
