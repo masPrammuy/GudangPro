@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Produksi & Stok — GudangPro Apparel</title>
+  <meta name="description" content="Sistem Manajemen Produksi Pakaian, Stok Roll Kain, Aksesoris Jahit & Baju Jadi GudangPro Apparel." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Supabase JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-client.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div class="app-layout">
+
+    <!-- ════════════════════ SIDEBAR ════════════════════ -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+            <path d="M9 22V12h6v10" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <div style="display:flex; align-items:center; gap:6px;">
+          <span style="font-weight:700;">GudangPro</span>
+          <span class="badge-tag" style="font-size:0.65rem; padding:2px 6px;">Apparel</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section">Operasional Utama</div>
+        <a href="#" class="nav-item active" id="navOverview">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/></svg>
+          <span>Dashboard Utama</span>
+        </a>
+        <a href="#inventorySection" class="nav-item" id="navInventory">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" stroke="currentColor" stroke-width="1.8"/><polyline points="3.27 6.96 12 12.01 20.73 6.96" stroke="currentColor" stroke-width="1.8"/><line x1="12" y1="22.08" x2="12" y2="12" stroke="currentColor" stroke-width="1.8"/></svg>
+          <span>Stok Kain &amp; Baju</span>
+        </a>
+        <a href="#" class="nav-item" id="navInbound">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3v12M17 10l-5 5-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 17v2a2 2 0 002 2h14a2 2 0 002-2v-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span>Bahan Masuk (Inbound)</span>
+        </a>
+        <a href="#" class="nav-item" id="navOutbound">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 15V3M7 8l5-5 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 17v2a2 2 0 002 2h14a2 2 0 002-2v-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span>Kirim Baju (Outbound)</span>
+        </a>
+
+        <div class="nav-section">Manajemen &amp; Lokasi</div>
+        <a href="#" class="nav-item" id="navRacks">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="1.8"/><line x1="3" y1="15" x2="21" y2="15" stroke="currentColor" stroke-width="1.8"/><line x1="12" y1="4" x2="12" y2="20" stroke="currentColor" stroke-width="1.8"/></svg>
+          <span>Zona Rak Konveksi</span>
+        </a>
+        <a href="#" class="nav-item" id="navAudit">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3L22 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span>Audit Stok Pakaian</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-user-pill">
+          <div class="user-avatar-sm" id="headerAvatar"></div>
+          <div class="sidebar-user-info">
+            <span class="user-name-sm" id="headerUserName">Memuat...</span>
+            <span class="user-email-sm" id="headerUserEmail">—</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ════════════════════ APP HEADER ════════════════════ -->
+    <header class="app-header">
+      <div class="header-left" style="display:flex; align-items:center; gap:14px;">
+        <div class="warehouse-selector">
+          <span class="pulse-dot"></span>
+          <span style="font-weight:600; font-size:0.85rem;">Hub Gudang:</span>
+          <span style="color:var(--text); font-weight:700; font-size:0.85rem;">Sentra Konveksi Bandung (Lini Aktif)</span>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <div class="search-wrap" style="width:260px;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.8"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="1.8"/></svg>
+          <input type="text" id="globalSearchInput" class="search-input" placeholder="Cari SKU, nama barang, rak..." style="width:100%;" />
+        </div>
+
+        <button type="button" class="btn-logout" id="btnLogout" title="Keluar dari sesi akun">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><polyline points="16 17 21 12 16 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><line x1="21" y1="12" x2="9" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span>Keluar</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- ════════════════════ MAIN DASHBOARD ════════════════════ -->
+    <main class="app-main">
+
+      <!-- ════════════════════ VIEW 1: OVERVIEW DASHBOARD ════════════════════ -->
+      <div id="viewOverview" class="workspace-view active">
+
+        <!-- ── User Greeting & Verification Banner ── -->
+        <section class="dashboard-hero-banner">
+        <div class="banner-left">
+          <div class="profile-avatar-box" style="margin-bottom:0;">
+            <div class="profile-avatar-lg" id="welcomeAvatar" style="width:54px; height:54px;"></div>
+            <span class="source-badge" id="welcomeSourceBadge" style="width:22px; height:22px;"></span>
+          </div>
+          <div>
+            <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:4px;">
+              <h1 class="banner-heading" style="font-size:1.35rem; font-weight:700; color:#fff; margin:0;">
+                Selamat Datang, <span id="welcomeName">Pengguna</span>!
+              </h1>
+              <span id="welcomeRole" class="badge badge-blue" style="font-size:0.75rem; padding:3px 10px;">Staff Konveksi</span>
+              <span class="status-pill" style="padding:3px 10px; font-size:0.75rem;">
+                <span class="pulse-dot"></span> Sesi Aktif
+              </span>
+            </div>
+            <p class="banner-subtext" style="font-size:0.83rem; color:var(--muted2); margin:0;">
+              <span id="welcomeEmail">—</span> • Terhubung via <span id="welcomeMethod" style="display:inline-flex; vertical-align:middle;">Supabase Cloud Auth</span> • Waktu Masuk: <span id="welcomeLoginTime" style="color:var(--text); font-weight:500;">—</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="banner-actions">
+          <button type="button" class="btn btn-primary" id="btnOpenAddModal">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><line x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <span>Tambah Barang</span>
+          </button>
+          <button type="button" class="btn btn-secondary" id="btnLogoutMain" title="Keluar">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><polyline points="16 17 21 12 16 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><line x1="21" y1="12" x2="9" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <span>Keluar</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- ── Panduan Cepat untuk Pengguna Baru (Onboarding Guide) ── -->
+      <section class="onboarding-banner" id="onboardingBanner">
+        <div class="onboarding-header">
+          <div class="onboarding-title-wrap">
+            <span class="onboarding-badge">Panduan Cepat</span>
+            <h2 class="onboarding-title">3 Langkah Mudah Mulai Mengelola GudangPro</h2>
+          </div>
+          <button type="button" class="btn-dismiss-onboarding" id="btnDismissOnboarding" title="Tutup panduan ini">
+            <span>Sembunyikan Panduan</span> &times;
+          </button>
+        </div>
+
+        <div class="onboarding-grid">
+          <div class="onboarding-card">
+            <div class="onboarding-step-circle">1</div>
+            <div>
+              <div class="onboarding-card-title">Cek Stok Kain &amp; Baju Jadi</div>
+              <p class="onboarding-card-desc">Gunakan filter kategori di tabel untuk memantau stok roll kain, benang, kancing, atau baju siap kirim.</p>
+            </div>
+          </div>
+
+          <div class="onboarding-card">
+            <div class="onboarding-step-circle">2</div>
+            <div>
+              <div class="onboarding-card-title">Atur Batas Stok Minimum</div>
+              <p class="onboarding-card-desc">Klik tombol biru <strong>"+ Tambah Barang"</strong> dan isi batas minimum stok agar Anda selalu mendapat peringatan restock.</p>
+            </div>
+          </div>
+
+          <div class="onboarding-card">
+            <div class="onboarding-step-circle">3</div>
+            <div>
+              <div class="onboarding-card-title">Peringatan Otomatis Realtime</div>
+              <p class="onboarding-card-desc">Saat stok mencapai atau di bawah batas minimum, banner peringatan kuning-merah dan notifikasi toast akan langsung muncul.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 4 KPI Stats Grid ── -->
+      <section class="stats-grid">
+        <!-- Stat 1: Total SKU -->
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-label">Total Bahan &amp; Baju (SKU)</span>
+            <div class="stat-icon blue">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/></svg>
+            </div>
+          </div>
+          <div class="stat-value" id="statTotalSku">2.480</div>
+          <div class="stat-delta">
+            <span class="up">↑ +12%</span> jenis barang aktif tercatat
+          </div>
+        </div>
+
+        <!-- Stat 2: Barang Masuk -->
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-label">Bahan/Kain Masuk (Hari Ini)</span>
+            <div class="stat-icon green">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M19 12l-7 7-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+          <div class="stat-value" id="statInboundToday">+142</div>
+          <div class="stat-delta">
+            <span class="up">↑ 8 Batch</span> Inbound terverifikasi
+          </div>
+        </div>
+
+        <!-- Stat 3: Barang Keluar -->
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-label">Baju Terkirim (Hari Ini)</span>
+            <div class="stat-icon orange">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+          <div class="stat-value" id="statOutboundToday">-85</div>
+          <div class="stat-delta">
+            <span class="down">↓ 15 Order</span> Pengiriman kurir/kargo
+          </div>
+        </div>
+
+        <!-- Stat 4: Stok Kritis -->
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-label">⚠️ Peringatan Stok Minimum</span>
+            <div class="stat-icon red">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="9" x2="12" y2="13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+          </div>
+          <div class="stat-value" id="statLowStock" style="color:var(--error);">4</div>
+          <div class="stat-delta">
+            <span class="down">Capai Batas Minimum</span> Segera restock bahan
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Denah & Kapasitas 4 Zona Workshop Konveksi Pakaian ── -->
+      <section class="zones-panel">
+        <div class="zones-header">
+          <div class="zones-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="1.8"/><line x1="3" y1="15" x2="21" y2="15" stroke="currentColor" stroke-width="1.8"/><line x1="12" y1="4" x2="12" y2="20" stroke="currentColor" stroke-width="1.8"/></svg>
+            <span>Denah &amp; Kapasitas 4 Zona Workshop Konveksi Pakaian</span>
+          </div>
+          <span style="font-size:0.75rem; color:var(--muted); font-weight:500;">Realtime Workshop Telemetry • Sentra Konveksi</span>
+        </div>
+
+        <div class="zone-grid">
+          <!-- Zona A: Kain Roll -->
+          <div class="zone-card">
+            <div class="zone-card-top">
+              <span class="zone-code">
+                <span class="zone-dot amber"></span>
+                ZONA A (Gudang Kain Roll)
+              </span>
+              <span class="badge badge-orange" style="font-size:0.68rem; padding:1px 6px;">75% Terpakai</span>
+            </div>
+            <p class="zone-type">Katun Combed, Rayon, Fleece &amp; Denim</p>
+            <div class="zone-meter">
+              <span>Terisi: 450 / 600 Roll</span>
+              <span style="font-weight:600; color:var(--accent);">75%</span>
+            </div>
+            <div class="zone-bar-track">
+              <div class="zone-bar-fill amber" style="width: 75%;"></div>
+            </div>
+          </div>
+
+          <!-- Zona B: Aksesoris & Benang -->
+          <div class="zone-card">
+            <div class="zone-card-top">
+              <span class="zone-code">
+                <span class="zone-dot green"></span>
+                ZONA B (Aksesoris &amp; Benang)
+              </span>
+              <span class="badge badge-green" style="font-size:0.68rem; padding:1px 6px;">55% Stabil</span>
+            </div>
+            <p class="zone-type">Benang Jahit, Kancing, Resleting &amp; Karet</p>
+            <div class="zone-meter">
+              <span>Terisi: 330 / 600 Slot</span>
+              <span style="font-weight:600; color:var(--success);">55%</span>
+            </div>
+            <div class="zone-bar-track">
+              <div class="zone-bar-fill green" style="width: 55%;"></div>
+            </div>
+          </div>
+
+          <!-- Zona C: Cutting & Sablon -->
+          <div class="zone-card">
+            <div class="zone-card-top">
+              <span class="zone-code">
+                <span class="zone-dot red"></span>
+                ZONA C (Meja Potong &amp; WIP)
+              </span>
+              <span class="badge badge-red" style="font-size:0.68rem; padding:1px 6px;">88% Padat Jahit</span>
+            </div>
+            <p class="zone-type">Pola Cutting, Bordir &amp; Antrean Jahit</p>
+            <div class="zone-meter">
+              <span>Antrean: 440 / 500 Batch</span>
+              <span style="font-weight:600; color:var(--error);">88%</span>
+            </div>
+            <div class="zone-bar-track">
+              <div class="zone-bar-fill red" style="width: 88%;"></div>
+            </div>
+          </div>
+
+          <!-- Zona D: Baju Jadi & Packing -->
+          <div class="zone-card">
+            <div class="zone-card-top">
+              <span class="zone-code">
+                <span class="zone-dot cyan"></span>
+                ZONA D (Baju Jadi Siap Kirim)
+              </span>
+              <span class="badge badge-teal" style="font-size:0.68rem; padding:1px 6px;">40% Tersedia</span>
+            </div>
+            <p class="zone-type">Kaos, Kemeja, Hoodie Lolos QC &amp; Polybag</p>
+            <div class="zone-meter">
+              <span>Terisi: 400 / 1.000 Pcs</span>
+              <span style="font-weight:600; color:var(--cargo-cyan);">40%</span>
+            </div>
+            <div class="zone-bar-track">
+              <div class="zone-bar-fill cyan" style="width: 40%;"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Dynamic Low Stock Warning Alert Banner (Peringatan Stok Minimum) ── -->
+      <section class="low-stock-alert-banner" id="lowStockAlertBanner" style="display:none;">
+        <div class="low-stock-alert-content">
+          <div class="low-stock-alert-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="9" x2="12" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div class="low-stock-alert-text">
+            <h4>
+              <span>⚠️ Peringatan: Stok Bahan / Baju Mencapai Batas Minimum!</span>
+              <span class="low-stock-alert-pill" id="lowStockCountBadge">0 Item Kritis</span>
+            </h4>
+            <p id="lowStockAlertMessage">Segera lakukan restock bahan kain/aksesoris atau jadwal ulang proses potong untuk item berikut agar jalur jahit tidak terhenti:</p>
+            <div class="low-stock-item-tags" id="lowStockItemTags">
+              <!-- Item tags rendered dynamically -->
+            </div>
+          </div>
+        </div>
+        <button type="button" class="btn btn-sm btn-secondary" id="btnScrollToLowStock" style="align-self:center; white-space:nowrap;">
+          Lihat di Tabel ↓
+        </button>
+      </section>
+      </div>
+
+      <!-- ════════════════════ VIEW 2: INVENTORY & STOCK MANAGEMENT ════════════════════ -->
+      <div id="viewInventory" class="workspace-view" style="display:none;">
+        <!-- ── Live Inventory Panel & Table ── -->
+        <section class="panel" id="inventorySection">
+          <div class="panel-header">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div style="width:30px; height:30px; border-radius:7px; background:rgba(91,141,239,.12); color:var(--accent); display:flex; align-items:center; justify-content:center;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" stroke="currentColor" stroke-width="1.8"/></svg>
+              </div>
+              <div>
+                <h2 class="panel-title">Manajemen Stok &amp; Data Inventaris</h2>
+                <p style="font-size:0.78rem; color:var(--muted); margin:0;">Pantau dan kelola stok barang gudang secara real-time</p>
+              </div>
+            </div>
+
+            <div class="panel-actions">
+              <!-- Filter Kategori Konveksi -->
+              <select id="filterCategory" class="filter-select">
+                <option value="">Semua Kategori</option>
+                <option value="Kain & Bahan Baku">Kain &amp; Bahan Baku</option>
+                <option value="Aksesoris Jahit">Aksesoris Jahit</option>
+                <option value="Pola & Hasil Cutting">Pola &amp; Hasil Cutting</option>
+                <option value="Baju Jadi (Siap Kirim)">Baju Jadi (Siap Kirim)</option>
+                <option value="Packaging & Hangtag">Packaging &amp; Hangtag</option>
+              </select>
+
+              <!-- Search Table -->
+              <div class="search-wrap">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.8"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="1.8"/></svg>
+                <input type="text" id="inventorySearchInput" class="search-input" placeholder="Cari nama barang / SKU..." />
+              </div>
+
+              <!-- Tombol Tambah Barang -->
+              <button type="button" class="btn btn-primary btn-sm" id="btnOpenAddModalTable">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><line x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                <span>+ Tambah Barang</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table id="inventoryTable">
+              <thead>
+                <tr>
+                  <th>KODE / SKU</th>
+                  <th>NAMA BAHAN / PAKAIAN</th>
+                  <th>KATEGORI</th>
+                  <th>LOKASI PENYIMPANAN</th>
+                  <th>JUMLAH STOK (SISA / MIN)</th>
+                  <th>STATUS</th>
+                  <th style="text-align:right;">AKSI CEPAT</th>
+                </tr>
+              </thead>
+              <tbody id="inventoryTableBody">
+                <!-- Item akan dirender otomatis via dashboard.js -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="pagination">
+            <span id="paginationInfo">Menampilkan 6 barang inventaris</span>
+            <div class="page-btns">
+              <button type="button" class="page-btn active">1</button>
+              <button type="button" class="page-btn" disabled>2</button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ════════════════════ VIEW 3: INBOUND (BAHAN MASUK) ════════════════════ -->
+      <div id="viewInbound" class="workspace-view" style="display:none;">
+        <section class="panel transaction-card">
+          <div class="panel-header">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div style="width:32px; height:32px; border-radius:8px; background:rgba(16,185,129,0.12); color:var(--success); display:flex; align-items:center; justify-content:center;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3v12M17 10l-5 5-5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 17v2a2 2 0 002 2h14a2 2 0 002-2v-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </div>
+              <div>
+                <h2 class="panel-title">Penerimaan Bahan Baku (Inbound PO)</h2>
+                <p style="font-size:0.78rem; color:var(--muted); margin:0;">Pencatatan roll kain, benang jahit, dan aksesoris tekstil dari vendor pemasok</p>
+              </div>
+            </div>
+          </div>
+
+          <form id="inboundForm" style="padding:16px 20px;">
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:14px; margin-bottom:14px;">
+              <div class="field">
+                <label for="inboundItemSelect">Pilih Bahan Baku / Kain</label>
+                <select id="inboundItemSelect" class="auth-select" required>
+                  <option value="">-- Pilih Barang --</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="inboundSupplier">Pemasok / Vendor Tekstil</label>
+                <input type="text" id="inboundSupplier" placeholder="Contoh: PT Lucky Textile / CV Mitra Benang" required />
+              </div>
+              <div class="field">
+                <label for="inboundLot">No. Lot Kain / Kode Celup</label>
+                <input type="text" id="inboundLot" placeholder="Contoh: LOT-2026-B88 / DYE-992" required />
+              </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:14px; margin-bottom:14px;">
+              <div class="field">
+                <label for="inboundQty">Jumlah Masuk</label>
+                <input type="number" id="inboundQty" min="1" placeholder="Contoh: 25" required />
+              </div>
+              <div class="field">
+                <label for="inboundDate">Tanggal Masuk</label>
+                <input type="date" id="inboundDate" required />
+              </div>
+            </div>
+
+            <div class="field" style="margin-bottom:16px;">
+              <label for="inboundNotes">Catatan</label>
+              <textarea id="inboundNotes" rows="2" placeholder="Catatan kondisi roll kain, inspeksi celup, no. DO vendor..." style="width:100%; border:1px solid var(--border); border-radius:6px; padding:8px 12px; background:var(--surface2); color:var(--text); font-family:inherit; resize:vertical;"></textarea>
+            </div>
+
+            <div style="display:flex; justify-content:flex-end;">
+              <button type="submit" class="btn btn-primary" id="btnSubmitInbound">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M19 12l-7 7-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Catat Bahan Masuk</span>
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <!-- Tabel Riwayat Inbound -->
+        <section class="panel" style="margin-top:20px;">
+          <div class="panel-header">
+            <div>
+              <h3 class="panel-title" style="font-size:1rem;">Riwayat Penerimaan Bahan Masuk</h3>
+              <p style="font-size:0.75rem; color:var(--muted); margin:0;">Log Purchase Order &amp; verifikasi penerimaan gudang</p>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table id="inboundTable">
+              <thead>
+                <tr>
+                  <th>NO. PO</th>
+                  <th>TANGGAL</th>
+                  <th>SKU &amp; NAMA BARANG</th>
+                  <th>PEMASOK / VENDOR</th>
+                  <th>NO. LOT</th>
+                  <th style="text-align:right;">JUMLAH</th>
+                  <th>STATUS</th>
+                </tr>
+              </thead>
+              <tbody id="inboundTableBody">
+                <!-- Item akan dirender otomatis via dashboard.js -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+
+      <!-- ════════════════════ VIEW 4: OUTBOUND (KIRIM BAJU) ════════════════════ -->
+      <div id="viewOutbound" class="workspace-view" style="display:none;">
+        <section class="panel transaction-card">
+          <div class="panel-header">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div style="width:32px; height:32px; border-radius:8px; background:rgba(245,158,11,0.12); color:var(--warning); display:flex; align-items:center; justify-content:center;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 15V3M7 8l5-5 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 17v2a2 2 0 002 2h14a2 2 0 002-2v-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </div>
+              <div>
+                <h2 class="panel-title">Surat Jalan &amp; Pengiriman Baju Jadi (Outbound DO)</h2>
+                <p style="font-size:0.78rem; color:var(--muted); margin:0;">Penerbitan Delivery Order dan pengiriman pesanan pakaian jadi ke reseller &amp; distributor</p>
+              </div>
+            </div>
+          </div>
+
+          <form id="outboundForm" style="padding:16px 20px;">
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:14px; margin-bottom:14px;">
+              <div class="field">
+                <label for="outboundItemSelect">Pilih Baju Jadi (Siap Kirim)</label>
+                <select id="outboundItemSelect" class="auth-select" required>
+                  <option value="">-- Pilih Baju Jadi --</option>
+                </select>
+                <div id="outboundStockHint" style="font-size:0.75rem; color:var(--muted); margin-top:4px;">Stok tersedia: -</div>
+              </div>
+              <div class="field">
+                <label for="outboundRecipient">Pemasok / Reseller / Pembeli</label>
+                <input type="text" id="outboundRecipient" placeholder="Contoh: Toko Barokah Clothing / Reseller Jakarta" required />
+              </div>
+              <div class="field">
+                <label for="outboundCourier">Ekspedisi / Kurir</label>
+                <input type="text" id="outboundCourier" placeholder="Contoh: JNE Trucking / Dakota Cargo / Kurir Toko" required />
+              </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:14px; margin-bottom:14px;">
+              <div class="field">
+                <label for="outboundQty">Jumlah Kirim</label>
+                <input type="number" id="outboundQty" min="1" placeholder="Contoh: 50" required />
+              </div>
+              <div class="field">
+                <label for="outboundDate">Tanggal Terbit DO</label>
+                <input type="date" id="outboundDate" required />
+              </div>
+            </div>
+
+            <div style="display:flex; justify-content:flex-end;">
+              <button type="submit" class="btn btn-primary" id="btnSubmitOutbound">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Terbitkan Surat Jalan (DO)</span>
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <!-- Tabel Log Outbound -->
+        <section class="panel" style="margin-top:20px;">
+          <div class="panel-header">
+            <div>
+              <h3 class="panel-title" style="font-size:1rem;">Log Pengiriman Surat Jalan (DO)</h3>
+              <p style="font-size:0.75rem; color:var(--muted); margin:0;">Histori pengiriman baju keluar dan arsip surat jalan terbit</p>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table id="outboundTable">
+              <thead>
+                <tr>
+                  <th>NO. DO</th>
+                  <th>TANGGAL</th>
+                  <th>SKU &amp; NAMA PAKAIAN</th>
+                  <th>PENERIMA / RESELLER</th>
+                  <th>EKSPEDISI</th>
+                  <th style="text-align:right;">JUMLAH</th>
+                  <th>STATUS</th>
+                </tr>
+              </thead>
+              <tbody id="outboundTableBody">
+                <!-- Item akan dirender otomatis via dashboard.js -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+
+      <!-- ════════════════════ VIEW 5: ZONES (DENAH INTERAKTIF RAK) ════════════════════ -->
+      <div id="viewZones" class="workspace-view" style="display:none;">
+        <section class="panel">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">Denah Interaktif &amp; Telemetri 4 Zona Workshop</h2>
+              <p style="font-size:0.78rem; color:var(--muted); margin:0;">Klik pada salah satu zona untuk memfilter dan memantau stok bahan atau pakaian di area tersebut</p>
+            </div>
+          </div>
+
+          <div class="zone-grid" style="padding:16px 20px;">
+            <!-- Zona A -->
+            <div class="zone-card interactive zone-interactive-card" data-zone="A" style="cursor:pointer;">
+              <div class="zone-card-top">
+                <span class="zone-code">
+                  <span class="zone-dot amber"></span>
+                  ZONA A (Gudang Kain Roll)
+                </span>
+                <span class="badge badge-orange" style="font-size:0.68rem; padding:1px 6px;">Kain Roll</span>
+              </div>
+              <p class="zone-type">Katun Combed, Rayon, Fleece &amp; Denim</p>
+              <div class="zone-meter">
+                <span id="zoneAStockDisplay">Terisi: 450 / 600 Roll</span>
+                <span style="font-weight:600; color:var(--accent);">75%</span>
+              </div>
+              <div class="zone-bar-track">
+                <div class="zone-bar-fill amber" style="width: 75%;"></div>
+              </div>
+            </div>
+
+            <!-- Zona B -->
+            <div class="zone-card interactive zone-interactive-card" data-zone="B" style="cursor:pointer;">
+              <div class="zone-card-top">
+                <span class="zone-code">
+                  <span class="zone-dot green"></span>
+                  ZONA B (Aksesoris &amp; Benang)
+                </span>
+                <span class="badge badge-green" style="font-size:0.68rem; padding:1px 6px;">Aksesoris</span>
+              </div>
+              <p class="zone-type">Benang Jahit, Kancing, Resleting &amp; Karet</p>
+              <div class="zone-meter">
+                <span id="zoneBStockDisplay">Terisi: 330 / 600 Slot</span>
+                <span style="font-weight:600; color:var(--success);">55%</span>
+              </div>
+              <div class="zone-bar-track">
+                <div class="zone-bar-fill green" style="width: 55%;"></div>
+              </div>
+            </div>
+
+            <!-- Zona C -->
+            <div class="zone-card interactive zone-interactive-card" data-zone="C" style="cursor:pointer;">
+              <div class="zone-card-top">
+                <span class="zone-code">
+                  <span class="zone-dot red"></span>
+                  ZONA C (Meja Potong &amp; WIP)
+                </span>
+                <span class="badge badge-red" style="font-size:0.68rem; padding:1px 6px;">WIP Potong</span>
+              </div>
+              <p class="zone-type">Pola Cutting, Bordir &amp; Antrean Jahit</p>
+              <div class="zone-meter">
+                <span id="zoneCStockDisplay">Antrean: 440 / 500 Batch</span>
+                <span style="font-weight:600; color:var(--error);">88%</span>
+              </div>
+              <div class="zone-bar-track">
+                <div class="zone-bar-fill red" style="width: 88%;"></div>
+              </div>
+            </div>
+
+            <!-- Zona D -->
+            <div class="zone-card interactive zone-interactive-card" data-zone="D" style="cursor:pointer;">
+              <div class="zone-card-top">
+                <span class="zone-code">
+                  <span class="zone-dot cyan"></span>
+                  ZONA D (Baju Jadi Siap Kirim)
+                </span>
+                <span class="badge badge-teal" style="font-size:0.68rem; padding:1px 6px;">Siap Kirim</span>
+              </div>
+              <p class="zone-type">Kaos, Kemeja, Hoodie Lolos QC &amp; Polybag</p>
+              <div class="zone-meter">
+                <span id="zoneDStockDisplay">Terisi: 400 / 1.000 Pcs</span>
+                <span style="font-weight:600; color:var(--cargo-cyan);">40%</span>
+              </div>
+              <div class="zone-bar-track">
+                <div class="zone-bar-fill cyan" style="width: 40%;"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Tabel Filter Barang Berdasarkan Zona -->
+        <section class="panel" style="margin-top:20px;">
+          <div class="panel-header">
+            <div>
+              <h3 class="panel-title" id="currentZoneHeading">Daftar Barang di Zona: Semua Zona</h3>
+              <p style="font-size:0.75rem; color:var(--muted); margin:0;">Item inventaris yang tersimpan di lokasi rak zona terpilih</p>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table id="zoneFilterTable">
+              <thead>
+                <tr>
+                  <th>SKU</th>
+                  <th>NAMA BARANG</th>
+                  <th>KATEGORI</th>
+                  <th>LOKASI RAK</th>
+                  <th style="text-align:right;">JUMLAH STOK</th>
+                  <th>STATUS</th>
+                </tr>
+              </thead>
+              <tbody id="zoneFilterTableBody">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+
+      <!-- ════════════════════ VIEW 6: AUDIT (STOCK OPNAME) ════════════════════ -->
+      <div id="viewAudit" class="workspace-view" style="display:none;">
+        <section class="panel transaction-card">
+          <div class="panel-header">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div style="width:32px; height:32px; border-radius:8px; background:rgba(99,102,241,0.12); color:var(--accent); display:flex; align-items:center; justify-content:center;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3L22 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </div>
+              <div>
+                <h2 class="panel-title">Stock Opname &amp; Audit Fisik Pakaian</h2>
+                <p style="font-size:0.78rem; color:var(--muted); margin:0;">Pengecekan fisik roll kain &amp; baju di rak gudang, rekonsiliasi selisih dan penyesuaian stok sistem</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding:16px 20px;">
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:14px; margin-bottom:14px;">
+              <div class="field">
+                <label for="auditItemSelect">Pilih Barang yang Di-audit</label>
+                <select id="auditItemSelect" class="auth-select" required>
+                  <option value="">-- Pilih Barang --</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Stok Tercatat Sistem</label>
+                <div id="auditSystemStock" style="padding:9px 12px; background:var(--surface2); border:1px solid var(--border); border-radius:6px; font-weight:600; color:var(--text); font-size:0.95rem;">-</div>
+              </div>
+              <div class="field">
+                <label for="auditPhysicalCount">Hitungan Fisik Nyata</label>
+                <input type="number" id="auditPhysicalCount" min="0" placeholder="Masukkan hitungan fisik..." required />
+              </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:14px; margin-bottom:14px; align-items:center;">
+              <div class="field">
+                <label>Selisih</label>
+                <div>
+                  <span id="auditDiscrepancyBadge" class="badge" style="font-size:0.85rem; padding:6px 12px; display:inline-block;">0 (Cocok)</span>
+                </div>
+              </div>
+              <div class="field" style="grid-column: span 2;">
+                <label for="auditReason">Keterangan / Alasan Selisih</label>
+                <input type="text" id="auditReason" placeholder="Contoh: Kain susut / Reject QC jahit / Selisih potong" />
+              </div>
+            </div>
+
+            <div style="display:flex; justify-content:flex-end;">
+              <button type="button" class="btn btn-primary" id="btnSyncAuditStock">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Sinkronkan Stok Sistem</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Tabel Riwayat Audit -->
+        <section class="panel" style="margin-top:20px;">
+          <div class="panel-header">
+            <div>
+              <h3 class="panel-title" style="font-size:1rem;">Riwayat Audit &amp; Penyesuaian Opname</h3>
+              <p style="font-size:0.75rem; color:var(--muted); margin:0;">Arsip rekonsiliasi stok fisik dan penyesuaian inventaris</p>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table id="auditTable">
+              <thead>
+                <tr>
+                  <th>TANGGAL AUDIT</th>
+                  <th>SKU</th>
+                  <th>NAMA BARANG</th>
+                  <th style="text-align:right;">STOK SISTEM</th>
+                  <th style="text-align:right;">HITUNGAN FISIK</th>
+                  <th style="text-align:center;">SELISIH</th>
+                  <th>KETERANGAN</th>
+                </tr>
+              </thead>
+              <tbody id="auditTableBody">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- ════════════════════ MODAL TAMBAH BARANG ════════════════════ -->
+  <div class="g-modal-overlay" id="addInventoryModalOverlay" style="display:none">
+    <div class="g-modal g-modal-guide" style="max-width:480px;">
+      <div class="g-modal-header" style="text-align:left; border-bottom:1px solid var(--border2); padding-bottom:16px;">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="width:36px; height:36px; border-radius:8px; background:rgba(91,141,239,0.15); display:flex; align-items:center; justify-content:center; color:var(--accent);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <div>
+            <h3 class="g-modal-title" style="font-size:1.1rem; margin:0">Tambah Bahan Baku / Baju Baru</h3>
+            <p class="g-modal-sub" style="margin:2px 0 0">Pencatatan stok kain, aksesoris, baju jadi & batas minimum</p>
+          </div>
+        </div>
+        <button type="button" class="g-modal-close" id="closeAddModal" aria-label="Tutup">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+
+      <form id="addInventoryForm">
+        <div class="g-modal-body" style="padding:18px 20px;">
+          <div class="field" style="margin-bottom:12px;">
+            <label for="itemSku">Kode SKU / Kode Barang</label>
+            <input type="text" id="itemSku" placeholder="Contoh: KAN-CMB-01 / BJU-KAOS-04" required />
+          </div>
+
+          <div class="field" style="margin-bottom:12px;">
+            <label for="itemName">Nama Bahan Baku / Pakaian</label>
+            <input type="text" id="itemName" placeholder="Contoh: Kain Katun Combed 30s Hitam / Kaos Oversize L" required />
+          </div>
+
+          <div class="field" style="margin-bottom:12px;">
+            <label for="itemCategory">Kategori Konveksi</label>
+            <select id="itemCategory" class="auth-select" required>
+              <option value="Kain & Bahan Baku">Kain &amp; Bahan Baku</option>
+              <option value="Aksesoris Jahit">Aksesoris Jahit</option>
+              <option value="Pola & Hasil Cutting">Pola &amp; Hasil Cutting</option>
+              <option value="Baju Jadi (Siap Kirim)">Baju Jadi (Siap Kirim)</option>
+              <option value="Packaging & Hangtag">Packaging &amp; Hangtag</option>
+            </select>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1.2fr 0.8fr; gap:12px; margin-bottom:12px;">
+            <div class="field">
+              <label for="itemLocation">Lokasi Rak / Area Simpan</label>
+              <input type="text" id="itemLocation" placeholder="Contoh: Rak Kain A-01 / Rak Baju D-02" required />
+            </div>
+            <div class="field">
+              <label for="itemUnit">Satuan Barang</label>
+              <select id="itemUnit" class="auth-select" required>
+                <option value="Roll">Roll</option>
+                <option value="Pcs">Pcs</option>
+                <option value="Lusin">Lusin</option>
+                <option value="Meter">Meter</option>
+                <option value="Kg">Kg</option>
+                <option value="Pack">Pack</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px;">
+            <div class="field">
+              <label for="itemQty">Jumlah Stok Sekarang</label>
+              <input type="number" id="itemQty" min="0" placeholder="Contoh: 50" required />
+            </div>
+            <div class="field">
+              <label for="itemMinStock">⚠️ Batas Stok Minimum (Alert)</label>
+              <input type="number" id="itemMinStock" min="1" value="15" placeholder="Contoh: 15" required />
+              <span class="field-hint" style="color:#d97706; font-size:0.72rem;">Beri peringatan jika stok &le; angka ini</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="g-modal-footer" style="display:flex; justify-content:flex-end; gap:10px; padding:14px 20px;">
+          <button type="button" class="btn btn-secondary btn-sm" id="btnCancelAddModal">Batal</button>
+          <button type="submit" class="btn btn-primary btn-sm" id="btnSubmitAddItem">Simpan Barang</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast"></div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
