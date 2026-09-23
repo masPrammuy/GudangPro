@@ -305,10 +305,16 @@ function initStorage() {
   renderInventoryTable();
   renderInboundDropdown();
   renderInboundLogs();
+  renderOutboundDropdown();
+  renderOutboundLogs();
   updateStats();
   var inboundDateInput = document.getElementById('inboundDate');
   if (inboundDateInput && !inboundDateInput.value) {
     inboundDateInput.value = new Date().toISOString().split('T')[0];
+  }
+  var outboundDateInput = document.getElementById('outboundDate');
+  if (outboundDateInput && !outboundDateInput.value) {
+    outboundDateInput.value = new Date().toISOString().split('T')[0];
   }
 }
 
@@ -327,6 +333,7 @@ function updateStats() {
   var statTotalSku = document.getElementById('statTotalSku');
   var statLowStock = document.getElementById('statLowStock');
   var statInboundToday = document.getElementById('statInboundToday');
+  var statOutboundToday = document.getElementById('statOutboundToday');
 
   if (statTotalSku) {
     statTotalSku.textContent = (inventoryList.length + 1842).toLocaleString('id-ID');
@@ -352,6 +359,14 @@ function updateStats() {
       return (log.date === todayStr) ? sum + (Number(log.qty) || 0) : sum;
     }, 0);
     statInboundToday.textContent = '+' + (todayTotal > 0 ? todayTotal : 142);
+  }
+
+  if (statOutboundToday) {
+    var todayStr2 = new Date().toISOString().split('T')[0];
+    var todayOutbound = outboundLogsList.reduce(function (sum, log) {
+      return (log.date === todayStr2) ? sum + (Number(log.qty) || 0) : sum;
+    }, 0);
+    statOutboundToday.textContent = '-' + (todayOutbound > 0 ? todayOutbound : 85);
   }
 
   renderLowStockAlertBanner(lowItems);
@@ -764,6 +779,247 @@ function handleInboundSubmit(e) {
   showToast('Bahan masuk berhasil dicatat! Stok ' + item.name + ' bertambah +' + qty + ' ' + (item.unit || 'Pcs'), 'success');
 }
 
+// ── MODUL PENGIRIMAN BAJU JADI (OUTBOUND DO) ────────────────────────────────
+
+function validateOutboundStock() {
+  var select = document.getElementById('outboundItemSelect');
+  var qtyInput = document.getElementById('outboundQty');
+  var hint = document.getElementById('outboundStockHint');
+  var submitBtn = document.getElementById('btnSubmitOutbound');
+  if (!select || !qtyInput || !hint) return;
+
+  var itemId = select.value;
+  var currentItem = inventoryList.find(function (i) {
+    return String(i.id) === String(itemId) || i.sku === itemId;
+  });
+
+  if (!currentItem) {
+    hint.textContent = 'Stok tersedia: -';
+    hint.style.color = 'var(--muted)';
+    qtyInput.classList.remove('is-invalid');
+    qtyInput.style.borderColor = '';
+    qtyInput.style.backgroundColor = '';
+    if (submitBtn) submitBtn.disabled = false;
+    return;
+  }
+
+  var qty = parseInt(qtyInput.value, 10);
+  var unit = currentItem.unit || 'Pcs';
+
+  if (!isNaN(qty) && qty > currentItem.qty) {
+    // 🚨 Over-shipping warning: quantity exceeds available inventory
+    hint.textContent = '🚨 Stok tidak mencukupi! Tersedia hanya ' + currentItem.qty + ' ' + unit;
+    hint.style.color = 'var(--error)';
+    qtyInput.classList.add('is-invalid');
+    qtyInput.style.borderColor = 'var(--error)';
+    qtyInput.style.backgroundColor = 'var(--error-bg)';
+    if (submitBtn) submitBtn.disabled = true;
+  } else if (!isNaN(qty) && qty > 0 && qty <= currentItem.qty) {
+    hint.textContent = 'Tersedia: ' + currentItem.qty + ' ' + unit;
+    hint.style.color = 'var(--success)';
+    qtyInput.classList.remove('is-invalid');
+    qtyInput.style.borderColor = '';
+    qtyInput.style.backgroundColor = '';
+    if (submitBtn) submitBtn.disabled = false;
+  } else {
+    hint.textContent = 'Tersedia: ' + currentItem.qty + ' ' + unit;
+    hint.style.color = 'var(--muted)';
+    qtyInput.classList.remove('is-invalid');
+    qtyInput.style.borderColor = '';
+    qtyInput.style.backgroundColor = '';
+    if (submitBtn) submitBtn.disabled = false;
+  }
+}
+
+function renderOutboundDropdown() {
+  var select = document.getElementById('outboundItemSelect');
+  if (!select) return;
+
+  var currentVal = select.value;
+  select.innerHTML = '<option value="">-- Pilih Baju Jadi --</option>';
+
+  // Populates with finished garments (Baju Jadi (Siap Kirim)) or items with stock > 0
+  var eligibleItems = inventoryList.filter(function (item) {
+    return item.category === 'Baju Jadi (Siap Kirim)';
+  });
+
+  if (eligibleItems.length === 0) {
+    eligibleItems = inventoryList.filter(function (item) {
+      return item.qty > 0;
+    });
+  }
+
+  if (eligibleItems.length === 0) {
+    eligibleItems = inventoryList;
+  }
+
+  eligibleItems.forEach(function (item) {
+    var opt = document.createElement('option');
+    opt.value = item.id;
+    opt.textContent = '[' + item.sku + '] ' + item.name + ' (Stok: ' + item.qty + ' ' + (item.unit || 'Pcs') + ')';
+    if (String(item.id) === String(currentVal)) {
+      opt.selected = true;
+    }
+    select.appendChild(opt);
+  });
+
+  validateOutboundStock();
+}
+
+function renderOutboundLogs() {
+  var tbody = document.getElementById('outboundTableBody');
+  if (!tbody) return;
+
+  tbody.innerHTML = '';
+
+  if (!outboundLogsList || outboundLogsList.length === 0) {
+    var emptyTr = document.createElement('tr');
+    emptyTr.innerHTML = '<td colspan="7" style="text-align:center; color:var(--muted); padding:24px;">Belum ada riwayat pengiriman baju jadi.</td>';
+    tbody.appendChild(emptyTr);
+    return;
+  }
+
+  outboundLogsList.forEach(function (log) {
+    var tr = document.createElement('tr');
+    var doDisplay = log.doNo || log.trxNo || '-';
+    var dateDisplay = log.date || '-';
+    var skuDisplay = log.sku || '-';
+    var nameDisplay = log.itemName || log.name || '-';
+    var recipientDisplay = log.recipient || '-';
+    var courierDisplay = log.courier || '-';
+    var qtyDisplay = log.qty || 0;
+    var unitDisplay = log.unit || 'Pcs';
+    var statusDisplay = log.status || 'Terkirim';
+
+    tr.innerHTML =
+      '<td class="td-sku"><strong>' + escapeHtml(doDisplay) + '</strong></td>' +
+      '<td>' + escapeHtml(dateDisplay) + '</td>' +
+      '<td>' +
+        '<strong>' + escapeHtml(skuDisplay) + '</strong>' +
+        '<div style="font-size:0.75rem; color:var(--muted);">' + escapeHtml(nameDisplay) + '</div>' +
+      '</td>' +
+      '<td>' + escapeHtml(recipientDisplay) + '</td>' +
+      '<td><span class="badge badge-gray" style="font-size:0.72rem;">' + escapeHtml(courierDisplay) + '</span></td>' +
+      '<td style="text-align:right;"><span style="font-weight:700; color:var(--warning);">-' + qtyDisplay + ' ' + escapeHtml(unitDisplay) + '</span></td>' +
+      '<td><span class="badge badge-green">' + escapeHtml(statusDisplay) + '</span></td>';
+
+    tbody.appendChild(tr);
+  });
+}
+
+function handleOutboundSubmit(e) {
+  if (e && e.preventDefault) e.preventDefault();
+
+  var selectEl = document.getElementById('outboundItemSelect');
+  var itemId = selectEl ? selectEl.value : '';
+  var recipientInput = document.getElementById('outboundRecipient');
+  var recipient = recipientInput ? recipientInput.value.trim() : '';
+  var courierInput = document.getElementById('outboundCourier');
+  var courier = courierInput ? courierInput.value.trim() : '';
+  var qtyInput = document.getElementById('outboundQty');
+  var qty = qtyInput ? parseInt(qtyInput.value, 10) : 0;
+  var dateInput = document.getElementById('outboundDate');
+  var date = (dateInput && dateInput.value) ? dateInput.value : new Date().toISOString().split('T')[0];
+
+  // 1. Validate selected item
+  if (!itemId) {
+    showToast('Mohon pilih baju jadi yang akan dikirim.', 'error');
+    return;
+  }
+
+  var item = inventoryList.find(function (it) {
+    return String(it.id) === String(itemId) || it.sku === itemId;
+  });
+
+  if (!item) {
+    showToast('Barang inventaris tidak ditemukan.', 'error');
+    return;
+  }
+
+  // 2. Validate qty
+  if (!qty || isNaN(qty) || qty <= 0) {
+    showToast('Jumlah kirim harus berupa angka positif lebih dari 0.', 'error');
+    return;
+  }
+
+  // 3. Validate anti-overshipping
+  if (qty > item.qty) {
+    showToast('Stok tidak mencukupi untuk pengiriman!', 'error');
+    return;
+  }
+
+  // 4. Validate recipient
+  if (!recipient) {
+    showToast('Nama penerima / reseller baju jadi wajib diisi.', 'error');
+    return;
+  }
+
+  // 5. Validate courier
+  if (!courier) {
+    showToast('Nama ekspedisi / kurir wajib diisi.', 'error');
+    return;
+  }
+
+  // 6. Auto-generate DO Number (DO-GP-YYYY-XXX)
+  var currentYear = new Date().getFullYear();
+  var seq = String(outboundLogsList.length + 1).padStart(3, '0');
+  var generatedDo = 'DO-GP-' + currentYear + '-' + seq;
+
+  // 7. Stock Mutation: Deduct item inventory
+  item.qty -= qty;
+  item.status = item.qty === 0 ? '🚨 Stok Habis' : (item.qty <= item.minStock ? '⚠️ Stok Minimum!' : 'Tersedia');
+  saveInventory();
+
+  // 8. Record Outbound Transaction Log
+  var newLog = {
+    id: 'OUT-' + Date.now(),
+    doNo: generatedDo,
+    trxNo: generatedDo,
+    itemId: item.id,
+    sku: item.sku,
+    itemName: item.name,
+    name: item.name,
+    qty: qty,
+    unit: item.unit || 'Pcs',
+    recipient: recipient,
+    courier: courier,
+    date: date,
+    status: 'Terkirim'
+  };
+
+  outboundLogsList.unshift(newLog);
+  try {
+    localStorage.setItem('gp_apparel_outbound_logs', JSON.stringify(outboundLogsList));
+  } catch (err) { }
+
+  // 9. Re-render UI components
+  renderOutboundLogs();
+  renderInventoryTable(getCurrentKeyword(), getCurrentCat());
+  renderOutboundDropdown();
+  updateStats();
+
+  // 10. Reset form and reset date to today
+  var outboundForm = document.getElementById('outboundForm');
+  if (outboundForm) {
+    outboundForm.reset();
+    var dInput = document.getElementById('outboundDate');
+    if (dInput) {
+      dInput.value = new Date().toISOString().split('T')[0];
+    }
+  }
+  validateOutboundStock();
+
+  // 11. Feedback Toast
+  showToast('Surat Jalan ' + generatedDo + ' berhasil diterbitkan! Stok ' + item.name + ' berkurang -' + qty + ' ' + (item.unit || 'Pcs'), 'success');
+
+  // Additional low-stock alert toast if applicable
+  if (item.qty === 0) {
+    showToast('🚨 PERINGATAN KRITIS: Stok ' + item.name + ' telah HABIS (0)!', 'error');
+  } else if (item.qty <= item.minStock) {
+    showToast('⚠️ PERINGATAN: Stok ' + item.name + ' tersisa ' + item.qty + ' ' + (item.unit || 'Pcs') + ' (mencapai batas minimum ' + item.minStock + ')!', 'error');
+  }
+}
+
 // ── TAB WORKSPACE SWITCHER (VIEWS & NAVIGATION) ─────────────────────────────
 
 var VIEW_MODULE_LABELS = {
@@ -842,6 +1098,14 @@ function switchView(viewId) {
     if (inbDate && !inbDate.value) {
       inbDate.value = new Date().toISOString().split('T')[0];
     }
+  } else if (cleanId === 'viewOutbound') {
+    renderOutboundDropdown();
+    renderOutboundLogs();
+    var outDate = document.getElementById('outboundDate');
+    if (outDate && !outDate.value) {
+      outDate.value = new Date().toISOString().split('T')[0];
+    }
+    validateOutboundStock();
   }
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -951,6 +1215,22 @@ function bindEvents() {
   var inboundForm = document.getElementById('inboundForm');
   if (inboundForm) {
     inboundForm.addEventListener('submit', handleInboundSubmit);
+  }
+
+  // Submit Surat Jalan Pengiriman Baju Jadi (Outbound DO)
+  var outboundForm = document.getElementById('outboundForm');
+  if (outboundForm) {
+    outboundForm.addEventListener('submit', handleOutboundSubmit);
+  }
+
+  // Realtime Over-Shipping Validation Listeners
+  var outboundItemSelect = document.getElementById('outboundItemSelect');
+  var outboundQtyInput = document.getElementById('outboundQty');
+  if (outboundItemSelect) {
+    outboundItemSelect.addEventListener('change', validateOutboundStock);
+  }
+  if (outboundQtyInput) {
+    outboundQtyInput.addEventListener('input', validateOutboundStock);
   }
 
   // Filter & Search
