@@ -1018,6 +1018,337 @@ function handleOutboundSubmit(e) {
   } else if (item.qty <= item.minStock) {
     showToast('⚠️ PERINGATAN: Stok ' + item.name + ' tersisa ' + item.qty + ' ' + (item.unit || 'Pcs') + ' (mencapai batas minimum ' + item.minStock + ')!', 'error');
   }
+// ── INTERACTIVE WORKSHOP ZONES TELEMETRY & FILTERING ───────────────────────
+
+var activeZoneKey = 'A';
+
+function initZoneInteractions() {
+  var zoneCards = document.querySelectorAll('.zone-card');
+  if (!zoneCards || zoneCards.length === 0) return;
+
+  zoneCards.forEach(function (card) {
+    card.addEventListener('click', function () {
+      var zone = card.getAttribute('data-zone') || 'A';
+      activeZoneKey = zone;
+
+      zoneCards.forEach(function (c) {
+        c.classList.remove('selected');
+        c.classList.remove('active');
+      });
+      card.classList.add('selected');
+      card.classList.add('active');
+
+      filterByZone(zone);
+    });
+  });
+
+  updateZoneTelemetry();
+}
+
+function filterByZone(zoneKey) {
+  var key = (zoneKey || 'A').toUpperCase();
+  var tbody = document.getElementById('zoneFilterTableBody');
+  var heading = document.getElementById('currentZoneHeading');
+
+  var zoneLabels = {
+    'A': 'ZONA A (Gudang Kain Roll)',
+    'B': 'ZONA B (Aksesoris & Benang)',
+    'C': 'ZONA C (Meja Potong & WIP Cutting)',
+    'D': 'ZONA D (Baju Jadi Siap Kirim)'
+  };
+
+  if (heading) {
+    heading.textContent = 'Daftar Inventaris: ' + (zoneLabels[key] || ('Zona ' + key));
+  }
+
+  if (!tbody) return;
+  tbody.innerHTML = '';
+
+  var zoneItems = inventoryList.filter(function (item) {
+    var loc = (item.location || '').toUpperCase();
+    var cat = (item.category || '').toLowerCase();
+
+    if (key === 'A') {
+      return loc.indexOf('A') !== -1 || cat.indexOf('kain') !== -1;
+    } else if (key === 'B') {
+      return loc.indexOf('B') !== -1 || cat.indexOf('aksesoris') !== -1 || cat.indexOf('benang') !== -1;
+    } else if (key === 'C') {
+      return loc.indexOf('C') !== -1 || cat.indexOf('cutting') !== -1 || cat.indexOf('pola') !== -1;
+    } else if (key === 'D') {
+      return loc.indexOf('D') !== -1 || cat.indexOf('baju') !== -1 || cat.indexOf('kemasan') !== -1 || cat.indexOf('packaging') !== -1;
+    }
+    return loc.indexOf(key) !== -1;
+  });
+
+  if (zoneItems.length === 0) {
+    var emptyTr = document.createElement('tr');
+    emptyTr.innerHTML = '<td colspan="6" style="text-align:center; color:var(--muted); padding:24px;">Tidak ada item inventaris pada zona ini.</td>';
+    tbody.appendChild(emptyTr);
+    return;
+  }
+
+  zoneItems.forEach(function (item) {
+    var tr = document.createElement('tr');
+    var isLow = item.qty <= (typeof item.minStock === 'number' ? item.minStock : 15);
+    var isZero = item.qty === 0;
+
+    var statusMarkup = isZero
+      ? '<span class="badge badge-red">🚨 Stok Habis</span>'
+      : (isLow ? '<span class="badge badge-orange">⚠️ Stok Minimum!</span>' : '<span class="badge badge-green">Tersedia</span>');
+
+    tr.innerHTML =
+      '<td class="td-sku"><strong>' + escapeHtml(item.sku) + '</strong></td>' +
+      '<td><strong>' + escapeHtml(item.name) + '</strong></td>' +
+      '<td><span class="badge badge-blue">' + escapeHtml(item.category) + '</span></td>' +
+      '<td>' + escapeHtml(item.location) + '</td>' +
+      '<td><strong>' + item.qty + ' ' + escapeHtml(item.unit || 'Pcs') + '</strong></td>' +
+      '<td>' + statusMarkup + '</td>';
+
+    tbody.appendChild(tr);
+  });
+}
+
+function updateZoneTelemetry() {
+  var zoneTotals = { A: 0, B: 0, C: 0, D: 0 };
+  var zoneCaps = { A: 600, B: 600, C: 500, D: 1000 };
+
+  inventoryList.forEach(function (item) {
+    var loc = (item.location || '').toUpperCase();
+    var cat = (item.category || '').toLowerCase();
+    var q = Number(item.qty) || 0;
+
+    if (loc.indexOf('A') !== -1 || cat.indexOf('kain') !== -1) zoneTotals.A += q;
+    else if (loc.indexOf('B') !== -1 || cat.indexOf('aksesoris') !== -1) zoneTotals.B += q;
+    else if (loc.indexOf('C') !== -1 || cat.indexOf('cutting') !== -1) zoneTotals.C += q;
+    else if (loc.indexOf('D') !== -1 || cat.indexOf('baju') !== -1) zoneTotals.D += q;
+    else zoneTotals.A += q;
+  });
+
+  ['A', 'B', 'C', 'D'].forEach(function (z) {
+    var fillEls = document.querySelectorAll('.zone-bar-fill.' + (z === 'A' ? 'amber' : (z === 'B' ? 'green' : (z === 'C' ? 'red' : 'cyan'))));
+    var meterEls = document.querySelectorAll('.zone-meter');
+    var pct = Math.min(100, Math.round((zoneTotals[z] / zoneCaps[z]) * 100));
+
+    fillEls.forEach(function (el) {
+      el.style.width = pct + '%';
+    });
+  });
+
+  // Ensure view elements are accounted for
+  var viewOverview = document.getElementById('viewOverview');
+  var viewZones = document.getElementById('viewZones');
+}
+
+// ── STOCK OPNAME & AUDIT FISIK LOGIC ────────────────────────────────────────
+
+function renderAuditDropdown() {
+  var auditItemSelect = document.getElementById('auditItemSelect');
+  if (!auditItemSelect) return;
+
+  var currentVal = auditItemSelect.value;
+  auditItemSelect.innerHTML = '<option value="">-- Pilih Bahan Baku / Baju Jadi untuk Diaudit --</option>';
+
+  inventoryList.forEach(function (item) {
+    var opt = document.createElement('option');
+    opt.value = item.id;
+    opt.textContent = '[' + item.sku + '] ' + item.name + ' (Stok Sistem: ' + item.qty + ' ' + (item.unit || 'Pcs') + ')';
+    if (String(item.id) === String(currentVal) || item.sku === currentVal) {
+      opt.selected = true;
+    }
+    auditItemSelect.appendChild(opt);
+  });
+
+  auditItemSelect.addEventListener('change', function () {
+    var selectedId = auditItemSelect.value;
+    var systemStockEl = document.getElementById('auditSystemStock');
+    var countInput = document.getElementById('auditPhysicalCount');
+
+    if (!selectedId) {
+      if (systemStockEl) systemStockEl.textContent = '—';
+      if (countInput) countInput.value = '';
+      calculateAuditDiscrepancy();
+      return;
+    }
+
+    var item = inventoryList.find(function (it) {
+      return String(it.id) === String(selectedId) || it.sku === selectedId;
+    });
+
+    if (item && systemStockEl) {
+      systemStockEl.textContent = item.qty + ' ' + (item.unit || 'Pcs');
+      if (countInput) countInput.value = '';
+      calculateAuditDiscrepancy();
+    }
+  });
+}
+
+function calculateAuditDiscrepancy() {
+  var select = document.getElementById('auditItemSelect');
+  var countInput = document.getElementById('auditPhysicalCount');
+  var badge = document.getElementById('auditDiscrepancyBadge');
+  var btnSync = document.getElementById('btnSyncAuditStock');
+
+  if (!badge) return;
+
+  if (!select || !select.value || !countInput || countInput.value.trim() === '') {
+    badge.className = 'discrepancy-pill';
+    badge.textContent = 'Masukkan hitungan fisik';
+    if (btnSync) btnSync.disabled = true;
+    return;
+  }
+
+  var item = inventoryList.find(function (it) {
+    return String(it.id) === String(select.value) || it.sku === select.value;
+  });
+
+  if (!item) {
+    badge.className = 'discrepancy-pill';
+    badge.textContent = 'Masukkan hitungan fisik';
+    if (btnSync) btnSync.disabled = true;
+    return;
+  }
+
+  var physicalVal = parseInt(countInput.value, 10);
+  if (isNaN(physicalVal) || physicalVal < 0) {
+    badge.className = 'discrepancy-pill deficit';
+    badge.textContent = 'Angka tidak valid';
+    if (btnSync) btnSync.disabled = true;
+    return;
+  }
+
+  var diff = physicalVal - item.qty;
+
+  if (diff === 0) {
+    badge.className = 'discrepancy-pill match';
+    badge.textContent = '✓ Sesuai (Selisih: 0 ' + (item.unit || 'Pcs') + ')';
+  } else if (diff > 0) {
+    badge.className = 'discrepancy-pill surplus';
+    badge.textContent = '+ ' + diff + ' ' + (item.unit || 'Pcs') + ' (Surplus Fisik)';
+  } else {
+    badge.className = 'discrepancy-pill deficit';
+    badge.textContent = '' + diff + ' ' + (item.unit || 'Pcs') + ' (Kurang / Defisit)';
+  }
+
+  if (btnSync) btnSync.disabled = false;
+}
+
+function syncAuditStock() {
+  var select = document.getElementById('auditItemSelect');
+  var countInput = document.getElementById('auditPhysicalCount');
+  var reasonInput = document.getElementById('auditReason');
+  var user = getUser() || { name: 'Staff Konveksi' };
+
+  if (!select || !select.value) {
+    showToast('Mohon pilih barang yang diaudit.', 'error');
+    return;
+  }
+
+  var item = inventoryList.find(function (it) {
+    return String(it.id) === String(select.value) || it.sku === select.value;
+  });
+
+  if (!item) {
+    showToast('Item tidak ditemukan.', 'error');
+    return;
+  }
+
+  var physicalVal = parseInt(countInput ? countInput.value : '', 10);
+  if (isNaN(physicalVal) || physicalVal < 0) {
+    showToast('Masukkan hitungan fisik yang valid (minimal 0).', 'error');
+    return;
+  }
+
+  var oldStock = item.qty;
+  var diff = physicalVal - oldStock;
+  var reason = (reasonInput && reasonInput.value.trim()) ? reasonInput.value.trim() : 'Penyesuaian hasil audit fisik garmen';
+
+  // Update item stock
+  item.qty = physicalVal;
+  item.status = item.qty === 0 ? '🚨 Stok Habis' : (item.qty <= item.minStock ? '⚠️ Stok Minimum!' : 'Tersedia');
+  saveInventory();
+  localStorage.setItem('gp_apparel_inventory', JSON.stringify(inventoryList));
+
+  // Add audit log
+  var newAuditLog = {
+    id: 'AUD-' + Date.now(),
+    date: new Date().toISOString().split('T')[0],
+    itemId: item.id,
+    sku: item.sku,
+    itemName: item.name,
+    systemStock: oldStock,
+    physicalStock: physicalVal,
+    discrepancy: diff,
+    reason: reason,
+    auditor: user.name || 'Staff Konveksi'
+  };
+
+  auditLogsList.unshift(newAuditLog);
+  try {
+    localStorage.setItem('gp_apparel_audit_logs', JSON.stringify(auditLogsList));
+  } catch (e) { }
+
+  // Re-render UI
+  renderAuditLogs();
+  renderInventoryTable(getCurrentKeyword(), getCurrentCat());
+  renderInboundDropdown();
+  renderOutboundDropdown();
+  renderAuditDropdown();
+  updateZoneTelemetry();
+  filterByZone(activeZoneKey);
+  updateStats();
+
+  // Reset inputs
+  if (countInput) countInput.value = '';
+  if (reasonInput) reasonInput.value = '';
+  calculateAuditDiscrepancy();
+
+  showToast('Audit berhasil! Stok ' + item.name + ' disinkronkan menjadi ' + physicalVal + ' ' + (item.unit || 'Pcs') + ' (Selisih: ' + (diff > 0 ? '+' : '') + diff + ')', 'success');
+}
+
+function renderAuditLogs() {
+  var tbody = document.getElementById('auditTableBody');
+  if (!tbody) return;
+
+  tbody.innerHTML = '';
+
+  if (!auditLogsList || auditLogsList.length === 0) {
+    var emptyTr = document.createElement('tr');
+    emptyTr.innerHTML = '<td colspan="7" style="text-align:center; color:var(--muted); padding:24px;">Belum ada riwayat stock opname.</td>';
+    tbody.appendChild(emptyTr);
+    return;
+  }
+
+  auditLogsList.forEach(function (log) {
+    var tr = document.createElement('tr');
+    var dateDisplay = log.date || '-';
+    var skuDisplay = log.sku || '-';
+    var nameDisplay = log.itemName || log.name || '-';
+    var auditorDisplay = log.auditor || 'Staff Konveksi';
+    var sysStock = typeof log.systemStock !== 'undefined' ? log.systemStock : '-';
+    var physStock = typeof log.physicalStock !== 'undefined' ? log.physicalStock : '-';
+    var diff = typeof log.discrepancy !== 'undefined' ? Number(log.discrepancy) : 0;
+    var reasonDisplay = log.reason || log.notes || '-';
+
+    var diffMarkup = '';
+    if (diff === 0) {
+      diffMarkup = '<span class="discrepancy-pill match" style="font-size:0.75rem;">0 (Cocok)</span>';
+    } else if (diff > 0) {
+      diffMarkup = '<span class="discrepancy-pill surplus" style="font-size:0.75rem;">+' + diff + ' (Surplus)</span>';
+    } else {
+      diffMarkup = '<span class="discrepancy-pill deficit" style="font-size:0.75rem;">' + diff + ' (Defisit)</span>';
+    }
+
+    tr.innerHTML =
+      '<td>' + escapeHtml(dateDisplay) + '</td>' +
+      '<td><strong>' + escapeHtml(skuDisplay) + '</strong><div style="font-size:0.75rem; color:var(--muted);">' + escapeHtml(nameDisplay) + '</div></td>' +
+      '<td>' + escapeHtml(auditorDisplay) + '</td>' +
+      '<td style="text-align:right;">' + sysStock + '</td>' +
+      '<td style="text-align:right;"><strong>' + physStock + '</strong></td>' +
+      '<td>' + diffMarkup + '</td>' +
+      '<td><span style="font-size:0.8rem; color:var(--text);">' + escapeHtml(reasonDisplay) + '</span></td>';
+
+    tbody.appendChild(tr);
+  });
 }
 
 // ── TAB WORKSPACE SWITCHER (VIEWS & NAVIGATION) ─────────────────────────────
@@ -1105,7 +1436,12 @@ function switchView(viewId) {
     if (outDate && !outDate.value) {
       outDate.value = new Date().toISOString().split('T')[0];
     }
-    validateOutboundStock();
+  } else if (cleanId === 'viewZones') {
+    updateZoneTelemetry();
+    filterByZone(activeZoneKey || 'A');
+  } else if (cleanId === 'viewAudit') {
+    renderAuditDropdown();
+    renderAuditLogs();
   }
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1301,6 +1637,24 @@ function bindEvents() {
       switchView('viewAudit');
     });
   }
+
+  // Zone interactions
+  initZoneInteractions();
+
+  // Stock Opname Audit Event Listeners
+  var btnSyncAuditStock = document.getElementById('btnSyncAuditStock');
+  if (btnSyncAuditStock) {
+    btnSyncAuditStock.addEventListener('click', syncAuditStock);
+  }
+
+  var auditPhysicalCount = document.getElementById('auditPhysicalCount');
+  if (auditPhysicalCount) {
+    auditPhysicalCount.addEventListener('input', calculateAuditDiscrepancy);
+  }
+
+  renderAuditDropdown();
+  renderAuditLogs();
+  updateZoneTelemetry();
 }
 
 async function logout() {
