@@ -1,0 +1,192 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <linearGradient id="bgGrad7" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070b14"/>
+      <stop offset="50%" stop-color="#0b1220"/>
+      <stop offset="100%" stop-color="#080e1a"/>
+    </linearGradient>
+    <linearGradient id="cardGrad7" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141f36"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="highlightGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <filter id="shadow7" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="url(#bgGrad7)"/>
+
+  <!-- Top Header Navigation -->
+  <g transform="translate(140, 70)">
+    <rect x="0" y="0" width="1640" height="70" rx="16" fill="#0f172a" stroke="#1e293b" stroke-width="1.2"/>
+    <text x="32" y="42" font-family="'Inter', 'Segoe UI', sans-serif" font-size="14" font-weight="700" fill="#10b981" letter-spacing="1.5">BAGIAN II: FITUR BERNILAI TAMBAH (VALUE-ADDED)</text>
+    <text x="430" y="42" font-family="'Inter', 'Segoe UI', sans-serif" font-size="14" font-weight="500" fill="#64748b">|</text>
+    <text x="450" y="42" font-family="'Inter', 'Segoe UI', sans-serif" font-size="14" font-weight="600" fill="#cbd5e1">Inovasi Pembeda yang Mengubah Efisiensi Operasional &amp; Keuangan Gudang</text>
+    <text x="1560" y="43" font-family="'Inter', 'Segoe UI', sans-serif" font-size="16" font-weight="800" fill="#64748b">07 / 10</text>
+  </g>
+
+  <!-- Title & Subtitle -->
+  <g transform="translate(140, 180)">
+    <text x="0" y="32" font-family="'Inter', 'Segoe UI', sans-serif" font-size="38" font-weight="900" fill="#ffffff">
+      3 Fitur Bernilai Tambah GudangPro
+    </text>
+    <text x="0" y="68" font-family="'Inter', 'Segoe UI', sans-serif" font-size="18" font-weight="400" fill="#94a3b8">
+      Dirancang murni dari karakteristik logistik pergudangan untuk memberikan dampak bisnis yang nyata dan terukur.
+    </text>
+  </g>
+
+  <!-- 3 Big Cards for 3 Features -->
+  <g transform="translate(140, 275)">
+    <!-- Feature 1: Smart Reorder Point -->
+    <g transform="translate(0, 0)" filter="url(#shadow7)">
+      <rect x="0" y="0" width="520" height="675" rx="20" fill="url(#cardGrad7)" stroke="#059669" stroke-width="1.8"/>
+      
+      <!-- Card Badge -->
+      <rect x="28" y="28" width="190" height="32" rx="8" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-opacity="0.4"/>
+      <text x="123" y="49" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#6ee7b7" text-anchor="middle">VALUE-ADD FITUR 01</text>
+
+      <text x="28" y="96" font-family="'Inter', sans-serif" font-size="22" font-weight="800" fill="#ffffff">Smart Reorder Point (ROP)</text>
+      <text x="28" y="122" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#34d399">&amp; Auto Stock-Out Alert</text>
+
+      <!-- Problem Solved -->
+      <g transform="translate(28, 150)">
+        <rect x="0" y="0" width="464" height="100" rx="12" fill="#0b1322" stroke="#1c2d4a"/>
+        <text x="16" y="26" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#38bdf8">MASALAH YANG DISELESAIKAN:</text>
+        <text x="16" y="52" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#e2e8f0">Purchasing terlambat memesan ulang barang,</text>
+        <text x="16" y="72" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">sehingga stok ludes mendadak (*lost sales*)</text>
+        <text x="16" y="92" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#fca5a5">dan pengiriman ke pelanggan terhenti.</text>
+      </g>
+
+      <!-- How it Works -->
+      <g transform="translate(28, 265)">
+        <rect x="0" y="0" width="464" height="145" rx="12" fill="#0b1322" stroke="#1c2d4a"/>
+        <text x="16" y="26" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#38bdf8">CARA KERJA SISTEM:</text>
+        <text x="16" y="52" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">• Sistem kalkulasi konsumsi rata-rata harian</text>
+        <text x="16" y="72" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">  dan waktu tunggu pengiriman supplier (*lead time*).</text>
+        <text x="16" y="98" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">• Begitu menyentuh batas aman, sistem kirimkan</text>
+        <text x="16" y="118" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#34d399">  peringatan otomatis + rekomendasi kuantitas PO.</text>
+      </g>
+
+      <!-- Users Benefited -->
+      <g transform="translate(28, 425)">
+        <rect x="0" y="0" width="464" height="75" rx="12" fill="#0b1322" stroke="#1c2d4a"/>
+        <text x="16" y="26" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#38bdf8">PENGGUNA YANG DIUNTUNGKAN:</text>
+        <text x="16" y="52" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#ffffff">Staf Purchasing &amp; Pemilik Usaha (Owner)</text>
+      </g>
+
+      <!-- Quantified Impact Banner -->
+      <g transform="translate(28, 515)">
+        <rect x="0" y="0" width="464" height="130" rx="14" fill="#0d2621" stroke="#059669" stroke-width="1.4"/>
+        <text x="20" y="32" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#34d399">DAMPAK BISNIS &amp; FINANSIAL:</text>
+        <text x="20" y="65" font-family="'Inter', sans-serif" font-size="28" font-weight="900" fill="#ffffff">90% Zero Stock-Out</text>
+        <text x="20" y="95" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#a7f3d0">Menghilangkan potensi kehilangan omzet penjualan</text>
+        <text x="20" y="115" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#ffffff">serta menjaga ketersediaan rantai pasok secara presisi.</text>
+      </g>
+    </g>
+
+    <!-- Feature 2: Guided Batch Picking -->
+    <g transform="translate(560, 0)" filter="url(#shadow7)">
+      <rect x="0" y="0" width="520" height="675" rx="20" fill="url(#cardGrad7)" stroke="#0284c7" stroke-width="1.8"/>
+
+      <!-- Card Badge -->
+      <rect x="28" y="28" width="190" height="32" rx="8" fill="#0284c7" fill-opacity="0.18" stroke="#0284c7" stroke-opacity="0.4"/>
+      <text x="123" y="49" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#7dd3fc" text-anchor="middle">VALUE-ADD FITUR 02</text>
+
+      <text x="28" y="96" font-family="'Inter', sans-serif" font-size="22" font-weight="800" fill="#ffffff">Guided Batch Picking Route</text>
+      <text x="28" y="122" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#38bdf8">&amp; S-Shape Path Navigation</text>
+
+      <!-- Problem Solved -->
+      <g transform="translate(28, 150)">
+        <rect x="0" y="0" width="464" height="100" rx="12" fill="#0b1322" stroke="#1c2d4a"/>
+        <text x="16" y="26" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#38bdf8">MASALAH YANG DISELESAIKAN:</text>
+        <text x="16" y="52" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#e2e8f0">Staf picker jalan bolak-balik zigzag di lorong</text>
+        <text x="16" y="72" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">yang sama karena pick-list berantakan,</text>
+        <text x="16" y="92" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#fca5a5">mengakibatkan penyiapan barang lambat.</text>
+      </g>
+
+      <!-- How it Works -->
+      <g transform="translate(28, 265)">
+        <rect x="0" y="0" width="464" height="145" rx="12" fill="#0b1322" stroke="#1c2d4a"/>
+        <text x="16" y="26" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#38bdf8">CARA KERJA SISTEM:</text>
+        <text x="16" y="52" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">• Sistem menggabungkan 5-10 order jadi 1 batch.</text>
+        <text x="16" y="72" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">• Mengurutkan rute pemungutan satu arah:</text>
+        <text x="16" y="98" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#38bdf8">  Lorong 1 (A1→A4) → Lorong 2 (B3) → Lorong 3</text>
+        <text x="16" y="118" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">  tanpa pernah memutar balik arah (*S-Shape*).</text>
+      </g>
+
+      <!-- Users Benefited -->
+      <g transform="translate(28, 425)">
+        <rect x="0" y="0" width="464" height="75" rx="12" fill="#0b1322" stroke="#1c2d4a"/>
+        <text x="16" y="26" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#38bdf8">PENGGUNA YANG DIUNTUNGKAN:</text>
+        <text x="16" y="52" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#ffffff">Staf Gudang (Picker) &amp; Tim Ekspedisi</text>
+      </g>
+
+      <!-- Quantified Impact Banner -->
+      <g transform="translate(28, 515)">
+        <rect x="0" y="0" width="464" height="130" rx="14" fill="#082236" stroke="#0284c7" stroke-width="1.4"/>
+        <text x="20" y="32" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#38bdf8">DAMPAK BISNIS &amp; OPERASIONAL:</text>
+        <text x="20" y="65" font-family="'Inter', sans-serif" font-size="28" font-weight="900" fill="#ffffff">35 - 50% Pangkas Waktu</text>
+        <text x="20" y="95" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#bae6fd">Kapasitas order fulfillment naik 2x lipat</text>
+        <text x="20" y="115" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#ffffff">tanpa perlu menambah jumlah personel operator.</text>
+      </g>
+    </g>
+
+    <!-- Feature 3: Dead Stock Aging Analyzer -->
+    <g transform="translate(1120, 0)" filter="url(#shadow7)">
+      <rect x="0" y="0" width="520" height="675" rx="20" fill="url(#cardGrad7)" stroke="#7c3aed" stroke-width="1.8"/>
+
+      <!-- Card Badge -->
+      <rect x="28" y="28" width="190" height="32" rx="8" fill="#7c3aed" fill-opacity="0.18" stroke="#7c3aed" stroke-opacity="0.4"/>
+      <text x="123" y="49" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#c4b5fd" text-anchor="middle">VALUE-ADD FITUR 03</text>
+
+      <text x="28" y="96" font-family="'Inter', sans-serif" font-size="22" font-weight="800" fill="#ffffff">Dead Stock Aging Analyzer</text>
+      <text x="28" y="122" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#a78bfa">&amp; Slow-Moving Clearance</text>
+
+      <!-- Problem Solved -->
+      <g transform="translate(28, 150)">
+        <rect x="0" y="0" width="464" height="100" rx="12" fill="#0b1322" stroke="#1c2d4a"/>
+        <text x="16" y="26" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#38bdf8">MASALAH YANG DISELESAIKAN:</text>
+        <text x="16" y="52" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#e2e8f0">Barang lama tertimbun berbulan-bulan di pojok,</text>
+        <text x="16" y="72" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">uang modal kerja mati, dan barang terancam</text>
+        <text x="16" y="92" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#fca5a5">kadaluwarsa atau rusak kemasan.</text>
+      </g>
+
+      <!-- How it Works -->
+      <g transform="translate(28, 265)">
+        <rect x="0" y="0" width="464" height="145" rx="12" fill="#0b1322" stroke="#1c2d4a"/>
+        <text x="16" y="26" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#38bdf8">CARA KERJA SISTEM:</text>
+        <text x="16" y="52" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">• Menghitung selisih hari sejak barang masuk.</text>
+        <text x="16" y="72" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">• Membagi stok: Fast (&lt;30h), Slow (60-90h),</text>
+        <text x="16" y="98" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#c084fc">  dan Dead Stock (&gt;90 hari tanpa keluar).</text>
+        <text x="16" y="118" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">• Rekomendasi aksi: Retur supplier / Diskon B2B.</text>
+      </g>
+
+      <!-- Users Benefited -->
+      <g transform="translate(28, 425)">
+        <rect x="0" y="0" width="464" height="75" rx="12" fill="#0b1322" stroke="#1c2d4a"/>
+        <text x="16" y="26" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#38bdf8">PENGGUNA YANG DIUNTUNGKAN:</text>
+        <text x="16" y="52" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#ffffff">Owner, Tim Keuangan, &amp; Kepala Gudang</text>
+      </g>
+
+      <!-- Quantified Impact Banner -->
+      <g transform="translate(28, 515)">
+        <rect x="0" y="0" width="464" height="130" rx="14" fill="#201036" stroke="#7c3aed" stroke-width="1.4"/>
+        <text x="20" y="32" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#c084fc">DAMPAK BISNIS &amp; ASET:</text>
+        <text x="20" y="65" font-family="'Inter', sans-serif" font-size="28" font-weight="900" fill="#ffffff">Likuidasi Modal Kerja</text>
+        <text x="20" y="95" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#ddd6fe">Menyelamatkan dana puluhan/ratusan juta</text>
+        <text x="20" y="115" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#ffffff">serta membebaskan rak untuk barang berputar cepat.</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <g transform="translate(140, 1010)">
+    <text x="0" y="0" font-family="'Inter', sans-serif" font-size="14" font-weight="600" fill="#475569">GudangPro WMS • 3 Fitur Pembeda Bernilai Tambah</text>
+    <text x="1640" y="0" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#64748b">07 / 10</text>
+  </g>
+</svg>

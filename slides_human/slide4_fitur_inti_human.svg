@@ -1,0 +1,191 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <filter id="subtleShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <rect width="1920" height="1080" fill="#f8fafc"/>
+  <rect x="0" y="0" width="16" height="1080" fill="#2563eb"/>
+
+  <!-- Top Title Bar -->
+  <g transform="translate(120, 70)">
+    <text x="0" y="24" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="14" font-weight="700" fill="#2563eb" letter-spacing="1">FONDASI SISTEM MINIMUM</text>
+    <text x="0" y="65" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="38" font-weight="800" fill="#0f172a">
+      5 Fitur Inti GudangPro (Core Features)
+    </text>
+    <text x="0" y="98" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="16" font-weight="400" fill="#64748b">
+      Fitur non-negotiable yang wajib ada agar sistem secara sah berfungsi sebagai Warehouse Management System.
+    </text>
+  </g>
+
+  <!-- 5 Clean Columns/Cards -->
+  <g transform="translate(120, 205)">
+    <!-- Feature 1 -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="315" height="490" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#subtleShadow)"/>
+      <rect x="24" y="24" width="40" height="28" rx="6" fill="#f1f5f9"/>
+      <text x="44" y="43" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="800" fill="#475569" text-anchor="middle">01</text>
+
+      <text x="24" y="90" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="20" font-weight="800" fill="#0f172a">Master Data SKU</text>
+      <text x="24" y="115" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="600" fill="#2563eb">Katalog Tunggal Barang</text>
+
+      <g transform="translate(24, 145)">
+        <text x="0" y="16" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="800" fill="#64748b">FUNGSI UTAMA:</text>
+        <rect x="0" y="26" width="267" height="100" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+        <text x="14" y="26" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="500" fill="#1e293b">Menyimpan nomor SKU,</text>
+        <text x="14" y="48" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="500" fill="#1e293b">nama item, satuan unit,</text>
+        <text x="14" y="70" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="500" fill="#1e293b">barcode, &amp; ambang batas.</text>
+      </g>
+
+      <g transform="translate(24, 305)">
+        <text x="0" y="16" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="800" fill="#b45309">MENGAPA HARUS ADA?</text>
+        <rect x="0" y="26" width="267" height="135" rx="8" fill="#fffbeb" stroke="#fde68a"/>
+        <text x="14" y="26" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="400" fill="#78350f">Tanpa master barang,</text>
+        <text x="14" y="48" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="400" fill="#78350f">seluruh transaksi masuk</text>
+        <text x="14" y="70" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="400" fill="#78350f">dan keluar kehilangan</text>
+        <text x="14" y="92" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="700" fill="#b45309">entitas data acuan.</text>
+      </g>
+    </g>
+
+    <!-- Feature 2 -->
+    <g transform="translate(341, 0)">
+      <rect x="0" y="0" width="315" height="490" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#subtleShadow)"/>
+      <rect x="24" y="24" width="40" height="28" rx="6" fill="#f1f5f9"/>
+      <text x="44" y="43" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="800" fill="#475569" text-anchor="middle">02</text>
+
+      <text x="24" y="90" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="20" font-weight="800" fill="#0f172a">Pencatatan Masuk</text>
+      <text x="24" y="115" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="600" fill="#2563eb">Inbound Receiving</text>
+
+      <g transform="translate(24, 145)">
+        <text x="0" y="16" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="800" fill="#64748b">FUNGSI UTAMA:</text>
+        <rect x="0" y="26" width="267" height="100" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+        <text x="14" y="26" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="500" fill="#1e293b">Mencatat kedatangan barang</text>
+        <text x="14" y="48" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="500" fill="#1e293b">dari supplier, verifikasi surat</text>
+        <text x="14" y="70" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="500" fill="#1e293b">jalan, &amp; catat tanggal tiba.</text>
+      </g>
+
+      <g transform="translate(24, 305)">
+        <text x="0" y="16" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="800" fill="#b45309">MENGAPA HARUS ADA?</text>
+        <rect x="0" y="26" width="267" height="135" rx="8" fill="#fffbeb" stroke="#fde68a"/>
+        <text x="14" y="26" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="400" fill="#78350f">Merupakan gerbang sah</text>
+        <text x="14" y="48" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="400" fill="#78350f">bertambahnya saldo stok.</text>
+        <text x="14" y="70" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="400" fill="#78350f">Mencegah klaim fiktif</text>
+        <text x="14" y="92" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="700" fill="#b45309">dari pihak pengirim.</text>
+      </g>
+    </g>
+
+    <!-- Feature 3 -->
+    <g transform="translate(682, 0)">
+      <rect x="0" y="0" width="315" height="490" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#subtleShadow)"/>
+      <rect x="24" y="24" width="40" height="28" rx="6" fill="#f1f5f9"/>
+      <text x="44" y="43" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="800" fill="#475569" text-anchor="middle">03</text>
+
+      <text x="24" y="90" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="20" font-weight="800" fill="#0f172a">Pencatatan Keluar</text>
+      <text x="24" y="115" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="600" fill="#2563eb">Outbound Dispatch</text>
+
+      <g transform="translate(24, 145)">
+        <text x="0" y="16" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="800" fill="#64748b">FUNGSI UTAMA:</text>
+        <rect x="0" y="26" width="267" height="100" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+        <text x="14" y="26" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="500" fill="#1e293b">Memvalidasi pengurangan</text>
+        <text x="14" y="48" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="500" fill="#1e293b">stok untuk order pesanan,</text>
+        <text x="14" y="70" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="500" fill="#1e293b">packing, dan pengiriman.</text>
+      </g>
+
+      <g transform="translate(24, 305)">
+        <text x="0" y="16" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="800" fill="#b45309">MENGAPA HARUS ADA?</text>
+        <rect x="0" y="26" width="267" height="135" rx="8" fill="#fffbeb" stroke="#fde68a"/>
+        <text x="14" y="26" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="400" fill="#78350f">Menjamin barang keluar</text>
+        <text x="14" y="48" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="400" fill="#78350f">memotong stok detik itu</text>
+        <text x="14" y="70" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="400" fill="#78350f">juga secara real-time</text>
+        <text x="14" y="92" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="700" fill="#b45309">tanpa jeda waktu.</text>
+      </g>
+    </g>
+
+    <!-- Feature 4 -->
+    <g transform="translate(1023, 0)">
+      <rect x="0" y="0" width="315" height="490" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#subtleShadow)"/>
+      <rect x="24" y="24" width="40" height="28" rx="6" fill="#eff6ff"/>
+      <text x="44" y="43" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="800" fill="#2563eb" text-anchor="middle">04</text>
+
+      <text x="24" y="90" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="20" font-weight="800" fill="#0f172a">Pemetaan Rak (Bin)</text>
+      <text x="24" y="115" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="600" fill="#2563eb">Alamat Lokasi Fisik</text>
+
+      <g transform="translate(24, 145)">
+        <text x="0" y="16" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="800" fill="#64748b">FUNGSI UTAMA:</text>
+        <rect x="0" y="26" width="267" height="100" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+        <text x="14" y="26" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="500" fill="#1e293b">Menyimpan alamat rak:</text>
+        <text x="14" y="48" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="500" fill="#1e293b">Zona A - Lorong 02 -</text>
+        <text x="14" y="70" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="500" fill="#1e293b">Rak 04 - Level 01.</text>
+      </g>
+
+      <g transform="translate(24, 305)">
+        <text x="0" y="16" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="800" fill="#b45309">MENGAPA HARUS ADA?</text>
+        <rect x="0" y="26" width="267" height="135" rx="8" fill="#fffbeb" stroke="#fde68a"/>
+        <text x="14" y="26" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="400" fill="#78350f">Ciri khas pembeda WMS.</text>
+        <text x="14" y="48" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="400" fill="#78350f">Tanpa data letak rak,</text>
+        <text x="14" y="70" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="400" fill="#78350f">staf buta arah di area</text>
+        <text x="14" y="92" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="700" fill="#b45309">penyimpanan fisik.</text>
+      </g>
+    </g>
+
+    <!-- Feature 5 -->
+    <g transform="translate(1364, 0)">
+      <rect x="0" y="0" width="316" height="490" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#subtleShadow)"/>
+      <rect x="24" y="24" width="40" height="28" rx="6" fill="#eff6ff"/>
+      <text x="44" y="43" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="800" fill="#2563eb" text-anchor="middle">05</text>
+
+      <text x="24" y="90" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="20" font-weight="800" fill="#0f172a">Kartu Stok (Log)</text>
+      <text x="24" y="115" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="600" fill="#2563eb">Audit Trail &amp; Kronologi</text>
+
+      <g transform="translate(24, 145)">
+        <text x="0" y="16" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="800" fill="#64748b">FUNGSI UTAMA:</text>
+        <rect x="0" y="26" width="268" height="100" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+        <text x="14" y="26" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="500" fill="#1e293b">Merekam kronologi lengkap:</text>
+        <text x="14" y="48" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="500" fill="#1e293b">waktu, kuantitas mutasi,</text>
+        <text x="14" y="70" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="500" fill="#1e293b">saldo sisa, &amp; nama operator.</text>
+      </g>
+
+      <g transform="translate(24, 305)">
+        <text x="0" y="16" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="800" fill="#b45309">MENGAPA HARUS ADA?</text>
+        <rect x="0" y="26" width="268" height="135" rx="8" fill="#fffbeb" stroke="#fde68a"/>
+        <text x="14" y="26" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="400" fill="#78350f">Alat bukti saat opname.</text>
+        <text x="14" y="48" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="400" fill="#78350f">Tanpa log kronologis,</text>
+        <text x="14" y="70" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="400" fill="#78350f">tidak bisa melacak siapa</text>
+        <text x="14" y="92" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="700" fill="#b45309">penyebab selisih stok.</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom Evaluation Rubric Assessment Box -->
+  <g transform="translate(120, 725)">
+    <rect x="0" y="0" width="1680" height="230" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#subtleShadow)"/>
+    <rect x="0" y="0" width="8" height="230" rx="4" fill="#dc2626"/>
+
+    <g transform="translate(36, 32)">
+      <rect x="0" y="0" width="180" height="28" rx="6" fill="#fef2f2" stroke="#fecaca"/>
+      <text x="90" y="19" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="800" fill="#dc2626" text-anchor="middle">PERTANYAAN RUBRIK TUGAS</text>
+
+      <text x="0" y="68" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="22" font-weight="800" fill="#0f172a">
+        "Jika salah satu fitur di atas dihilangkan, apakah GudangPro masih dapat disebut sebagai WMS?"
+      </text>
+
+      <text x="0" y="110" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="24" font-weight="900" fill="#dc2626">
+        JAWABAN TEGAS: TIDAK BISA.
+      </text>
+      <text x="0" y="142" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="15" font-weight="400" fill="#334155">
+        Jika pemetaan rak dihilangkan, sistem ini turun kelas menjadi kasir retail biasa. Jika kartu stok dihilangkan, sistem ini gagal menjalankan fungsi pelacakan inventaris.
+      </text>
+      <text x="0" y="168" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="15" font-weight="700" fill="#15803d">
+        Kelima fitur di atas adalah fondasi non-negotiable yang wajib hadir sebelum kita merancang fitur bernilai tambah.
+      </text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <g transform="translate(120, 1000)">
+    <line x1="0" y1="0" x2="1680" y2="0" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="0" y="32" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="500" fill="#64748b">Identifikasi Fitur Inti WMS • GudangPro</text>
+    <text x="1650" y="32" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="700" fill="#0f172a">04 / 06</text>
+  </g>
+</svg>

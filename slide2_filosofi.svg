@@ -1,0 +1,192 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070b14"/>
+      <stop offset="50%" stop-color="#0b1220"/>
+      <stop offset="100%" stop-color="#080e1a"/>
+    </linearGradient>
+    <linearGradient id="cardGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141f36"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="badGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2a1215"/>
+      <stop offset="100%" stop-color="#1a0b0d"/>
+    </linearGradient>
+    <linearGradient id="goodGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d2621"/>
+      <stop offset="100%" stop-color="#081714"/>
+    </linearGradient>
+    <filter id="cardShadow2" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="url(#bgGrad2)"/>
+
+  <!-- Top Header Navigation -->
+  <g transform="translate(140, 70)">
+    <rect x="0" y="0" width="1640" height="70" rx="16" fill="#0f172a" stroke="#1e293b" stroke-width="1.2"/>
+    <text x="32" y="42" font-family="'Inter', 'Segoe UI', sans-serif" font-size="14" font-weight="700" fill="#38bdf8" letter-spacing="1.5">FILOSOFI PRODUK &amp; METODOLOGI</text>
+    <text x="300" y="42" font-family="'Inter', 'Segoe UI', sans-serif" font-size="14" font-weight="500" fill="#64748b">|</text>
+    <text x="320" y="42" font-family="'Inter', 'Segoe UI', sans-serif" font-size="14" font-weight="600" fill="#cbd5e1">Paradigma: Mengapa Aplikasi Tidak Boleh Sekadar Jadi Alat Pencatat Pasif?</text>
+    <text x="1560" y="43" font-family="'Inter', 'Segoe UI', sans-serif" font-size="16" font-weight="800" fill="#64748b">02 / 10</text>
+  </g>
+
+  <!-- Title & Subtitle -->
+  <g transform="translate(140, 180)">
+    <text x="0" y="32" font-family="'Inter', 'Segoe UI', sans-serif" font-size="38" font-weight="900" fill="#ffffff">
+      Dua Paradigma Aplikasi Bisnis
+    </text>
+    <text x="0" y="68" font-family="'Inter', 'Segoe UI', sans-serif" font-size="18" font-weight="400" fill="#94a3b8">
+      Pelajaran paling mendasar dari eksplorasi Mibebi Kasir sebelum melangkah ke perancangan arsitektur WMS GudangPro.
+    </text>
+  </g>
+
+  <!-- Comparison Columns: Left (Passive) vs Right (Growth Engine) -->
+  <g transform="translate(140, 280)">
+    <!-- LEFT CARD: APLIKASI PENCATAT -->
+    <g transform="translate(0, 0)" filter="url(#cardShadow2)">
+      <rect x="0" y="0" width="790" height="390" rx="20" fill="url(#badGrad)" stroke="#7f1d1d" stroke-width="1.5"/>
+      <rect x="32" y="32" width="160" height="32" rx="8" fill="#ef4444" fill-opacity="0.2" stroke="#ef4444" stroke-opacity="0.4"/>
+      <text x="112" y="53" font-family="'Inter', 'Segoe UI', sans-serif" font-size="12" font-weight="800" fill="#fca5a5" text-anchor="middle">PARADIGMA PASIF</text>
+
+      <text x="32" y="105" font-family="'Inter', 'Segoe UI', sans-serif" font-size="24" font-weight="800" fill="#ffffff">"Aplikasi yang Mencatat Transaksi"</text>
+      <text x="32" y="135" font-family="'Inter', 'Segoe UI', sans-serif" font-size="15" font-weight="400" fill="#f87171">Hanya memindahkan catatan kertas ke layar komputer (Kalkulator Digital)</text>
+
+      <!-- Bullets -->
+      <g transform="translate(32, 175)">
+        <circle cx="12" cy="12" r="10" fill="#ef4444" fill-opacity="0.2"/>
+        <text x="12" y="17" font-family="'Inter', sans-serif" font-size="14" font-weight="900" fill="#ef4444" text-anchor="middle">✕</text>
+        <text x="36" y="17" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#f1f5f9">Reaktif &amp; Statis:</text>
+        <text x="175" y="17" font-family="'Inter', sans-serif" font-size="15" font-weight="400" fill="#cbd5e1">Hanya bekerja jika user mengetik transaksi manual.</text>
+
+        <circle cx="12" cy="58" r="10" fill="#ef4444" fill-opacity="0.2"/>
+        <text x="12" y="63" font-family="'Inter', sans-serif" font-size="14" font-weight="900" fill="#ef4444" text-anchor="middle">✕</text>
+        <text x="36" y="63" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#f1f5f9">Zero Intelligence:</text>
+        <text x="175" y="63" font-family="'Inter', sans-serif" font-size="15" font-weight="400" fill="#cbd5e1">Tidak tahu jika stok menipis atau pelanggan mulai hilang.</text>
+
+        <circle cx="12" cy="104" r="10" fill="#ef4444" fill-opacity="0.2"/>
+        <text x="12" y="109" font-family="'Inter', sans-serif" font-size="14" font-weight="900" fill="#ef4444" text-anchor="middle">✕</text>
+        <text x="36" y="109" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#f1f5f9">Tidak Menambah Nilai:</text>
+        <text x="215" y="109" font-family="'Inter', sans-serif" font-size="15" font-weight="400" fill="#cbd5e1">Tidak ada dampak kenaikan omzet atau efisiensi kerja.</text>
+
+        <circle cx="12" cy="150" r="10" fill="#ef4444" fill-opacity="0.2"/>
+        <text x="12" y="155" font-family="'Inter', sans-serif" font-size="14" font-weight="900" fill="#ef4444" text-anchor="middle">✕</text>
+        <text x="36" y="155" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#f1f5f9">Commodity Trap:</text>
+        <text x="175" y="155" font-family="'Inter', sans-serif" font-size="15" font-weight="400" fill="#cbd5e1">Mudah digantikan oleh Google Spreadsheet gratis.</text>
+      </g>
+    </g>
+
+    <!-- RIGHT CARD: APLIKASI SOLUTIF -->
+    <g transform="translate(850, 0)" filter="url(#cardShadow2)">
+      <rect x="0" y="0" width="790" height="390" rx="20" fill="url(#goodGrad)" stroke="#059669" stroke-width="1.8"/>
+      <rect x="32" y="32" width="200" height="32" rx="8" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-opacity="0.4"/>
+      <text x="132" y="53" font-family="'Inter', 'Segoe UI', sans-serif" font-size="12" font-weight="800" fill="#6ee7b7" text-anchor="middle">PARADIGMA VALUE-DRIVEN</text>
+
+      <text x="32" y="105" font-family="'Inter', 'Segoe UI', sans-serif" font-size="24" font-weight="800" fill="#ffffff">"Aplikasi yang Mengembangkan Bisnis"</text>
+      <text x="32" y="135" font-family="'Inter', 'Segoe UI', sans-serif" font-size="15" font-weight="500" fill="#34d399">Memberikan asisten proaktif, rekomendasi pintar, dan efisiensi terukur</text>
+
+      <!-- Bullets -->
+      <g transform="translate(32, 175)">
+        <circle cx="12" cy="12" r="10" fill="#10b981" fill-opacity="0.2"/>
+        <text x="12" y="17" font-family="'Inter', sans-serif" font-size="14" font-weight="900" fill="#10b981" text-anchor="middle">✓</text>
+        <text x="36" y="17" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#f1f5f9">Proaktif &amp; Prediktif:</text>
+        <text x="195" y="17" font-family="'Inter', sans-serif" font-size="15" font-weight="400" fill="#e2e8f0">Memperingatkan bahaya stock-out sebelum barang ludes.</text>
+
+        <circle cx="12" cy="58" r="10" fill="#10b981" fill-opacity="0.2"/>
+        <text x="12" y="63" font-family="'Inter', sans-serif" font-size="14" font-weight="900" fill="#10b981" text-anchor="middle">✓</text>
+        <text x="36" y="63" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#f1f5f9">Operational Guidance:</text>
+        <text x="215" y="63" font-family="'Inter', sans-serif" font-size="15" font-weight="400" fill="#e2e8f0">Mengatur rute kaki staf tercepat menyusuri rak gudang.</text>
+
+        <circle cx="12" cy="104" r="10" fill="#10b981" fill-opacity="0.2"/>
+        <text x="12" y="109" font-family="'Inter', sans-serif" font-size="14" font-weight="900" fill="#10b981" text-anchor="middle">✓</text>
+        <text x="36" y="109" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#f1f5f9">Financial Impact:</text>
+        <text x="175" y="109" font-family="'Inter', sans-serif" font-size="15" font-weight="400" fill="#e2e8f0">Mencairkan modal macet dari barang dead-stock tertimbun.</text>
+
+        <circle cx="12" cy="150" r="10" fill="#10b981" fill-opacity="0.2"/>
+        <text x="12" y="155" font-family="'Inter', sans-serif" font-size="14" font-weight="900" fill="#10b981" text-anchor="middle">✓</text>
+        <text x="36" y="155" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#f1f5f9">High Switching Cost:</text>
+        <text x="205" y="155" font-family="'Inter', sans-serif" font-size="15" font-weight="400" fill="#e2e8f0">Menjadi pilar tak tergantikan bagi operasional perusahaan.</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom Process Pipeline Flow Banner -->
+  <g transform="translate(140, 715)">
+    <rect x="0" y="0" width="1640" height="235" rx="20" fill="url(#cardGrad2)" stroke="#1e293b" stroke-width="1.5"/>
+    <text x="40" y="44" font-family="'Inter', 'Segoe UI', sans-serif" font-size="14" font-weight="700" fill="#38bdf8" letter-spacing="1">ALUR LOGIKA REKAYASA PRODUK (FRAMEWORK TUGAS):</text>
+
+    <!-- 5 Pipeline Steps -->
+    <g transform="translate(40, 75)">
+      <!-- Step 1 -->
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="280" height="115" rx="14" fill="#0b1322" stroke="#1e293b" stroke-width="1.2"/>
+        <circle cx="28" cy="28" r="14" fill="#38bdf8" fill-opacity="0.2"/>
+        <text x="28" y="34" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#38bdf8" text-anchor="middle">1</text>
+        <text x="56" y="34" font-family="'Inter', sans-serif" font-size="16" font-weight="700" fill="#ffffff">Cari Masalah</text>
+        <text x="20" y="70" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#94a3b8">Bukan masalah teknologi,</text>
+        <text x="20" y="90" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#cbd5e1">tapi kesakitan riil manusia/bisnis.</text>
+      </g>
+
+      <!-- Arrow -->
+      <text x="296" y="65" font-family="'Inter', sans-serif" font-size="24" font-weight="900" fill="#38bdf8">→</text>
+
+      <!-- Step 2 -->
+      <g transform="translate(325, 0)">
+        <rect x="0" y="0" width="280" height="115" rx="14" fill="#0b1322" stroke="#1e293b" stroke-width="1.2"/>
+        <circle cx="28" cy="28" r="14" fill="#38bdf8" fill-opacity="0.2"/>
+        <text x="28" y="34" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#38bdf8" text-anchor="middle">2</text>
+        <text x="56" y="34" font-family="'Inter', sans-serif" font-size="16" font-weight="700" fill="#ffffff">Pahami Proses</text>
+        <text x="20" y="70" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#94a3b8">Pelajari alur nyata:</text>
+        <text x="20" y="90" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#cbd5e1">Inbound → Rak → Picking → Outbound.</text>
+      </g>
+
+      <!-- Arrow -->
+      <text x="621" y="65" font-family="'Inter', sans-serif" font-size="24" font-weight="900" fill="#38bdf8">→</text>
+
+      <!-- Step 3 -->
+      <g transform="translate(650, 0)">
+        <rect x="0" y="0" width="280" height="115" rx="14" fill="#0b1322" stroke="#1e293b" stroke-width="1.2"/>
+        <circle cx="28" cy="28" r="14" fill="#a855f7" fill-opacity="0.2"/>
+        <text x="28" y="34" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#c084fc" text-anchor="middle">3</text>
+        <text x="56" y="34" font-family="'Inter', sans-serif" font-size="16" font-weight="700" fill="#ffffff">Tentukan Fitur Inti</text>
+        <text x="20" y="70" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#94a3b8">Fitur wajib agar sistem</text>
+        <text x="20" y="90" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#cbd5e1">bisa berfungsi dasar (Non-negotiable).</text>
+      </g>
+
+      <!-- Arrow -->
+      <text x="946" y="65" font-family="'Inter', sans-serif" font-size="24" font-weight="900" fill="#10b981">→</text>
+
+      <!-- Step 4 -->
+      <g transform="translate(975, 0)">
+        <rect x="0" y="0" width="280" height="115" rx="14" fill="#0d2621" stroke="#059669" stroke-width="1.4"/>
+        <circle cx="28" cy="28" r="14" fill="#10b981" fill-opacity="0.3"/>
+        <text x="28" y="34" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#34d399" text-anchor="middle">4</text>
+        <text x="56" y="34" font-family="'Inter', sans-serif" font-size="16" font-weight="700" fill="#34d399">Rancang Nilai Tambah</text>
+        <text x="20" y="70" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#a7f3d0">Fitur cerdas pembeda:</text>
+        <text x="20" y="90" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#ffffff">ROP Alert, Route Map, Aging.</text>
+      </g>
+
+      <!-- Arrow -->
+      <text x="1271" y="65" font-family="'Inter', sans-serif" font-size="24" font-weight="900" fill="#10b981">→</text>
+
+      <!-- Step 5 -->
+      <g transform="translate(1300, 0)">
+        <rect x="0" y="0" width="260" height="115" rx="14" fill="#0d2621" stroke="#059669" stroke-width="1.4"/>
+        <circle cx="28" cy="28" r="14" fill="#10b981" fill-opacity="0.3"/>
+        <text x="28" y="34" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#34d399" text-anchor="middle">5</text>
+        <text x="56" y="34" font-family="'Inter', sans-serif" font-size="16" font-weight="700" fill="#34d399">Jelaskan Dampak</text>
+        <text x="20" y="70" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#a7f3d0">Kuantifikasi hasil nyata:</text>
+        <text x="20" y="90" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#ffffff">Waktu pangkas 40%, Lost Sales 0%.</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <g transform="translate(140, 1010)">
+    <text x="0" y="0" font-family="'Inter', sans-serif" font-size="14" font-weight="600" fill="#475569">GudangPro WMS • Prinsip Rekayasa Perangkat Lunak</text>
+    <text x="1640" y="0" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#64748b">02 / 10</text>
+  </g>
+</svg>

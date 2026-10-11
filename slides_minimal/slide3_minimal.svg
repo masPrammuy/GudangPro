@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <rect width="1920" height="1080" fill="#ffffff"/>
+  <rect x="0" y="0" width="1920" height="12" fill="#1e3a8a"/>
+
+  <!-- Slide Header -->
+  <g transform="translate(180, 100)">
+    <text x="0" y="40" font-family="'Segoe UI', Arial, sans-serif" font-size="44" font-weight="700" fill="#0f172a">
+      3 Masalah Nyata di Lantai Gudang
+    </text>
+    <text x="0" y="80" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="400" fill="#64748b">
+      Masalah operasional dan kerugian bisnis nyata — bukan masalah teknologi seperti "belum pakai AI".
+    </text>
+  </g>
+
+  <!-- 3 Clean Columns -->
+  <g transform="translate(180, 230)">
+    <!-- Problem 1 -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="490" height="660" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+      <rect x="0" y="0" width="490" height="50" rx="8" fill="#fee2e2"/>
+      <text x="30" y="32" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#991b1b">
+        01. SELISIH STOK (DISCREPANCY)
+      </text>
+
+      <g transform="translate(30, 80)">
+        <text x="0" y="30" font-family="'Segoe UI', Arial, sans-serif" font-size="22" font-weight="700" fill="#0f172a">
+          Catatan Sistem ≠ Barang Fisik
+        </text>
+
+        <text x="0" y="85" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#64748b" letter-spacing="1">
+          APA PENYEBABNYA?
+        </text>
+        <text x="0" y="115" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="400" fill="#334155">
+          • Input data manual di Excel sering tertunda beberapa jam.
+        </text>
+        <text x="0" y="150" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="400" fill="#334155">
+          • Barang diambil tanpa surat mutasi resmi.
+        </text>
+
+        <text x="0" y="215" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#dc2626" letter-spacing="1">
+          DAMPAK KERUGIAN:
+        </text>
+        <text x="0" y="245" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="600" fill="#991b1b">
+          • Pembatalan order pelanggan (Lost Sales).
+        </text>
+        <text x="0" y="280" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="400" fill="#7f1d1d">
+          • Toko harus tutup operasi berhari-hari untuk stok opname ulang.
+        </text>
+
+        <line x1="0" y1="330" x2="430" y2="330" stroke="#cbd5e1" stroke-width="1"/>
+
+        <text x="0" y="370" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#1e3a8a" letter-spacing="1">
+          SOLUSI GUDANGPRO:
+        </text>
+        <text x="0" y="405" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="700" fill="#0f172a">
+          Sinkronisasi Real-Time
+        </text>
+        <text x="0" y="435" font-family="'Segoe UI', Arial, sans-serif" font-size="15" font-weight="400" fill="#475569">
+          Stok otomatis dipotong detik itu juga pada setiap mutasi masuk/keluar.
+        </text>
+      </g>
+    </g>
+
+    <!-- Problem 2 -->
+    <g transform="translate(535, 0)">
+      <rect x="0" y="0" width="490" height="660" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+      <rect x="0" y="0" width="490" height="50" rx="8" fill="#fef3c7"/>
+      <text x="30" y="32" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#92400e">
+        02. PENGAMBILAN BARANG LAMBAT
+      </text>
+
+      <g transform="translate(30, 80)">
+        <text x="0" y="30" font-family="'Segoe UI', Arial, sans-serif" font-size="22" font-weight="700" fill="#0f172a">
+          Waktu Mencari Barang Tinggi
+        </text>
+
+        <text x="0" y="85" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#64748b" letter-spacing="1">
+          APA PENYEBABNYA?
+        </text>
+        <text x="0" y="115" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="400" fill="#334155">
+          • Rak tidak memiliki kode alamat baku (*no bin mapping*).
+        </text>
+        <text x="0" y="150" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="400" fill="#334155">
+          • Kertas order diurutkan acak sehingga staf jalan zigzag.
+        </text>
+
+        <text x="0" y="215" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#d97706" letter-spacing="1">
+          DAMPAK KERUGIAN:
+        </text>
+        <text x="0" y="245" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="600" fill="#92400e">
+          • 50% waktu kerja habis hanya untuk berjalan kaki.
+        </text>
+        <text x="0" y="280" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="400" fill="#78350f">
+          • Pengiriman barang lambat dan biaya lembur (overtime) membengkak.
+        </text>
+
+        <line x1="0" y1="330" x2="430" y2="330" stroke="#cbd5e1" stroke-width="1"/>
+
+        <text x="0" y="370" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#1e3a8a" letter-spacing="1">
+          SOLUSI GUDANGPRO:
+        </text>
+        <text x="0" y="405" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="700" fill="#0f172a">
+          Alamat Rak &amp; Rute S-Shape
+        </text>
+        <text x="0" y="435" font-family="'Segoe UI', Arial, sans-serif" font-size="15" font-weight="400" fill="#475569">
+          Panduan langkah staf satu arah lorong demi lorong tanpa bolak-balik.
+        </text>
+      </g>
+    </g>
+
+    <!-- Problem 3 -->
+    <g transform="translate(1070, 0)">
+      <rect x="0" y="0" width="490" height="660" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+      <rect x="0" y="0" width="490" height="50" rx="8" fill="#f3e8ff"/>
+      <text x="30" y="32" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#6b21a8">
+        03. DEAD STOCK &amp; AGING
+      </text>
+
+      <g transform="translate(30, 80)">
+        <text x="0" y="30" font-family="'Segoe UI', Arial, sans-serif" font-size="22" font-weight="700" fill="#0f172a">
+          Barang Tertimbun &amp; Modal Macet
+        </text>
+
+        <text x="0" y="85" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#64748b" letter-spacing="1">
+          APA PENYEBABNYA?
+        </text>
+        <text x="0" y="115" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="400" fill="#334155">
+          • Barang baru menutupi barang lama (Gagal alur FIFO).
+        </text>
+        <text x="0" y="150" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="400" fill="#334155">
+          • Tidak ada pemantauan usia simpan harian barang.
+        </text>
+
+        <text x="0" y="215" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#7c3aed" letter-spacing="1">
+          DAMPAK KERUGIAN:
+        </text>
+        <text x="0" y="245" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="600" fill="#581c87">
+          • Uang modal puluhan juta mati terkunci di rak.
+        </text>
+        <text x="0" y="280" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="400" fill="#3b0764">
+          • Barang rusak fisik/kadaluwarsa dan kapasitas rak habis.
+        </text>
+
+        <line x1="0" y1="330" x2="430" y2="330" stroke="#cbd5e1" stroke-width="1"/>
+
+        <text x="0" y="370" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#1e3a8a" letter-spacing="1">
+          SOLUSI GUDANGPRO:
+        </text>
+        <text x="0" y="405" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="700" fill="#0f172a">
+          Dead Stock Analyzer
+        </text>
+        <text x="0" y="435" font-family="'Segoe UI', Arial, sans-serif" font-size="15" font-weight="400" fill="#475569">
+          Otomatis deteksi barang &gt;90 hari agar segera diretur atau diskon B2B.
+        </text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <g transform="translate(180, 1000)">
+    <line x1="0" y1="0" x2="1560" y2="0" stroke="#f1f5f9" stroke-width="1.5"/>
+    <text x="0" y="35" font-family="'Segoe UI', Arial, sans-serif" font-size="16" fill="#94a3b8">GudangPro WMS • Analisis Masalah</text>
+    <text x="1530" y="35" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="600" fill="#64748b">3 / 6</text>
+  </g>
+</svg>

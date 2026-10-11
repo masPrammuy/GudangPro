@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <rect width="1920" height="1080" fill="#ffffff"/>
+  <rect x="0" y="0" width="1920" height="12" fill="#1e3a8a"/>
+
+  <!-- Slide Header -->
+  <g transform="translate(180, 100)">
+    <text x="0" y="40" font-family="'Segoe UI', Arial, sans-serif" font-size="44" font-weight="700" fill="#0f172a">
+      5 Fitur Inti GudangPro (Fondasi WMS)
+    </text>
+    <text x="0" y="80" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="400" fill="#64748b">
+      Fitur minimum yang wajib ada agar sistem secara sah dapat diklasifikasikan sebagai Sistem Manajemen Pergudangan.
+    </text>
+  </g>
+
+  <!-- Clean 5 Horizontal Feature Rows -->
+  <g transform="translate(180, 220)">
+    <!-- Row 1 -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="1560" height="95" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.2"/>
+      <circle cx="48" cy="48" r="20" fill="#1e3a8a"/>
+      <text x="48" y="55" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">1</text>
+      
+      <text x="90" y="40" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="700" fill="#0f172a">
+        Master Data SKU &amp; Katalog Barang
+      </text>
+      <text x="90" y="68" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="400" fill="#475569">
+        Menyimpan identitas resmi barang: kode SKU, nama, kategori, satuan (Pcs/Box), barcode, dan ambang batas minimum.
+      </text>
+    </g>
+
+    <!-- Row 2 -->
+    <g transform="translate(0, 110)">
+      <rect x="0" y="0" width="1560" height="95" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.2"/>
+      <circle cx="48" cy="48" r="20" fill="#1e3a8a"/>
+      <text x="48" y="55" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">2</text>
+      
+      <text x="90" y="40" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="700" fill="#0f172a">
+        Pencatatan Barang Masuk (Inbound Receiving)
+      </text>
+      <text x="90" y="68" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="400" fill="#475569">
+        Pintu masuk resmi penambahan stok: memverifikasi surat jalan supplier, kuantitas riil diterima, kondisi fisik, dan tanggal tiba.
+      </text>
+    </g>
+
+    <!-- Row 3 -->
+    <g transform="translate(0, 220)">
+      <rect x="0" y="0" width="1560" height="95" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.2"/>
+      <circle cx="48" cy="48" r="20" fill="#1e3a8a"/>
+      <text x="48" y="55" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">3</text>
+      
+      <text x="90" y="40" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="700" fill="#0f172a">
+        Pencatatan Pengeluaran Barang (Outbound Dispatch)
+      </text>
+      <text x="90" y="68" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="400" fill="#475569">
+        Pintu keluar resmi pengurangan stok: memvalidasi pemenuhan pesanan penjualan dan memotong saldo stok secara real-time.
+      </text>
+    </g>
+
+    <!-- Row 4 -->
+    <g transform="translate(0, 330)">
+      <rect x="0" y="0" width="1560" height="95" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.2"/>
+      <circle cx="48" cy="48" r="20" fill="#1e3a8a"/>
+      <text x="48" y="55" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">4</text>
+      
+      <text x="90" y="40" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="700" fill="#0f172a">
+        Pemetaan Lokasi Rak &amp; Zona Gudang (Bin Mapping)
+      </text>
+      <text x="90" y="68" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="400" fill="#475569">
+        Pembeda mutlak WMS: menyimpan alamat fisik barang di gudang (Zona A - Lorong 02 - Rak 04 - Level 01).
+      </text>
+    </g>
+
+    <!-- Row 5 -->
+    <g transform="translate(0, 440)">
+      <rect x="0" y="0" width="1560" height="95" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.2"/>
+      <circle cx="48" cy="48" r="20" fill="#1e3a8a"/>
+      <text x="48" y="55" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">5</text>
+      
+      <text x="90" y="40" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="700" fill="#0f172a">
+        Kartu Stok &amp; Riwayat Audit Mutasi (Audit Trail)
+      </text>
+      <text x="90" y="68" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="400" fill="#475569">
+        Rekam jejak kronologis: mencatat tanggal, jam, jenis mutasi, jumlah masuk/keluar, sisa saldo, dan staf yang memproses.
+      </text>
+    </g>
+  </g>
+
+  <!-- Clean Bottom Assessment Box -->
+  <g transform="translate(180, 780)">
+    <rect x="0" y="0" width="1560" height="150" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5"/>
+    <text x="36" y="40" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#dc2626" letter-spacing="1">
+      UJI RUBRIK TUGAS:
+    </text>
+    <text x="36" y="75" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="700" fill="#991b1b">
+      "Jika salah satu fitur di atas dihilangkan, apakah GudangPro masih dapat disebut sebagai aplikasi WMS?"
+    </text>
+    <text x="36" y="115" font-family="'Segoe UI', Arial, sans-serif" font-size="17" font-weight="500" fill="#7f1d1d">
+      Jawabannya: <tspan font-weight="800">TIDAK BISA.</tspan> Tanpa pemetaan lokasi rak, sistem ini turun kelas menjadi kasir toko biasa. Tanpa kartu stok, sistem tidak bisa diaudit. Kelima fitur ini adalah tiket masuk dasar.
+    </text>
+  </g>
+
+  <!-- Footer -->
+  <g transform="translate(180, 1000)">
+    <line x1="0" y1="0" x2="1560" y2="0" stroke="#f1f5f9" stroke-width="1.5"/>
+    <text x="0" y="35" font-family="'Segoe UI', Arial, sans-serif" font-size="16" fill="#94a3b8">GudangPro WMS • Fitur Inti</text>
+    <text x="1530" y="35" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="600" fill="#64748b">4 / 6</text>
+  </g>
+</svg>

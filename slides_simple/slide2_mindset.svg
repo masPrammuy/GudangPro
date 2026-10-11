@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#bg2)"/>
+
+  <!-- Top Title -->
+  <g transform="translate(140, 100)">
+    <text x="0" y="30" font-family="'Inter', sans-serif" font-size="16" font-weight="700" fill="#38bdf8" letter-spacing="1.5">FILOSOFI PRODUK</text>
+    <text x="0" y="75" font-family="'Inter', sans-serif" font-size="44" font-weight="900" fill="#ffffff">
+      Membedakan <tspan fill="#94a3b8">Fitur Inti</tspan> dengan <tspan fill="#10b981">Fitur Bernilai Tambah</tspan>
+    </text>
+  </g>
+
+  <!-- 2 Big Comparison Cards -->
+  <g transform="translate(140, 240)">
+    <!-- Card 1: Core Features -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="790" height="520" rx="20" fill="#111a2c" stroke="#1e2d47" stroke-width="1.5"/>
+      <rect x="36" y="36" width="180" height="34" rx="8" fill="#334155"/>
+      <text x="126" y="58" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#f1f5f9" text-anchor="middle">LAPISAN 1: CORE</text>
+
+      <text x="36" y="115" font-family="'Inter', sans-serif" font-size="28" font-weight="800" fill="#ffffff">Fitur Inti (Fondasi)</text>
+      <text x="36" y="148" font-family="'Inter', sans-serif" font-size="16" font-weight="500" fill="#94a3b8">Syarat mutlak agar sistem dapat berfungsi dasar.</text>
+
+      <g transform="translate(36, 185)">
+        <rect x="0" y="0" width="718" height="85" rx="12" fill="#09111e"/>
+        <text x="24" y="34" font-family="'Inter', sans-serif" font-size="15" font-weight="700" fill="#38bdf8">Karakteristik Utama:</text>
+        <text x="24" y="60" font-family="'Inter', sans-serif" font-size="14" font-weight="400" fill="#cbd5e1">Bila fitur ini dihilangkan, aplikasi kehilangan identitas dasarnya.</text>
+      </g>
+
+      <g transform="translate(36, 290)">
+        <text x="0" y="24" font-family="'Inter', sans-serif" font-size="16" font-weight="700" fill="#ffffff">Contoh pada GudangPro:</text>
+        <text x="0" y="60" font-family="'Inter', sans-serif" font-size="15" font-weight="500" fill="#cbd5e1">• Input data barang masuk (Inbound)</text>
+        <text x="0" y="95" font-family="'Inter', sans-serif" font-size="15" font-weight="500" fill="#cbd5e1">• Input data barang keluar (Outbound)</text>
+        <text x="0" y="130" font-family="'Inter', sans-serif" font-size="15" font-weight="500" fill="#cbd5e1">• Master data SKU &amp; Kartu Stok</text>
+        <text x="0" y="175" font-family="'Inter', sans-serif" font-size="14" font-weight="600" fill="#fca5a5">⚠️ Sifat: Wajib ada, tapi BELUM menjadi nilai pembeda.</text>
+      </g>
+    </g>
+
+    <!-- Card 2: Value-Added Features -->
+    <g transform="translate(850, 0)">
+      <rect x="0" y="0" width="790" height="520" rx="20" fill="#0c1f20" stroke="#059669" stroke-width="2"/>
+      <rect x="36" y="36" width="220" height="34" rx="8" fill="#059669"/>
+      <text x="146" y="58" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#ffffff" text-anchor="middle">LAPISAN 2: VALUE-ADDED</text>
+
+      <text x="36" y="115" font-family="'Inter', sans-serif" font-size="28" font-weight="800" fill="#ffffff">Fitur Bernilai Tambah</text>
+      <text x="36" y="148" font-family="'Inter', sans-serif" font-size="16" font-weight="500" fill="#34d399">Solusi cerdas yang memberikan dampak efisiensi &amp; finansial.</text>
+
+      <g transform="translate(36, 185)">
+        <rect x="0" y="0" width="718" height="85" rx="12" fill="#071516"/>
+        <text x="24" y="34" font-family="'Inter', sans-serif" font-size="15" font-weight="700" fill="#34d399">Karakteristik Utama:</text>
+        <text x="24" y="60" font-family="'Inter', sans-serif" font-size="14" font-weight="400" fill="#a7f3d0">Proaktif mencegah kerugian, memandu kerja staf, dan menghemat biaya.</text>
+      </g>
+
+      <g transform="translate(36, 290)">
+        <text x="0" y="24" font-family="'Inter', sans-serif" font-size="16" font-weight="700" fill="#ffffff">Contoh pada GudangPro:</text>
+        <text x="0" y="60" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#ffffff">• Smart Reorder Point (Pencegah kehabisan stok)</text>
+        <text x="0" y="95" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#ffffff">• S-Shape Batch Picking (Pemandu rute terpendek)</text>
+        <text x="0" y="130" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#ffffff">• Dead Stock Clearance (Pencair modal macet)</text>
+        <text x="0" y="175" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#34d399">⭐ Sifat: Nilai pembeda utama &amp; alasan bisnis memilih GudangPro.</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom Principle Ribbon -->
+  <g transform="translate(140, 800)">
+    <rect x="0" y="0" width="1640" height="95" rx="16" fill="#131c2e" stroke="#1e2d47"/>
+    <text x="36" y="36" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#38bdf8" letter-spacing="1">PRINSIP KERJA REKAYASA PRODUK:</text>
+    <text x="36" y="68" font-family="'Inter', sans-serif" font-size="18" font-weight="700" fill="#ffffff">
+      Cari Masalah Nyata <tspan fill="#10b981">→</tspan> Pahami Alur Kerja <tspan fill="#10b981">→</tspan> Bangun Fitur Inti <tspan fill="#10b981">→</tspan> Rancang Nilai Tambah <tspan fill="#10b981">→</tspan> Ukur Dampak Bisnis
+    </text>
+  </g>
+
+  <!-- Slide Footer -->
+  <g transform="translate(140, 990)">
+    <text x="0" y="0" font-family="'Inter', sans-serif" font-size="14" font-weight="600" fill="#64748b">Filosofi Desain Produk • GudangPro</text>
+    <text x="1640" y="0" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#64748b">02 / 06</text>
+  </g>
+</svg>

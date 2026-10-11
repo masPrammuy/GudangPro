@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <rect width="1920" height="1080" fill="#ffffff"/>
+  <rect x="0" y="0" width="1920" height="12" fill="#1e3a8a"/>
+
+  <!-- Slide Header -->
+  <g transform="translate(180, 100)">
+    <text x="0" y="40" font-family="'Segoe UI', Arial, sans-serif" font-size="44" font-weight="700" fill="#0f172a">
+      Value Proposition &amp; Batasan Ruang Lingkup
+    </text>
+    <text x="0" y="80" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="400" fill="#64748b">
+      Menegaskan posisi produk dan mengunci ruang lingkup agar skripsi selesai tepat waktu.
+    </text>
+  </g>
+
+  <!-- Big Clean Quote Box (Value Proposition) -->
+  <g transform="translate(180, 220)">
+    <rect x="0" y="0" width="1560" height="200" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+    <rect x="0" y="0" width="10" height="200" rx="4" fill="#1e3a8a"/>
+
+    <text x="40" y="45" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#1e3a8a" letter-spacing="1">
+      FORMULA VALUE PROPOSITION RESMI GUDANGPRO:
+    </text>
+
+    <text x="40" y="95" font-family="'Segoe UI', Arial, sans-serif" font-size="24" font-weight="600" fill="#0f172a">
+      "Aplikasi GudangPro tidak hanya membantu <tspan fill="#64748b">mencatat keluar-masuknya barang</tspan>,"
+    </text>
+    <text x="40" y="135" font-family="'Segoe UI', Arial, sans-serif" font-size="24" font-weight="600" fill="#0f172a">
+      "tetapi juga membantu <tspan fill="#dc2626">mencegah kerugian kehabisan stok (stock-out)</tspan> dan <tspan fill="#1d4ed8">memangkas waktu pencarian barang</tspan>"
+    </text>
+    <text x="40" y="175" font-family="'Segoe UI', Arial, sans-serif" font-size="24" font-weight="600" fill="#0f172a">
+      "melalui fitur <tspan fill="#16a34a">Smart Reorder Point Alert</tspan> dan <tspan fill="#1d4ed8">Pemetaan Lokasi Rak Presisi (Bin Mapping)</tspan>."
+    </text>
+  </g>
+
+  <!-- Bottom Columns: Left In-Scope, Middle Out-of-Scope, Right Q&A -->
+  <g transform="translate(180, 460)">
+    <!-- IN-SCOPE -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="500" height="430" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+      <rect x="0" y="0" width="500" height="45" rx="8" fill="#f0fdf4"/>
+      <text x="24" y="28" font-family="'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#166534">
+        ✓ IN-SCOPE (DIKERJAKAN DALAM SKRIPSI)
+      </text>
+
+      <g transform="translate(24, 75)">
+        <text x="0" y="24" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="600" fill="#0f172a">• Autentikasi Pengguna Multi-Role:</text>
+        <text x="20" y="50" font-family="'Segoe UI', Arial, sans-serif" font-size="15" font-weight="400" fill="#475569">Google OAuth 2.0 &amp; Manual Admin.</text>
+
+        <text x="0" y="90" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="600" fill="#0f172a">• Master Data SKU Barang &amp; Barcode</text>
+        <text x="20" y="116" font-family="'Segoe UI', Arial, sans-serif" font-size="15" font-weight="400" fill="#475569">Katalog tunggal barang dan satuan unit.</text>
+
+        <text x="0" y="156" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="600" fill="#0f172a">• Pencatatan Inbound &amp; Outbound</text>
+        <text x="20" y="182" font-family="'Segoe UI', Arial, sans-serif" font-size="15" font-weight="400" fill="#475569">Sinkronisasi stok langsung saat transaksi.</text>
+
+        <text x="0" y="222" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="600" fill="#0f172a">• Pemetaan Lokasi Rak (Bin Mapping)</text>
+        <text x="20" y="248" font-family="'Segoe UI', Arial, sans-serif" font-size="15" font-weight="400" fill="#475569">Alamat presisi lorong, rak, dan level.</text>
+
+        <text x="0" y="288" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="600" fill="#0f172a">• Smart ROP &amp; Aging Stock Alert</text>
+        <text x="20" y="314" font-family="'Segoe UI', Arial, sans-serif" font-size="15" font-weight="400" fill="#475569">Notifikasi otomatis stok kritis dan barang macet.</text>
+      </g>
+    </g>
+
+    <!-- OUT-OF-SCOPE -->
+    <g transform="translate(530, 0)">
+      <rect x="0" y="0" width="500" height="430" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+      <rect x="0" y="0" width="500" height="45" rx="8" fill="#fef2f2"/>
+      <text x="24" y="28" font-family="'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#991b1b">
+        ✕ OUT-OF-SCOPE (DIBATASI SECARA SENGAJA)
+      </text>
+
+      <g transform="translate(24, 75)">
+        <text x="0" y="24" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="600" fill="#0f172a">• Sensor Timbangan IoT Fisik Rak:</text>
+        <text x="20" y="50" font-family="'Segoe UI', Arial, sans-serif" font-size="15" font-weight="400" fill="#64748b">Fokus skripsi pada rekayasa perangkat lunak web.</text>
+
+        <text x="0" y="90" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="600" fill="#0f172a">• Sistem Kasir POS &amp; Pembayaran Retail:</text>
+        <text x="20" y="116" font-family="'Segoe UI', Arial, sans-serif" font-size="15" font-weight="400" fill="#64748b">GudangPro adalah WMS logistik, bukan POS ritel.</text>
+
+        <text x="0" y="156" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="600" fill="#0f172a">• Robotik AGV Otomatis:</text>
+        <text x="20" y="182" font-family="'Segoe UI', Arial, sans-serif" font-size="15" font-weight="400" fill="#64748b">Navigasi robot fisik di luar batas waktu skripsi.</text>
+
+        <text x="0" y="222" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="600" fill="#0f172a">• Pelacakan GPS Truk Ekspedisi:</text>
+        <text x="20" y="248" font-family="'Segoe UI', Arial, sans-serif" font-size="15" font-weight="400" fill="#64748b">Pelacakan jalan raya adalah domain Fleet System.</text>
+
+        <text x="0" y="288" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="600" fill="#0f172a">• Modul Akuntansi Neraca Lengkap:</text>
+        <text x="20" y="314" font-family="'Segoe UI', Arial, sans-serif" font-size="15" font-weight="400" fill="#64748b">Bukan sistem ERP finansial terintegrasi.</text>
+      </g>
+    </g>
+
+    <!-- RIGHT: CLOSING Q&A -->
+    <g transform="translate(1060, 0)">
+      <rect x="0" y="0" width="500" height="430" rx="8" fill="#1e3a8a"/>
+      
+      <g transform="translate(40, 50)">
+        <text x="0" y="40" font-family="'Segoe UI', Arial, sans-serif" font-size="44" font-weight="800" fill="#ffffff">
+          Terima Kasih!
+        </text>
+
+        <text x="0" y="100" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="400" fill="#93c5fd">
+          Perancangan produk dan fitur bernilai tambah siap dijadikan dasar penyusunan PRD dan Vibe Coding.
+        </text>
+
+        <line x1="0" y1="140" x2="420" y2="140" stroke="#3b82f6" stroke-width="1.5"/>
+
+        <text x="0" y="180" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="600" fill="#93c5fd">
+          PROTOTIPE LIVE TERVERIFIKASI:
+        </text>
+        <text x="0" y="210" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#ffffff">
+          https://gudang-pro-flame.vercel.app/
+        </text>
+
+        <text x="0" y="290" font-family="'Segoe UI', Arial, sans-serif" font-size="22" font-weight="700" fill="#ffffff">
+          Sesi Tanya Jawab (Q&amp;A)
+        </text>
+        <text x="0" y="325" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="400" fill="#bfdbfe">
+          Dipersilakan kepada Bapak/Ibu Dosen untuk memberikan tanggapan atau pertanyaan.
+        </text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <g transform="translate(180, 1000)">
+    <line x1="0" y1="0" x2="1560" y2="0" stroke="#f1f5f9" stroke-width="1.5"/>
+    <text x="0" y="35" font-family="'Segoe UI', Arial, sans-serif" font-size="16" fill="#94a3b8">Kesimpulan &amp; Sesi Tanya Jawab • GudangPro WMS</text>
+    <text x="1530" y="35" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="600" fill="#64748b">6 / 6</text>
+  </g>
+</svg>

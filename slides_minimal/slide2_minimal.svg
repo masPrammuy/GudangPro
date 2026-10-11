@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <rect width="1920" height="1080" fill="#ffffff"/>
+  <rect x="0" y="0" width="1920" height="12" fill="#1e3a8a"/>
+
+  <!-- Slide Header -->
+  <g transform="translate(180, 100)">
+    <text x="0" y="40" font-family="'Segoe UI', Arial, sans-serif" font-size="44" font-weight="700" fill="#0f172a">
+      Konsep Dasar: Pencatat Pasif vs Solusi Bisnis
+    </text>
+    <text x="0" y="80" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="400" fill="#64748b">
+      Mengapa sistem gudang tidak boleh hanya menjadi "spreadsheet digital" yang menunggu diisi?
+    </text>
+  </g>
+
+  <!-- 2 Clean Side-by-Side Comparison Panels -->
+  <g transform="translate(180, 230)">
+    <!-- Left Column: Aplikasi Biasa -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="750" height="520" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+      <rect x="0" y="0" width="750" height="60" rx="8" fill="#f1f5f9"/>
+      <text x="36" y="38" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="700" fill="#475569">
+        Aplikasi Pencatat Pasif (Spreadsheet Digital)
+      </text>
+
+      <g transform="translate(36, 100)">
+        <text x="0" y="30" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="600" fill="#0f172a">• Hanya Merekam:</text>
+        <text x="30" y="65" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="400" fill="#475569">
+          Sekadar mencatat angka barang masuk dan keluar tanpa analitik.
+        </text>
+
+        <text x="0" y="125" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="600" fill="#0f172a">• Reaktif &amp; Menunggu:</text>
+        <text x="30" y="160" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="400" fill="#475569">
+          Tidak ada peringatan saat stok kritis; tahu barang habis setelah pembeli komplain.
+        </text>
+
+        <text x="0" y="220" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="600" fill="#0f172a">• Buta Lokasi Rak:</text>
+        <text x="30" y="255" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="400" fill="#475569">
+          Staf tetap harus mencari barang secara acak di lantai gudang.
+        </text>
+
+        <text x="0" y="315" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="600" fill="#dc2626">• Nilai Bisnis Rendah:</text>
+        <text x="30" y="350" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="400" fill="#dc2626">
+          Hanya memindahkan catatan kertas ke layar, mudah ditinggalkan pengguna.
+        </text>
+      </g>
+    </g>
+
+    <!-- Right Column: GudangPro -->
+    <g transform="translate(810, 0)">
+      <rect x="0" y="0" width="750" height="520" rx="8" fill="#ffffff" stroke="#1e3a8a" stroke-width="2"/>
+      <rect x="0" y="0" width="750" height="60" rx="8" fill="#1e3a8a"/>
+      <text x="36" y="38" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="700" fill="#ffffff">
+        GudangPro (Solusi Bernilai Tambah)
+      </text>
+
+      <g transform="translate(36, 100)">
+        <text x="0" y="30" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="700" fill="#1e3a8a">• Peringatan Dini Cerdas (Smart Alert):</text>
+        <text x="30" y="65" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="400" fill="#334155">
+          Menghitung titik pesan ulang dan memberi notifikasi sebelum stok ludes.
+        </text>
+
+        <text x="0" y="125" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="700" fill="#1e3a8a">• Panduan Rute Pengambilan (S-Shape):</text>
+        <text x="30" y="160" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="400" fill="#334155">
+          Memandu rute jalan staf lorong demi lorong agar tidak bolak-balik.
+        </text>
+
+        <text x="0" y="220" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="700" fill="#1e3a8a">• Deteksi Modal Macet (Dead Stock):</text>
+        <text x="30" y="255" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="400" fill="#334155">
+          Melacak barang &gt;90 hari agar segera diretur atau dicairkan dananya.
+        </text>
+
+        <text x="0" y="315" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="700" fill="#16a34a">• Dampak Nyata:</text>
+        <text x="30" y="350" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="600" fill="#16a34a">
+          Melindungi penjualan dari stock-out dan memangkas biaya operasional.
+        </text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom Logic Cycle Bar -->
+  <g transform="translate(180, 800)">
+    <rect x="0" y="0" width="1560" height="90" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="36" y="32" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#64748b" letter-spacing="1">
+      LOGIKA REKAYASA PRODUK:
+    </text>
+    <text x="36" y="65" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="600" fill="#0f172a">
+      Cari Masalah Riil  →  Pahami Alur Bisnis  →  Bangun Fitur Inti  →  Rancang Fitur Nilai Tambah  →  Ukur Dampak
+    </text>
+  </g>
+
+  <!-- Footer -->
+  <g transform="translate(180, 1000)">
+    <line x1="0" y1="0" x2="1560" y2="0" stroke="#f1f5f9" stroke-width="1.5"/>
+    <text x="0" y="35" font-family="'Segoe UI', Arial, sans-serif" font-size="16" fill="#94a3b8">GudangPro WMS • Paradigma Produk</text>
+    <text x="1530" y="35" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="600" fill="#64748b">2 / 6</text>
+  </g>
+</svg>

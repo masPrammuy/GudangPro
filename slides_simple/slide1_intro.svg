@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+
+  <!-- Top Badge -->
+  <g transform="translate(140, 100)">
+    <rect x="0" y="0" width="260" height="46" rx="23" fill="#132036" stroke="#1e3256"/>
+    <circle cx="24" cy="23" r="6" fill="#10b981"/>
+    <text x="42" y="29" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#38bdf8" letter-spacing="1">TUGAS EKSPLORASI PRODUK</text>
+  </g>
+
+  <!-- Main Hero Texts -->
+  <g transform="translate(140, 260)">
+    <text x="0" y="50" font-family="'Inter', sans-serif" font-size="24" font-weight="700" fill="#10b981" letter-spacing="2">
+      STUDI MIBEBI KASIR → RANCANG BANGUN GUDANGPRO (WMS)
+    </text>
+
+    <text x="0" y="150" font-family="'Inter', sans-serif" font-size="64" font-weight="900" fill="#ffffff" letter-spacing="-1">
+      Eksplorasi Produk &amp; Fitur
+    </text>
+    <text x="0" y="235" font-family="'Inter', sans-serif" font-size="64" font-weight="900" fill="url(#greenGrad)" letter-spacing="-1">
+      Bernilai Tambah GudangPro
+    </text>
+
+    <text x="0" y="315" font-family="'Inter', sans-serif" font-size="26" font-weight="400" fill="#94a3b8">
+      Bagaimana aplikasi gudang bertransformasi dari sekadar alat pencatat stok
+    </text>
+    <text x="0" y="360" font-family="'Inter', sans-serif" font-size="26" font-weight="600" fill="#f1f5f9">
+      menjadi solusi pencegah <tspan fill="#f87171">Stock-Out</tspan> dan penghemat rute <tspan fill="#38bdf8">Picking</tspan> barang.
+    </text>
+
+    <!-- Bottom 3 Pillars Pill -->
+    <g transform="translate(0, 430)">
+      <rect x="0" y="0" width="1020" height="90" rx="18" fill="#111c30" stroke="#1e293b"/>
+      
+      <g transform="translate(40, 32)">
+        <text x="0" y="16" font-family="'Inter', sans-serif" font-size="18" font-weight="800" fill="#38bdf8">1. Benchmark</text>
+        <text x="0" y="38" font-family="'Inter', sans-serif" font-size="14" font-weight="400" fill="#94a3b8">Mibebi Kasir F&amp;B</text>
+      </g>
+
+      <line x1="280" y1="20" x2="280" y2="70" stroke="#1e293b" stroke-width="1.5"/>
+
+      <g transform="translate(320, 32)">
+        <text x="0" y="16" font-family="'Inter', sans-serif" font-size="18" font-weight="800" fill="#10b981">2. Domain Skripsi</text>
+        <text x="0" y="38" font-family="'Inter', sans-serif" font-size="14" font-weight="400" fill="#94a3b8">Warehouse Management</text>
+      </g>
+
+      <line x1="620" y1="20" x2="620" y2="70" stroke="#1e293b" stroke-width="1.5"/>
+
+      <g transform="translate(660, 32)">
+        <text x="0" y="16" font-family="'Inter', sans-serif" font-size="18" font-weight="800" fill="#a855f7">3. Target Akhir</text>
+        <text x="0" y="38" font-family="'Inter', sans-serif" font-size="14" font-weight="400" fill="#94a3b8">PRD &amp; Siap Vibe Coding</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Right Visual Card -->
+  <g transform="translate(1260, 240)">
+    <rect x="0" y="0" width="520" height="580" rx="24" fill="#111a2d" stroke="#1e3256" stroke-width="1.5"/>
+    <rect x="36" y="36" width="70" height="70" rx="18" fill="url(#greenGrad)"/>
+    <text x="71" y="80" font-family="'Inter', sans-serif" font-size="34" font-weight="900" fill="#ffffff" text-anchor="middle">GP</text>
+
+    <text x="36" y="150" font-family="'Inter', sans-serif" font-size="28" font-weight="800" fill="#ffffff">GudangPro WMS</text>
+    <text x="36" y="180" font-family="'Inter', sans-serif" font-size="15" font-weight="500" fill="#38bdf8">Live Demo Terverifikasi:</text>
+    <text x="36" y="205" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#94a3b8">gudang-pro-flame.vercel.app</text>
+
+    <line x1="36" y1="235" x2="484" y2="235" stroke="#1e293b" stroke-width="1.5"/>
+
+    <g transform="translate(36, 260)">
+      <text x="0" y="24" font-family="'Inter', sans-serif" font-size="16" font-weight="700" fill="#ffffff">Keunggulan Arsitektur:</text>
+      <text x="0" y="60" font-family="'Inter', sans-serif" font-size="15" font-weight="400" fill="#cbd5e1">✓ Dual Auth: Google OAuth 2.0 &amp; Manual</text>
+      <text x="0" y="95" font-family="'Inter', sans-serif" font-size="15" font-weight="400" fill="#cbd5e1">✓ Real-Time Stock Sync Inbound/Outbound</text>
+      <text x="0" y="130" font-family="'Inter', sans-serif" font-size="15" font-weight="400" fill="#cbd5e1">✓ Pemetaan Presisi Lokasi Rak (Bin)</text>
+      <text x="0" y="165" font-family="'Inter', sans-serif" font-size="15" font-weight="400" fill="#cbd5e1">✓ Fitur Cerdas: Smart ROP &amp; Aging Stock</text>
+      <text x="0" y="215" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#10b981">STATUS: PROTOTIPE TAHAP PRD</text>
+    </g>
+  </g>
+
+  <!-- Slide Footer -->
+  <g transform="translate(140, 990)">
+    <text x="0" y="0" font-family="'Inter', sans-serif" font-size="14" font-weight="600" fill="#64748b">Presentasi Tugas Desain Produk • GudangPro</text>
+    <text x="1640" y="0" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#64748b">01 / 06</text>
+  </g>
+</svg>

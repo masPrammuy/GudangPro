@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <linearGradient id="bgGrad10" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070b14"/>
+      <stop offset="50%" stop-color="#0b1220"/>
+      <stop offset="100%" stop-color="#080e1a"/>
+    </linearGradient>
+    <linearGradient id="cardGrad10" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141f36"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="ctaGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <filter id="shadow10" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="url(#bgGrad10)"/>
+
+  <!-- Top Header Navigation -->
+  <g transform="translate(140, 70)">
+    <rect x="0" y="0" width="1640" height="70" rx="16" fill="#0f172a" stroke="#1e293b" stroke-width="1.2"/>
+    <text x="32" y="42" font-family="'Inter', 'Segoe UI', sans-serif" font-size="14" font-weight="700" fill="#10b981" letter-spacing="1.5">ROADMAP EKSEKUSI &amp; PENUTUP</text>
+    <text x="300" y="42" font-family="'Inter', 'Segoe UI', sans-serif" font-size="14" font-weight="500" fill="#64748b">|</text>
+    <text x="320" y="42" font-family="'Inter', 'Segoe UI', sans-serif" font-size="14" font-weight="600" fill="#cbd5e1">PRD → Vibe Coding → Testing Rigor → Evaluasi Dampak</text>
+    <text x="1560" y="43" font-family="'Inter', 'Segoe UI', sans-serif" font-size="16" font-weight="800" fill="#64748b">10 / 10</text>
+  </g>
+
+  <!-- Title & Subtitle -->
+  <g transform="translate(140, 180)">
+    <text x="0" y="32" font-family="'Inter', 'Segoe UI', sans-serif" font-size="38" font-weight="900" fill="#ffffff">
+      Roadmap Menuju Vibe Coding
+    </text>
+    <text x="0" y="68" font-family="'Inter', 'Segoe UI', sans-serif" font-size="18" font-weight="400" fill="#94a3b8">
+      Vibe coding tidak dimulai dari "Buatkan saya WMS", tetapi dari produk yang masalahnya sudah dipahami dan scope-nya terkunci.
+    </text>
+  </g>
+
+  <!-- 4 Roadmap Steps Horizontal -->
+  <g transform="translate(140, 275)">
+    <!-- Phase 1: PRD Signed -->
+    <g transform="translate(0, 0)" filter="url(#shadow10)">
+      <rect x="0" y="0" width="385" height="340" rx="18" fill="url(#cardGrad10)" stroke="#10b981" stroke-width="1.5"/>
+      <rect x="24" y="24" width="110" height="28" rx="6" fill="#10b981" fill-opacity="0.2"/>
+      <text x="79" y="42" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#34d399" text-anchor="middle">FASE 1: DONE</text>
+      <text x="24" y="90" font-family="'Inter', sans-serif" font-size="20" font-weight="800" fill="#ffffff">Penyusunan PRD</text>
+      <text x="24" y="114" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#10b981">&amp; Desain Arsitektur</text>
+
+      <g transform="translate(24, 135)">
+        <text x="0" y="20" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">• Tugas eksplorasi selesai.</text>
+        <text x="0" y="45" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">• Skema tabel relasional master.</text>
+        <text x="0" y="70" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">• Desain alur state Inbound/Out.</text>
+        <text x="0" y="95" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">• Live auth guard Vercel aktif.</text>
+      </g>
+
+      <rect x="24" y="265" width="337" height="48" rx="10" fill="#0b1322" stroke="#16233b"/>
+      <text x="192" y="295" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#34d399" text-anchor="middle">STATUS: READY TO CODE</text>
+    </g>
+
+    <!-- Phase 2: Core Vibe Coding -->
+    <g transform="translate(418, 0)" filter="url(#shadow10)">
+      <rect x="0" y="0" width="385" height="340" rx="18" fill="url(#cardGrad10)" stroke="#1e293b" stroke-width="1.5"/>
+      <rect x="24" y="24" width="120" height="28" rx="6" fill="#38bdf8" fill-opacity="0.2"/>
+      <text x="84" y="42" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#38bdf8" text-anchor="middle">FASE 2: NEXT</text>
+      <text x="24" y="90" font-family="'Inter', sans-serif" font-size="20" font-weight="800" fill="#ffffff">Vibe Coding: Core</text>
+      <text x="24" y="114" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#38bdf8">Modul Transaksi Dasar</text>
+
+      <g transform="translate(24, 135)">
+        <text x="0" y="20" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">• CRUD Master SKU &amp; Barcode.</text>
+        <text x="0" y="45" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">• Form Inbound &amp; Outbound.</text>
+        <text x="0" y="70" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">• Directory Alokasi Rak (Bin).</text>
+        <text x="0" y="95" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">• Log Kartu Stok mutasi barang.</text>
+      </g>
+
+      <rect x="24" y="265" width="337" height="48" rx="10" fill="#0b1322" stroke="#16233b"/>
+      <text x="192" y="295" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#94a3b8" text-anchor="middle">ESTIMASI: MINGGU 1 - 2</text>
+    </g>
+
+    <!-- Phase 3: Value-Added Integration -->
+    <g transform="translate(836, 0)" filter="url(#shadow10)">
+      <rect x="0" y="0" width="385" height="340" rx="18" fill="url(#cardGrad10)" stroke="#1e293b" stroke-width="1.5"/>
+      <rect x="24" y="24" width="135" height="28" rx="6" fill="#a855f7" fill-opacity="0.2"/>
+      <text x="91" y="42" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#c084fc" text-anchor="middle">FASE 3: VALUE-ADD</text>
+      <text x="24" y="90" font-family="'Inter', sans-serif" font-size="20" font-weight="800" fill="#ffffff">Integrasi Cerdas</text>
+      <text x="24" y="114" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#c084fc">Smart ROP &amp; Aging Stock</text>
+
+      <g transform="translate(24, 135)">
+        <text x="0" y="20" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">• Algoritma batas kritis stok.</text>
+        <text x="0" y="45" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">• Otomasi alert email / WhatsApp.</text>
+        <text x="0" y="70" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">• Kalkulator usia simpan barang.</text>
+        <text x="0" y="95" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">• Filter dead stock &gt;90 hari.</text>
+      </g>
+
+      <rect x="24" y="265" width="337" height="48" rx="10" fill="#0b1322" stroke="#16233b"/>
+      <text x="192" y="295" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#94a3b8" text-anchor="middle">ESTIMASI: MINGGU 3 - 4</text>
+    </g>
+
+    <!-- Phase 4: Testing & Evaluation -->
+    <g transform="translate(1254, 0)" filter="url(#shadow10)">
+      <rect x="0" y="0" width="385" height="340" rx="18" fill="url(#cardGrad10)" stroke="#1e293b" stroke-width="1.5"/>
+      <rect x="24" y="24" width="135" height="28" rx="6" fill="#f59e0b" fill-opacity="0.2"/>
+      <text x="91" y="42" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#fbbf24" text-anchor="middle">FASE 4: EVALUASI</text>
+      <text x="24" y="90" font-family="'Inter', sans-serif" font-size="20" font-weight="800" fill="#ffffff">UAT &amp; Uji Dampak</text>
+      <text x="24" y="114" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#fbbf24">Pengujian Skripsi Riil</text>
+
+      <g transform="translate(24, 135)">
+        <text x="0" y="20" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">• Uji akurasi stok fisik (Opname).</text>
+        <text x="0" y="45" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">• Pengukuran waktu picking staf.</text>
+        <text x="0" y="70" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">• Evaluasi kegunaan sistem (SUS).</text>
+        <text x="0" y="95" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">• Penyusunan naskah bab 4 &amp; 5.</text>
+      </g>
+
+      <rect x="24" y="265" width="337" height="48" rx="10" fill="#0b1322" stroke="#16233b"/>
+      <text x="192" y="295" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#94a3b8" text-anchor="middle">ESTIMASI: MINGGU 5 - 6</text>
+    </g>
+  </g>
+
+  <!-- Big Closing Hero & Q&A Banner Bottom -->
+  <g transform="translate(140, 645)" filter="url(#shadow10)">
+    <rect x="0" y="0" width="1640" height="305" rx="22" fill="url(#cardGrad10)" stroke="#1e3256" stroke-width="1.6"/>
+
+    <g transform="translate(48, 45)">
+      <rect x="0" y="0" width="220" height="32" rx="8" fill="#10b981" fill-opacity="0.15"/>
+      <text x="110" y="21" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#34d399" text-anchor="middle">KESIMPULAN AKHIR</text>
+
+      <text x="0" y="80" font-family="'Inter', sans-serif" font-size="32" font-weight="900" fill="#ffffff">
+        GudangPro: WMS Cerdas, Efisien, &amp; Teruji
+      </text>
+      <text x="0" y="115" font-family="'Inter', sans-serif" font-size="16" font-weight="400" fill="#94a3b8">
+        Siap melanjutkan implementasi teknis dengan kepastian alur bisnis, definisi fitur inti yang kokoh,
+      </text>
+      <text x="0" y="142" font-family="'Inter', sans-serif" font-size="16" font-weight="600" fill="#38bdf8">
+        dan fitur nilai tambah yang memberikan keunggulan kompetitif bagi ekosistem pergudangan.
+      </text>
+
+      <!-- Live Link Box -->
+      <g transform="translate(0, 168)">
+        <rect x="0" y="0" width="480" height="44" rx="10" fill="#0b1322" stroke="#1c2d4a"/>
+        <text x="20" y="27" font-family="'Inter', sans-serif" font-size="14" font-weight="600" fill="#94a3b8">Live Demo Prototipe:</text>
+        <text x="180" y="27" font-family="'Inter', sans-serif" font-size="14" font-weight="800" fill="#38bdf8">https://gudang-pro-flame.vercel.app/</text>
+      </g>
+    </g>
+
+    <!-- Right Side Q&A Box -->
+    <g transform="translate(1180, 45)">
+      <rect x="0" y="0" width="400" height="215" rx="16" fill="url(#ctaGrad)" opacity="0.12"/>
+      <rect x="0" y="0" width="400" height="215" rx="16" fill="none" stroke="#10b981" stroke-width="1.8"/>
+
+      <text x="200" y="70" font-family="'Inter', sans-serif" font-size="34" font-weight="900" fill="#ffffff" text-anchor="middle">SESI TANYA JAWAB</text>
+      <text x="200" y="105" font-family="'Inter', sans-serif" font-size="18" font-weight="600" fill="#34d399" text-anchor="middle">(Q &amp; A)</text>
+      <text x="200" y="145" font-family="'Inter', sans-serif" font-size="14" font-weight="400" fill="#cbd5e1" text-anchor="middle">Terima kasih atas perhatian</text>
+      <text x="200" y="168" font-family="'Inter', sans-serif" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle">Bapak/Ibu Dosen Penguji &amp; Rekan-rekan</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <g transform="translate(140, 1010)">
+    <text x="0" y="0" font-family="'Inter', sans-serif" font-size="14" font-weight="600" fill="#475569">GudangPro WMS • Presentasi Tugas Eksplorasi Produk &amp; Fitur Nilai Tambah</text>
+    <text x="1640" y="0" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#64748b">10 / 10</text>
+  </g>
+</svg>

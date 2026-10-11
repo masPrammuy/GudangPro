@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <linearGradient id="bg6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="greenGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#bg6)"/>
+
+  <!-- Top Title -->
+  <g transform="translate(140, 100)">
+    <text x="0" y="30" font-family="'Inter', sans-serif" font-size="16" font-weight="700" fill="#38bdf8" letter-spacing="1.5">KESIMPULAN &amp; VALUE PROPOSITION</text>
+    <text x="0" y="75" font-family="'Inter', sans-serif" font-size="44" font-weight="900" fill="#ffffff">
+      Posisi Produk &amp; Batasan Ruang Lingkup
+    </text>
+  </g>
+
+  <!-- Big Hero Value Prop Formula Banner -->
+  <g transform="translate(140, 230)">
+    <rect x="0" y="0" width="1640" height="230" rx="20" fill="#0d2422" stroke="#059669" stroke-width="2"/>
+    <rect x="36" y="28" width="230" height="32" rx="8" fill="#059669"/>
+    <text x="151" y="49" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#ffffff" text-anchor="middle">RUMUS VALUE PROPOSITION</text>
+
+    <text x="36" y="105" font-family="'Inter', sans-serif" font-size="24" font-weight="700" fill="#ffffff">
+      "Aplikasi GudangPro tidak hanya membantu <tspan fill="#94a3b8">mencatat keluar-masuknya barang</tspan>,"
+    </text>
+    <text x="36" y="145" font-family="'Inter', sans-serif" font-size="24" font-weight="700" fill="#ffffff">
+      "tetapi juga membantu <tspan fill="#fca5a5">mencegah kerugian kehabisan barang (stock-out)</tspan> dan <tspan fill="#7dd3fc">memangkas waktu pencarian barang</tspan>"
+    </text>
+    <text x="36" y="185" font-family="'Inter', sans-serif" font-size="24" font-weight="700" fill="#ffffff">
+      "melalui fitur <tspan fill="#34d399">Smart Reorder Point Alert</tspan> dan <tspan fill="#38bdf8">Pemetaan Lokasi Rak Presisi (Bin Mapping)</tspan>."
+    </text>
+  </g>
+
+  <!-- Bottom Columns: Left Scope Guard, Right Q&A -->
+  <g transform="translate(140, 490)">
+    <!-- Scope Guard Box -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="1020" height="390" rx="20" fill="#111a2d" stroke="#1e2d47" stroke-width="1.5"/>
+      <text x="36" y="44" font-family="'Inter', sans-serif" font-size="18" font-weight="800" fill="#ffffff">Penguncian Scope: Menjamin Skripsi Selesai Tepat Waktu</text>
+
+      <g transform="translate(36, 75)">
+        <!-- IN-SCOPE -->
+        <g transform="translate(0, 0)">
+          <rect x="0" y="0" width="455" height="270" rx="14" fill="#091b15" stroke="#059669" stroke-width="1.2"/>
+          <text x="20" y="32" font-family="'Inter', sans-serif" font-size="14" font-weight="800" fill="#34d399">✓ IN-SCOPE (FOKUS DIKERJAKAN):</text>
+          <text x="20" y="65" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">• Autentikasi Google OAuth &amp; Manual</text>
+          <text x="20" y="95" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">• CRUD Master SKU &amp; Barcode</text>
+          <text x="20" y="125" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">• Form Transaksi Inbound &amp; Outbound</text>
+          <text x="20" y="155" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">• Pemetaan Kode Rak &amp; Zona Gudang</text>
+          <text x="20" y="185" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">• Kartu Stok &amp; Riwayat Audit Mutasi</text>
+          <text x="20" y="215" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">• Smart Reorder Point &amp; Aging Alert</text>
+          <text x="20" y="245" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#34d399">Terkunci &amp; Sangat Realistis untuk Skripsi</text>
+        </g>
+
+        <!-- OUT-OF-SCOPE -->
+        <g transform="translate(490, 0)">
+          <rect x="0" y="0" width="455" height="270" rx="14" fill="#1b0e12" stroke="#991b1b" stroke-width="1.2"/>
+          <text x="20" y="32" font-family="'Inter', sans-serif" font-size="14" font-weight="800" fill="#f87171">✕ OUT-OF-SCOPE (DIBATASI):</text>
+          <text x="20" y="65" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">• Sensor Timbangan IoT Fisik Rak</text>
+          <text x="20" y="95" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">• Sistem Kasir POS &amp; Pembayaran Retail</text>
+          <text x="20" y="125" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">• Robotik AGV Otomasi Gudang</text>
+          <text x="20" y="155" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">• Pelacakan GPS Truk Ekspedisi Jalan Raya</text>
+          <text x="20" y="185" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">• Sistem Akuntansi Neraca Lengkap</text>
+          <text x="20" y="245" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#f87171">Mencegah Feature Bloat &amp; Gagal Rilis</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Right Q&A Closing Box -->
+    <g transform="translate(1060, 0)">
+      <rect x="0" y="0" width="580" height="390" rx="20" fill="#0d1b2e" stroke="#1e3a63" stroke-width="2"/>
+      <rect x="40" y="36" width="180" height="32" rx="8" fill="#1e3a63"/>
+      <text x="130" y="57" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#38bdf8" text-anchor="middle">SESI TANYA JAWAB</text>
+
+      <text x="40" y="120" font-family="'Inter', sans-serif" font-size="34" font-weight="900" fill="#ffffff">Terima Kasih!</text>
+      <text x="40" y="155" font-family="'Inter', sans-serif" font-size="16" font-weight="400" fill="#cbd5e1">
+        Siap melanjutkan ke penyusunan PRD detail
+      </text>
+      <text x="40" y="180" font-family="'Inter', sans-serif" font-size="16" font-weight="600" fill="#34d399">
+        dan implementasi Vibe Coding GudangPro.
+      </text>
+
+      <g transform="translate(40, 215)">
+        <rect x="0" y="0" width="500" height="70" rx="12" fill="#091220" stroke="#16253d"/>
+        <text x="20" y="28" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#94a3b8">LIVE PROTOTYPE TERVERIFIKASI:</text>
+        <text x="20" y="52" font-family="'Inter', sans-serif" font-size="15" font-weight="800" fill="#38bdf8">https://gudang-pro-flame.vercel.app/</text>
+      </g>
+
+      <text x="40" y="335" font-family="'Inter', sans-serif" font-size="18" font-weight="800" fill="#ffffff">Ada tanggapan atau pertanyaan, Bapak/Ibu Dosen?</text>
+    </g>
+  </g>
+
+  <!-- Slide Footer -->
+  <g transform="translate(140, 990)">
+    <text x="0" y="0" font-family="'Inter', sans-serif" font-size="14" font-weight="600" fill="#64748b">Penutup &amp; Q&amp;A • GudangPro</text>
+    <text x="1640" y="0" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#64748b">06 / 06</text>
+  </g>
+</svg>

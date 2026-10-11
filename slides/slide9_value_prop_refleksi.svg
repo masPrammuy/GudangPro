@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <linearGradient id="bgGrad9" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070b14"/>
+      <stop offset="50%" stop-color="#0b1220"/>
+      <stop offset="100%" stop-color="#080e1a"/>
+    </linearGradient>
+    <linearGradient id="cardGrad9" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141f36"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="valGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0e2a27"/>
+      <stop offset="100%" stop-color="#081716"/>
+    </linearGradient>
+    <filter id="shadow9" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="url(#bgGrad9)"/>
+
+  <!-- Top Header Navigation -->
+  <g transform="translate(140, 70)">
+    <rect x="0" y="0" width="1640" height="70" rx="16" fill="#0f172a" stroke="#1e293b" stroke-width="1.2"/>
+    <text x="32" y="42" font-family="'Inter', 'Segoe UI', sans-serif" font-size="14" font-weight="700" fill="#38bdf8" letter-spacing="1.5">BAGIAN III: VALUE PROPOSITION &amp; REFLEKSI DIRI</text>
+    <text x="445" y="42" font-family="'Inter', 'Segoe UI', sans-serif" font-size="14" font-weight="500" fill="#64748b">|</text>
+    <text x="465" y="42" font-family="'Inter', 'Segoe UI', sans-serif" font-size="14" font-weight="600" fill="#cbd5e1">Sintesis Akhir: Posisi Produk di Pasar &amp; Evaluasi Kritis Cara Berpikir</text>
+    <text x="1560" y="43" font-family="'Inter', 'Segoe UI', sans-serif" font-size="16" font-weight="800" fill="#64748b">09 / 10</text>
+  </g>
+
+  <!-- Title & Subtitle -->
+  <g transform="translate(140, 180)">
+    <text x="0" y="32" font-family="'Inter', 'Segoe UI', sans-serif" font-size="38" font-weight="900" fill="#ffffff">
+      Value Proposition &amp; Refleksi Kritis
+    </text>
+    <text x="0" y="68" font-family="'Inter', 'Segoe UI', sans-serif" font-size="18" font-weight="400" fill="#94a3b8">
+      Menjawab ekspektasi dosen pembimbing: bagaimana eksplorasi ini mengubah cara mahasiswa merancang perangkat lunak.
+    </text>
+  </g>
+
+  <!-- TOP HERO: Official Value Proposition Formula Box -->
+  <g transform="translate(140, 275)" filter="url(#shadow9)">
+    <rect x="0" y="0" width="1640" height="210" rx="22" fill="url(#valGrad)" stroke="#059669" stroke-width="1.8"/>
+    
+    <rect x="36" y="24" width="220" height="30" rx="8" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-opacity="0.5"/>
+    <text x="146" y="44" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#6ee7b7" text-anchor="middle">FORMULA VALUE PROPOSITION</text>
+
+    <!-- The Sentence -->
+    <text x="36" y="96" font-family="'Inter', sans-serif" font-size="24" font-weight="700" fill="#ffffff">
+      "Aplikasi GudangPro tidak hanya membantu <tspan fill="#94a3b8" font-weight="500">mencatat keluar-masuknya barang</tspan>,"
+    </text>
+    <text x="36" y="136" font-family="'Inter', sans-serif" font-size="24" font-weight="700" fill="#ffffff">
+      "tetapi juga membantu <tspan fill="#fca5a5">mencegah kerugian kehabisan barang (stock-out)</tspan> dan <tspan fill="#7dd3fc">memangkas waktu pencarian barang</tspan>"
+    </text>
+    <text x="36" y="176" font-family="'Inter', sans-serif" font-size="24" font-weight="700" fill="#ffffff">
+      "melalui fitur <tspan fill="#34d399">Smart Reorder Point Alert</tspan> dan <tspan fill="#38bdf8">Pemetaan Lokasi Rak Presisi (Bin Mapping)</tspan>."
+    </text>
+  </g>
+
+  <!-- BOTTOM: 5 Critical Reflections Grid -->
+  <g transform="translate(140, 520)">
+    <rect x="0" y="0" width="1640" height="430" rx="22" fill="url(#cardGrad9)" stroke="#1e293b" stroke-width="1.5"/>
+    <text x="36" y="44" font-family="'Inter', sans-serif" font-size="17" font-weight="800" fill="#38bdf8" letter-spacing="1">REFLEKSI KRITIS 5 PERTANYAAN (SESUAI RUBRIK PENILAIAN):</text>
+
+    <g transform="translate(36, 75)">
+      <!-- Q1 -->
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="300" height="315" rx="14" fill="#0b1322" stroke="#1b2a44"/>
+        <circle cx="28" cy="28" r="14" fill="#38bdf8" fill-opacity="0.2"/>
+        <text x="28" y="34" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#38bdf8" text-anchor="middle">1</text>
+        <text x="54" y="33" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#ffffff">Perubahan Cara Pandang</text>
+        
+        <text x="16" y="75" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#94a3b8">SEBELUM:</text>
+        <text x="16" y="95" font-family="'Inter', sans-serif" font-size="12" font-weight="400" fill="#cbd5e1">Cukup bikin CRUD barang masuk &amp; keluar sudah selesai.</text>
+
+        <text x="16" y="145" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#34d399">SESUDAH:</text>
+        <text x="16" y="165" font-family="'Inter', sans-serif" font-size="12" font-weight="400" fill="#ffffff">CRUD hanyalah syarat dasar. Aplikasi bernilai tinggi harus proaktif menyelesaikan kesakitan operasional dan finansial.</text>
+      </g>
+
+      <!-- Q2 -->
+      <g transform="translate(318, 0)">
+        <rect x="0" y="0" width="300" height="315" rx="14" fill="#0b1322" stroke="#1b2a44"/>
+        <circle cx="28" cy="28" r="14" fill="#f59e0b" fill-opacity="0.2"/>
+        <text x="28" y="34" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#f59e0b" text-anchor="middle">2</text>
+        <text x="54" y="33" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#ffffff">Koreksi Fitur Unggulan</text>
+        
+        <text x="16" y="75" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#f87171">ILUSI AWAL:</text>
+        <text x="16" y="95" font-family="'Inter', sans-serif" font-size="12" font-weight="400" fill="#cbd5e1">Mengira "Kartu Stok" dan "Kode Rak" adalah fitur unggulan canggih.</text>
+
+        <text x="16" y="145" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#fcd34d">REALITAS TEARDOWN:</text>
+        <text x="16" y="165" font-family="'Inter', sans-serif" font-size="12" font-weight="400" fill="#ffffff">Keduanya adalah FITUR INTI. Tanpa kartu stok dan rak, sebuah sistem tidak sah disebut WMS.</text>
+      </g>
+
+      <!-- Q3 -->
+      <g transform="translate(636, 0)">
+        <rect x="0" y="0" width="300" height="315" rx="14" fill="#0b1322" stroke="#1b2a44"/>
+        <circle cx="28" cy="28" r="14" fill="#10b981" fill-opacity="0.2"/>
+        <text x="28" y="34" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#10b981" text-anchor="middle">3</text>
+        <text x="54" y="33" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#ffffff">3 Nilai Tambah Sejati</text>
+        
+        <text x="16" y="75" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#34d399">INOVASI ORISINAL DOMAIN:</text>
+        <text x="16" y="105" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#ffffff">1. Smart Reorder Alert</text>
+        <text x="16" y="125" font-family="'Inter', sans-serif" font-size="11" font-weight="400" fill="#cbd5e1">   (Pencegah barang habis)</text>
+        <text x="16" y="155" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#ffffff">2. S-Shape Picking Route</text>
+        <text x="16" y="175" font-family="'Inter', sans-serif" font-size="11" font-weight="400" fill="#cbd5e1">   (Pangkas langkah kaki)</text>
+        <text x="16" y="205" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#ffffff">3. Dead Stock Clearance</text>
+        <text x="16" y="225" font-family="'Inter', sans-serif" font-size="11" font-weight="400" fill="#cbd5e1">   (Cairkan modal tertimbun)</text>
+      </g>
+
+      <!-- Q4 -->
+      <g transform="translate(954, 0)">
+        <rect x="0" y="0" width="300" height="315" rx="14" fill="#0b1322" stroke="#1b2a44"/>
+        <circle cx="28" cy="28" r="14" fill="#ef4444" fill-opacity="0.2"/>
+        <text x="28" y="34" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#ef4444" text-anchor="middle">4</text>
+        <text x="54" y="33" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#ffffff">Dampak Terbesar</text>
+        
+        <text x="16" y="75" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#fca5a5">FITUR BERDAMPAK PALING MASIF:</text>
+        <text x="16" y="105" font-family="'Inter', sans-serif" font-size="14" font-weight="800" fill="#ffffff">Smart Reorder Point (ROP)</text>
+        
+        <text x="16" y="145" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#94a3b8">ALASAN BISNIS:</text>
+        <text x="16" y="165" font-family="'Inter', sans-serif" font-size="12" font-weight="400" fill="#e2e8f0">Kehabisan stok langsung mematikan transaksi dan merusak kepercayaan konsumen. Mencegahnya menyelamatkan omzet secara instan.</text>
+      </g>
+
+      <!-- Q5 -->
+      <g transform="translate(1272, 0)">
+        <rect x="0" y="0" width="296" height="315" rx="14" fill="#0b1322" stroke="#1b2a44"/>
+        <circle cx="28" cy="28" r="14" fill="#a855f7" fill-opacity="0.2"/>
+        <text x="28" y="34" font-family="'Inter', sans-serif" font-size="13" font-weight="900" fill="#a855f7" text-anchor="middle">5</text>
+        <text x="54" y="33" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#ffffff">Paling Realistis Digarap</text>
+        
+        <text x="16" y="75" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#d8b4fe">FITUR PALING FEASIBLE:</text>
+        <text x="16" y="105" font-family="'Inter', sans-serif" font-size="14" font-weight="800" fill="#ffffff">Smart ROP &amp; Aging Stock</text>
+        
+        <text x="16" y="145" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#94a3b8">ALASAN KELAYAKAN SKRIPSI:</text>
+        <text x="16" y="165" font-family="'Inter', sans-serif" font-size="12" font-weight="400" fill="#e2e8f0">Hanya membutuhkan query data transaksi relasional yang sudah ada, tanpa perlu hardware IoT fisik atau graf spasial 3D yang rumit.</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <g transform="translate(140, 1010)">
+    <text x="0" y="0" font-family="'Inter', sans-serif" font-size="14" font-weight="600" fill="#475569">GudangPro WMS • Value Proposition &amp; Refleksi Akademik</text>
+    <text x="1640" y="0" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#64748b">09 / 10</text>
+  </g>
+</svg>

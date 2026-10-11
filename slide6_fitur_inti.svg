@@ -1,0 +1,190 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <linearGradient id="bgGrad6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070b14"/>
+      <stop offset="50%" stop-color="#0b1220"/>
+      <stop offset="100%" stop-color="#080e1a"/>
+    </linearGradient>
+    <linearGradient id="cardGrad6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141f36"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <filter id="shadow6" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="url(#bgGrad6)"/>
+
+  <!-- Top Header Navigation -->
+  <g transform="translate(140, 70)">
+    <rect x="0" y="0" width="1640" height="70" rx="16" fill="#0f172a" stroke="#1e293b" stroke-width="1.2"/>
+    <text x="32" y="42" font-family="'Inter', 'Segoe UI', sans-serif" font-size="14" font-weight="700" fill="#38bdf8" letter-spacing="1.5">BAGIAN II: PENETAPAN FITUR INTI (CORE)</text>
+    <text x="365" y="42" font-family="'Inter', 'Segoe UI', sans-serif" font-size="14" font-weight="500" fill="#64748b">|</text>
+    <text x="385" y="42" font-family="'Inter', 'Segoe UI', sans-serif" font-size="14" font-weight="600" fill="#cbd5e1">Fondasi Fungsional WMS: Gugur Jika Salah Satu Fitur Dihilangkan</text>
+    <text x="1560" y="43" font-family="'Inter', 'Segoe UI', sans-serif" font-size="16" font-weight="800" fill="#64748b">06 / 10</text>
+  </g>
+
+  <!-- Title & Subtitle -->
+  <g transform="translate(140, 180)">
+    <text x="0" y="32" font-family="'Inter', 'Segoe UI', sans-serif" font-size="38" font-weight="900" fill="#ffffff">
+      5 Fitur Inti GudangPro (Core System)
+    </text>
+    <text x="0" y="68" font-family="'Inter', 'Segoe UI', sans-serif" font-size="18" font-weight="400" fill="#94a3b8">
+      Fitur minimum yang harus ada agar sistem secara sah dapat diklasifikasikan sebagai Sistem Manajemen Pergudangan.
+    </text>
+  </g>
+
+  <!-- 5 Core Features Grid (3 Top, 2 Bottom + Critical Test Box) -->
+  <g transform="translate(140, 275)">
+    <!-- Feature 1: Master SKU -->
+    <g transform="translate(0, 0)" filter="url(#shadow6)">
+      <rect x="0" y="0" width="520" height="315" rx="18" fill="url(#cardGrad6)" stroke="#1e3256" stroke-width="1.5"/>
+      <rect x="28" y="24" width="48" height="48" rx="12" fill="#3b82f6" fill-opacity="0.2"/>
+      <text x="52" y="55" font-family="'Inter', sans-serif" font-size="20" text-anchor="middle">📦</text>
+      <text x="90" y="46" font-family="'Inter', sans-serif" font-size="18" font-weight="800" fill="#ffffff">1. Master Data SKU &amp; Item</text>
+      <text x="90" y="68" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#38bdf8">Katalog Tunggal Produk &amp; Barcode</text>
+
+      <g transform="translate(28, 90)">
+        <rect x="0" y="0" width="464" height="75" rx="10" fill="#0b1322" stroke="#16233b"/>
+        <text x="16" y="26" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#64748b">FUNGSI UTAMA:</text>
+        <text x="16" y="50" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#e2e8f0">Menyimpan database nomor SKU, satuan (Pcs, Box),</text>
+        <text x="16" y="68" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#e2e8f0">barcode, kategori, serta batas stok aman.</text>
+      </g>
+
+      <g transform="translate(28, 180)">
+        <rect x="0" y="0" width="464" height="105" rx="10" fill="#0b1322" stroke="#16233b"/>
+        <text x="16" y="26" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#f59e0b">MENGAPA MUTLAK DIBUTUHKAN?</text>
+        <text x="16" y="52" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">Tanpa master barang, seluruh transaksi</text>
+        <text x="16" y="72" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">masuk/keluar kehilangan entitas data dan</text>
+        <text x="16" y="92" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#fca5a5">sistem gudang tidak dapat beroperasi sama sekali.</text>
+      </g>
+    </g>
+
+    <!-- Feature 2: Inbound Receiving -->
+    <g transform="translate(560, 0)" filter="url(#shadow6)">
+      <rect x="0" y="0" width="520" height="315" rx="18" fill="url(#cardGrad6)" stroke="#1e3256" stroke-width="1.5"/>
+      <rect x="28" y="24" width="48" height="48" rx="12" fill="#10b981" fill-opacity="0.2"/>
+      <text x="52" y="55" font-family="'Inter', sans-serif" font-size="20" text-anchor="middle">📥</text>
+      <text x="90" y="46" font-family="'Inter', sans-serif" font-size="18" font-weight="800" fill="#ffffff">2. Pencatatan Barang Masuk</text>
+      <text x="90" y="68" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#34d399">Inbound Receiving &amp; PO Matching</text>
+
+      <g transform="translate(28, 90)">
+        <rect x="0" y="0" width="464" height="75" rx="10" fill="#0b1322" stroke="#16233b"/>
+        <text x="16" y="26" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#64748b">FUNGSI UTAMA:</text>
+        <text x="16" y="50" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#e2e8f0">Mencatat penerimaan stok dari supplier, nomor surat jalan,</text>
+        <text x="16" y="68" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#e2e8f0">jumlah riil diterima, kondisi barang, dan tanggal masuk.</text>
+      </g>
+
+      <g transform="translate(28, 180)">
+        <rect x="0" y="0" width="464" height="105" rx="10" fill="#0b1322" stroke="#16233b"/>
+        <text x="16" y="26" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#f59e0b">MENGAPA MUTLAK DIBUTUHKAN?</text>
+        <text x="16" y="52" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">Merupakan satu-satunya gerbang resmi</text>
+        <text x="16" y="72" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">bertambahnya kuantitas stok di sistem.</text>
+        <text x="16" y="92" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#fca5a5">Mencegah klaim fiktif dari pemasok.</text>
+      </g>
+    </g>
+
+    <!-- Feature 3: Outbound Dispatch -->
+    <g transform="translate(1120, 0)" filter="url(#shadow6)">
+      <rect x="0" y="0" width="520" height="315" rx="18" fill="url(#cardGrad6)" stroke="#1e3256" stroke-width="1.5"/>
+      <rect x="28" y="24" width="48" height="48" rx="12" fill="#ef4444" fill-opacity="0.2"/>
+      <text x="52" y="55" font-family="'Inter', sans-serif" font-size="20" text-anchor="middle">📤</text>
+      <text x="90" y="46" font-family="'Inter', sans-serif" font-size="18" font-weight="800" fill="#ffffff">3. Pencatatan Barang Keluar</text>
+      <text x="90" y="68" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#f87171">Outbound Picking &amp; Delivery Order</text>
+
+      <g transform="translate(28, 90)">
+        <rect x="0" y="0" width="464" height="75" rx="10" fill="#0b1322" stroke="#16233b"/>
+        <text x="16" y="26" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#64748b">FUNGSI UTAMA:</text>
+        <text x="16" y="50" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#e2e8f0">Memvalidasi pengurangan stok untuk pemenuhan pesanan,</text>
+        <text x="16" y="68" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#e2e8f0">surat jalan, atau mutasi antar cabang secara real-time.</text>
+      </g>
+
+      <g transform="translate(28, 180)">
+        <rect x="0" y="0" width="464" height="105" rx="10" fill="#0b1322" stroke="#16233b"/>
+        <text x="16" y="26" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#f59e0b">MENGAPA MUTLAK DIBUTUHKAN?</text>
+        <text x="16" y="52" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">Memastikan setiap barang yang meninggalkan</text>
+        <text x="16" y="72" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">gudang memiliki surat perintah sah</text>
+        <text x="16" y="92" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#fca5a5">sehingga saldo stok selalu akurat.</text>
+      </g>
+    </g>
+
+    <!-- Feature 4: Bin Mapping -->
+    <g transform="translate(0, 345)" filter="url(#shadow6)">
+      <rect x="0" y="0" width="520" height="315" rx="18" fill="url(#cardGrad6)" stroke="#1e3256" stroke-width="1.5"/>
+      <rect x="28" y="24" width="48" height="48" rx="12" fill="#a855f7" fill-opacity="0.2"/>
+      <text x="52" y="55" font-family="'Inter', sans-serif" font-size="20" text-anchor="middle">🏷️</text>
+      <text x="90" y="46" font-family="'Inter', sans-serif" font-size="18" font-weight="800" fill="#ffffff">4. Pemetaan Lokasi Rak &amp; Zona</text>
+      <text x="90" y="68" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#c084fc">Bin / Shelf / Zone Location Directory</text>
+
+      <g transform="translate(28, 90)">
+        <rect x="0" y="0" width="464" height="75" rx="10" fill="#0b1322" stroke="#16233b"/>
+        <text x="16" y="26" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#64748b">FUNGSI UTAMA:</text>
+        <text x="16" y="50" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#e2e8f0">Menentukan alamat penyimpanan tiap SKU</text>
+        <text x="16" y="68" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#e2e8f0">(Zona A - Lorong 02 - Rak 04 - Level 01).</text>
+      </g>
+
+      <g transform="translate(28, 180)">
+        <rect x="0" y="0" width="464" height="105" rx="10" fill="#0b1322" stroke="#16233b"/>
+        <text x="16" y="26" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#f59e0b">MENGAPA MUTLAK DIBUTUHKAN?</text>
+        <text x="16" y="52" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">Inilah yang membedakan WMS dengan aplikasi POS biasa.</text>
+        <text x="16" y="72" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">Tanpa lokasi rak, staf gudang buta arah</text>
+        <text x="16" y="92" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#fca5a5">saat meletakkan atau mengambil barang.</text>
+      </g>
+    </g>
+
+    <!-- Feature 5: Stock Card Ledger -->
+    <g transform="translate(560, 345)" filter="url(#shadow6)">
+      <rect x="0" y="0" width="520" height="315" rx="18" fill="url(#cardGrad6)" stroke="#1e3256" stroke-width="1.5"/>
+      <rect x="28" y="24" width="48" height="48" rx="12" fill="#06b6d4" fill-opacity="0.2"/>
+      <text x="52" y="55" font-family="'Inter', sans-serif" font-size="20" text-anchor="middle">📋</text>
+      <text x="90" y="46" font-family="'Inter', sans-serif" font-size="18" font-weight="800" fill="#ffffff">5. Kartu Stok &amp; Audit Mutasi</text>
+      <text x="90" y="68" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#22d3ee">Stock Ledger &amp; Transaction Audit Trail</text>
+
+      <g transform="translate(28, 90)">
+        <rect x="0" y="0" width="464" height="75" rx="10" fill="#0b1322" stroke="#16233b"/>
+        <text x="16" y="26" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#64748b">FUNGSI UTAMA:</text>
+        <text x="16" y="50" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#e2e8f0">Menyimpan riwayat kronologis setiap mutasi:</text>
+        <text x="16" y="68" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#e2e8f0">waktu, jenis mutasi, kuantitas, saldo akhir, dan nama operator.</text>
+      </g>
+
+      <g transform="translate(28, 180)">
+        <rect x="0" y="0" width="464" height="105" rx="10" fill="#0b1322" stroke="#16233b"/>
+        <text x="16" y="26" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#f59e0b">MENGAPA MUTLAK DIBUTUHKAN?</text>
+        <text x="16" y="52" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">Alat bukti hukum dan rekonsiliasi saat opname.</text>
+        <text x="16" y="72" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">Tanpa log mutasi, tidak mungkin mengetahui</text>
+        <text x="16" y="92" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#fca5a5">siapa atau kapan barang hilang atau selisih.</text>
+      </g>
+    </g>
+
+    <!-- Critical Assessment / Rubric Test Box -->
+    <g transform="translate(1120, 345)" filter="url(#shadow6)">
+      <rect x="0" y="0" width="520" height="315" rx="18" fill="#1c130b" stroke="#f59e0b" stroke-width="1.8"/>
+      <rect x="28" y="24" width="180" height="30" rx="8" fill="#f59e0b" fill-opacity="0.2"/>
+      <text x="118" y="45" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#fcd34d" text-anchor="middle">PERTANYAAN RUBRIK</text>
+
+      <text x="28" y="90" font-family="'Inter', sans-serif" font-size="16" font-weight="800" fill="#ffffff">
+        "Jika fitur di atas dihilangkan, apakah
+      </text>
+      <text x="28" y="114" font-family="'Inter', sans-serif" font-size="16" font-weight="800" fill="#ffffff">
+        masih bisa disebut aplikasi WMS?"
+      </text>
+
+      <g transform="translate(28, 135)">
+        <rect x="0" y="0" width="464" height="150" rx="12" fill="#0f0c08" stroke="#33240e"/>
+        <text x="18" y="32" font-family="'Inter', sans-serif" font-size="22" font-weight="900" fill="#ef4444">JAWABAN: TIDAK BISA.</text>
+        <text x="18" y="65" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#e2e8f0">Tanpa kelima fitur ini, aplikasi gagal menjawab</text>
+        <text x="18" y="87" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#fcd34d">4 Pertanyaan Eksistensial Pergudangan:</text>
+        <text x="18" y="112" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">1. Barang apa? &nbsp; 2. Berapa jumlahnya?</text>
+        <text x="18" y="132" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#cbd5e1">3. Di mana letak raknya? &nbsp; 4. Ke mana mutasinya?</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <g transform="translate(140, 1010)">
+    <text x="0" y="0" font-family="'Inter', sans-serif" font-size="14" font-weight="600" fill="#475569">GudangPro WMS • Fondasi Sistem Inti</text>
+    <text x="1640" y="0" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#64748b">06 / 10</text>
+  </g>
+</svg>

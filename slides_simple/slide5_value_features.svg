@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <linearGradient id="bg5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#bg5)"/>
+
+  <!-- Top Title -->
+  <g transform="translate(140, 100)">
+    <text x="0" y="30" font-family="'Inter', sans-serif" font-size="16" font-weight="700" fill="#10b981" letter-spacing="1.5">NILAI PEMBEDA GUDANGPRO</text>
+    <text x="0" y="75" font-family="'Inter', sans-serif" font-size="44" font-weight="900" fill="#ffffff">
+      3 Fitur Bernilai Tambah (The Game Changers)
+    </text>
+    <text x="0" y="110" font-family="'Inter', sans-serif" font-size="18" font-weight="500" fill="#94a3b8">
+      Inovasi cerdas yang memberikan dampak efisiensi kerja dan proteksi finansial nyata bagi pemilik usaha.
+    </text>
+  </g>
+
+  <!-- 3 Big Value-Added Cards -->
+  <g transform="translate(140, 250)">
+    <!-- Feature 1 -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="520" height="630" rx="20" fill="#0d2320" stroke="#059669" stroke-width="2"/>
+      
+      <rect x="32" y="32" width="160" height="32" rx="8" fill="#10b981" fill-opacity="0.2"/>
+      <text x="112" y="53" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#6ee7b7" text-anchor="middle">NILAI TAMBAH 01</text>
+
+      <text x="32" y="105" font-family="'Inter', sans-serif" font-size="24" font-weight="800" fill="#ffffff">Smart Reorder Point</text>
+      <text x="32" y="132" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#34d399">Peringatan Dini Stok Menipis</text>
+
+      <!-- Problem & How -->
+      <g transform="translate(32, 160)">
+        <rect x="0" y="0" width="456" height="240" rx="14" fill="#081715"/>
+        <text x="20" y="32" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#38bdf8">MASALAH YANG DISELESAIKAN:</text>
+        <text x="20" y="58" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#e2e8f0">Purchasing telat pesan ulang $\rightarrow$ stok habis</text>
+        <text x="20" y="78" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#fca5a5">mendadak $\rightarrow$ order pembeli dibatalkan.</text>
+
+        <line x1="20" y1="100" x2="436" y2="100" stroke="#133630" stroke-width="1"/>
+
+        <text x="20" y="128" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#34d399">CARA KERJA SISTEM:</text>
+        <text x="20" y="154" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">Sistem hitung kecepatan konsumsi &amp; waktu</text>
+        <text x="20" y="174" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">tunggu supplier (*lead time*). Otomatis</text>
+        <text x="20" y="196" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#ffffff">kirim alert WA/Email + saran jumlah order.</text>
+      </g>
+
+      <!-- Impact Big Box -->
+      <g transform="translate(32, 425)">
+        <rect x="0" y="0" width="456" height="175" rx="14" fill="#062e24" stroke="#10b981" stroke-width="1.5"/>
+        <text x="24" y="34" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#34d399">DAMPAK BISNIS TERUKUR:</text>
+        <text x="24" y="80" font-family="'Inter', sans-serif" font-size="34" font-weight="900" fill="#ffffff">90% Zero Stock-Out</text>
+        <text x="24" y="115" font-family="'Inter', sans-serif" font-size="14" font-weight="500" fill="#a7f3d0">Menyelamatkan omzet penjualan yang hilang</text>
+        <text x="24" y="138" font-family="'Inter', sans-serif" font-size="14" font-weight="500" fill="#a7f3d0">akibat kekosongan stok barang.</text>
+      </g>
+    </g>
+
+    <!-- Feature 2 -->
+    <g transform="translate(560, 0)">
+      <rect x="0" y="0" width="520" height="630" rx="20" fill="#091b2c" stroke="#0284c7" stroke-width="2"/>
+
+      <rect x="32" y="32" width="160" height="32" rx="8" fill="#0284c7" fill-opacity="0.2"/>
+      <text x="112" y="53" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#7dd3fc" text-anchor="middle">NILAI TAMBAH 02</text>
+
+      <text x="32" y="105" font-family="'Inter', sans-serif" font-size="24" font-weight="800" fill="#ffffff">S-Shape Batch Picking</text>
+      <text x="32" y="132" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#38bdf8">Panduan Rute Ambil Terpendek</text>
+
+      <!-- Problem & How -->
+      <g transform="translate(32, 160)">
+        <rect x="0" y="0" width="456" height="240" rx="14" fill="#06121f"/>
+        <text x="20" y="32" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#38bdf8">MASALAH YANG DISELESAIKAN:</text>
+        <text x="20" y="58" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#e2e8f0">Petugas mondar-mandir zigzag di lorong</text>
+        <text x="20" y="78" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#fca5a5">yang sama karena pick-list acak.</text>
+
+        <line x1="20" y1="100" x2="436" y2="100" stroke="#0f2b47" stroke-width="1"/>
+
+        <text x="20" y="128" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#38bdf8">CARA KERJA SISTEM:</text>
+        <text x="20" y="154" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">Menggabungkan 5-10 order jadi 1 batch,</text>
+        <text x="20" y="174" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">lalu memandu rute satu arah lorong demi</text>
+        <text x="20" y="196" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#ffffff">lorong (*S-Shape*) tanpa perlu berbalik.</text>
+      </g>
+
+      <!-- Impact Big Box -->
+      <g transform="translate(32, 425)">
+        <rect x="0" y="0" width="456" height="175" rx="14" fill="#082b47" stroke="#38bdf8" stroke-width="1.5"/>
+        <text x="24" y="34" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#38bdf8">DAMPAK OPERASIONAL TERUKUR:</text>
+        <text x="24" y="80" font-family="'Inter', sans-serif" font-size="34" font-weight="900" fill="#ffffff">Pangkas 40% Waktu</text>
+        <text x="24" y="115" font-family="'Inter', sans-serif" font-size="14" font-weight="500" fill="#bae6fd">Kapasitas penyiapan order naik 2x lipat</text>
+        <text x="24" y="138" font-family="'Inter', sans-serif" font-size="14" font-weight="500" fill="#bae6fd">tanpa perlu menambah staf gudang baru.</text>
+      </g>
+    </g>
+
+    <!-- Feature 3 -->
+    <g transform="translate(1120, 0)">
+      <rect x="0" y="0" width="520" height="630" rx="20" fill="#1b122c" stroke="#7c3aed" stroke-width="2"/>
+
+      <rect x="32" y="32" width="160" height="32" rx="8" fill="#7c3aed" fill-opacity="0.2"/>
+      <text x="112" y="53" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#c4b5fd" text-anchor="middle">NILAI TAMBAH 03</text>
+
+      <text x="32" y="105" font-family="'Inter', sans-serif" font-size="24" font-weight="800" fill="#ffffff">Dead Stock Clearance</text>
+      <text x="32" y="132" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#a78bfa">Deteksi Barang Macet &amp; Usia</text>
+
+      <!-- Problem & How -->
+      <g transform="translate(32, 160)">
+        <rect x="0" y="0" width="456" height="240" rx="14" fill="#0f0a1a"/>
+        <text x="20" y="32" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#38bdf8">MASALAH YANG DISELESAIKAN:</text>
+        <text x="20" y="58" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#e2e8f0">Barang lama tertimbun berbulan-bulan,</text>
+        <text x="20" y="78" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#fca5a5">uang modal macet, &amp; barang rusak/kadaluwarsa.</text>
+
+        <line x1="20" y1="100" x2="436" y2="100" stroke="#2c1a47" stroke-width="1"/>
+
+        <text x="20" y="128" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#c084fc">CARA KERJA SISTEM:</text>
+        <text x="20" y="154" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">Kalkulasi durasi hari sejak barang masuk.</text>
+        <text x="20" y="174" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">Jika &gt;90 hari tidak mutasi, beri saran:</text>
+        <text x="20" y="196" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#ffffff">Retur supplier atau Diskon Cuci Gudang B2B.</text>
+      </g>
+
+      <!-- Impact Big Box -->
+      <g transform="translate(32, 425)">
+        <rect x="0" y="0" width="456" height="175" rx="14" fill="#2d174d" stroke="#a855f7" stroke-width="1.5"/>
+        <text x="24" y="34" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#c084fc">DAMPAK ASET &amp; FINANSIAL:</text>
+        <text x="24" y="80" font-family="'Inter', sans-serif" font-size="34" font-weight="900" fill="#ffffff">Cairkan Modal Kerja</text>
+        <text x="24" y="115" font-family="'Inter', sans-serif" font-size="14" font-weight="500" fill="#ddd6fe">Menyelamatkan dana tertimbun serta</text>
+        <text x="24" y="138" font-family="'Inter', sans-serif" font-size="14" font-weight="500" fill="#ddd6fe">mengosongkan rak untuk barang berputar cepat.</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Slide Footer -->
+  <g transform="translate(140, 990)">
+    <text x="0" y="0" font-family="'Inter', sans-serif" font-size="14" font-weight="600" fill="#64748b">Fitur Bernilai Tambah • GudangPro</text>
+    <text x="1640" y="0" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#64748b">05 / 06</text>
+  </g>
+</svg>

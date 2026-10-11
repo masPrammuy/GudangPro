@@ -1,0 +1,195 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <linearGradient id="bgGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070b14"/>
+      <stop offset="50%" stop-color="#0c1322"/>
+      <stop offset="100%" stop-color="#080e1a"/>
+    </linearGradient>
+    <linearGradient id="cardGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141f36"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="primaryGrad4" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <filter id="shadow4" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="url(#bgGrad4)"/>
+
+  <!-- Top Header Navigation -->
+  <g transform="translate(140, 70)">
+    <rect x="0" y="0" width="1640" height="70" rx="16" fill="#0f172a" stroke="#1e293b" stroke-width="1.2"/>
+    <text x="32" y="42" font-family="'Inter', 'Segoe UI', sans-serif" font-size="14" font-weight="700" fill="#10b981" letter-spacing="1.5">BAGIAN II: PROFIL PROYEK SKRIPSI</text>
+    <text x="335" y="42" font-family="'Inter', 'Segoe UI', sans-serif" font-size="14" font-weight="500" fill="#64748b">|</text>
+    <text x="355" y="42" font-family="'Inter', 'Segoe UI', sans-serif" font-size="14" font-weight="600" fill="#cbd5e1">GudangPro: Sistem Manajemen Pergudangan &amp; Rantai Pasok</text>
+    <text x="1560" y="43" font-family="'Inter', 'Segoe UI', sans-serif" font-size="16" font-weight="800" fill="#64748b">04 / 10</text>
+  </g>
+
+  <!-- Title & Subtitle -->
+  <g transform="translate(140, 180)">
+    <text x="0" y="32" font-family="'Inter', 'Segoe UI', sans-serif" font-size="38" font-weight="900" fill="#ffffff">
+      Profil Produk: <tspan fill="url(#primaryGrad4)">GudangPro WMS</tspan>
+    </text>
+    <text x="0" y="68" font-family="'Inter', 'Segoe UI', sans-serif" font-size="18" font-weight="400" fill="#94a3b8">
+      Sistem WMS web modern untuk mengeliminasi selisih stok, memetakan rak penyimpanan, dan memandu alur kerja logistik.
+    </text>
+  </g>
+
+  <!-- Left: Live Deployment & System Status -->
+  <g transform="translate(140, 275)" filter="url(#shadow4)">
+    <rect x="0" y="0" width="760" height="675" rx="22" fill="url(#cardGrad4)" stroke="#1e3256" stroke-width="1.6"/>
+
+    <!-- Browser Chrome Bar -->
+    <rect x="0" y="0" width="760" height="52" rx="22" fill="#0f192d"/>
+    <circle cx="28" cy="26" r="6" fill="#ef4444"/>
+    <circle cx="48" cy="26" r="6" fill="#f59e0b"/>
+    <circle cx="68" cy="26" r="6" fill="#10b981"/>
+    <!-- URL Pill -->
+    <rect x="110" y="10" width="480" height="32" rx="16" fill="#091120" stroke="#1c2d4a"/>
+    <circle cx="128" cy="26" r="4" fill="#10b981"/>
+    <text x="142" y="31" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#38bdf8">https://gudang-pro-flame.vercel.app/</text>
+    <rect x="610" y="12" width="124" height="28" rx="14" fill="#10b981" fill-opacity="0.15"/>
+    <text x="672" y="30" font-family="'Inter', sans-serif" font-size="11" font-weight="800" fill="#34d399" text-anchor="middle">LIVE VERCEL</text>
+
+    <!-- Inside Content: Active Modules -->
+    <g transform="translate(36, 80)">
+      <text x="0" y="24" font-family="'Inter', sans-serif" font-size="16" font-weight="800" fill="#ffffff">Status Fondasi Saat Ini: Siap Melangkah ke Core WMS</text>
+      <text x="0" y="50" font-family="'Inter', sans-serif" font-size="14" font-weight="400" fill="#94a3b8">Modul keamanan autentikasi &amp; session guard telah terpasang stabil:</text>
+
+      <!-- Subcard 1: Google OAuth 2.0 -->
+      <g transform="translate(0, 75)">
+        <rect x="0" y="0" width="688" height="96" rx="14" fill="#091120" stroke="#1e293b"/>
+        <circle cx="48" cy="48" r="22" fill="#3b82f6" fill-opacity="0.15"/>
+        <path d="M48 38 V58 M38 48 H58" stroke="#38bdf8" stroke-width="2.4" stroke-linecap="round"/>
+        <text x="86" y="38" font-family="'Inter', sans-serif" font-size="16" font-weight="700" fill="#ffffff">Google Cloud OAuth 2.0 Integration</text>
+        <text x="86" y="62" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#94a3b8">Single Sign-On resmi menggunakan Google Identity Services API.</text>
+        <text x="86" y="80" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#10b981">Client ID Cloud Verified • Auto Session Storage</text>
+      </g>
+
+      <!-- Subcard 2: Manual Credentials & Protection -->
+      <g transform="translate(0, 190)">
+        <rect x="0" y="0" width="688" height="96" rx="14" fill="#091120" stroke="#1e293b"/>
+        <circle cx="48" cy="48" r="22" fill="#10b981" fill-opacity="0.15"/>
+        <rect x="40" y="42" width="16" height="13" rx="2" fill="none" stroke="#34d399" stroke-width="2"/>
+        <path d="M43 42 V38 A5 5 0 0 1 53 38 V42" fill="none" stroke="#34d399" stroke-width="2"/>
+        <text x="86" y="38" font-family="'Inter', sans-serif" font-size="16" font-weight="700" fill="#ffffff">Dual Authentication &amp; Route Guard</text>
+        <text x="86" y="62" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#94a3b8">Akses manual staf admin dengan demo credentials teruji.</text>
+        <text x="86" y="80" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#38bdf8">Auth Guard Redirect • Auto Toast Notification</text>
+      </g>
+
+      <!-- Process Diagram of GudangPro -->
+      <g transform="translate(0, 310)">
+        <rect x="0" y="0" width="688" height="240" rx="16" fill="#0a1426" stroke="#172b4d"/>
+        <text x="24" y="36" font-family="'Inter', sans-serif" font-size="14" font-weight="800" fill="#38bdf8" letter-spacing="1">ALUR PROSES BISNIS GUDANG UTAMA:</text>
+
+        <!-- Step 1 -->
+        <g transform="translate(24, 60)">
+          <rect x="0" y="0" width="140" height="145" rx="12" fill="#101d36" stroke="#1e345e"/>
+          <text x="70" y="34" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#34d399" text-anchor="middle">1. INBOUND</text>
+          <text x="16" y="70" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#ffffff">Barang Masuk</text>
+          <text x="16" y="94" font-family="'Inter', sans-serif" font-size="11" font-weight="400" fill="#94a3b8">• Cek PO Supplier</text>
+          <text x="16" y="114" font-family="'Inter', sans-serif" font-size="11" font-weight="400" fill="#94a3b8">• Scan Barcode</text>
+          <text x="16" y="134" font-family="'Inter', sans-serif" font-size="11" font-weight="400" fill="#94a3b8">• Catat Expired</text>
+        </g>
+
+        <!-- Arrow -->
+        <text x="178" y="140" font-family="'Inter', sans-serif" font-size="20" font-weight="900" fill="#38bdf8">→</text>
+
+        <!-- Step 2 -->
+        <g transform="translate(198, 60)">
+          <rect x="0" y="0" width="140" height="145" rx="12" fill="#101d36" stroke="#1e345e"/>
+          <text x="70" y="34" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#38bdf8" text-anchor="middle">2. PUTAWAY</text>
+          <text x="16" y="70" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#ffffff">Alokasi Rak</text>
+          <text x="16" y="94" font-family="'Inter', sans-serif" font-size="11" font-weight="400" fill="#94a3b8">• Kode Bin Rak</text>
+          <text x="16" y="114" font-family="'Inter', sans-serif" font-size="11" font-weight="400" fill="#94a3b8">• Zona Gudang</text>
+          <text x="16" y="134" font-family="'Inter', sans-serif" font-size="11" font-weight="400" fill="#94a3b8">• Kapasitas Rak</text>
+        </g>
+
+        <!-- Arrow -->
+        <text x="352" y="140" font-family="'Inter', sans-serif" font-size="20" font-weight="900" fill="#38bdf8">→</text>
+
+        <!-- Step 3 -->
+        <g transform="translate(372, 60)">
+          <rect x="0" y="0" width="140" height="145" rx="12" fill="#101d36" stroke="#1e345e"/>
+          <text x="70" y="34" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#fbbf24" text-anchor="middle">3. PICKING</text>
+          <text x="16" y="70" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#ffffff">Ambil Barang</text>
+          <text x="16" y="94" font-family="'Inter', sans-serif" font-size="11" font-weight="400" fill="#94a3b8">• Order List</text>
+          <text x="16" y="114" font-family="'Inter', sans-serif" font-size="11" font-weight="400" fill="#94a3b8">• Rute Terpendek</text>
+          <text x="16" y="134" font-family="'Inter', sans-serif" font-size="11" font-weight="400" fill="#94a3b8">• Verifikasi SKU</text>
+        </g>
+
+        <!-- Arrow -->
+        <text x="526" y="140" font-family="'Inter', sans-serif" font-size="20" font-weight="900" fill="#38bdf8">→</text>
+
+        <!-- Step 4 -->
+        <g transform="translate(546, 60)">
+          <rect x="0" y="0" width="118" height="145" rx="12" fill="#101d36" stroke="#1e345e"/>
+          <text x="59" y="34" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#f87171" text-anchor="middle">4. DISPATCH</text>
+          <text x="12" y="70" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#ffffff">Keluar / Kirim</text>
+          <text x="12" y="94" font-family="'Inter', sans-serif" font-size="11" font-weight="400" fill="#94a3b8">• Packing Box</text>
+          <text x="12" y="114" font-family="'Inter', sans-serif" font-size="11" font-weight="400" fill="#94a3b8">• Surat Jalan</text>
+          <text x="12" y="134" font-family="'Inter', sans-serif" font-size="11" font-weight="400" fill="#94a3b8">• Update Stok</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- Right: 3 User Personas in Detail -->
+  <g transform="translate(930, 275)">
+    <!-- Persona 1: Kepala Gudang -->
+    <g transform="translate(0, 0)" filter="url(#shadow4)">
+      <rect x="0" y="0" width="850" height="205" rx="18" fill="url(#cardGrad4)" stroke="#1e293b" stroke-width="1.5"/>
+      <rect x="28" y="24" width="56" height="56" rx="16" fill="#3b82f6" fill-opacity="0.18"/>
+      <text x="56" y="58" font-family="'Inter', sans-serif" font-size="24" text-anchor="middle">👨‍💼</text>
+      <text x="102" y="48" font-family="'Inter', sans-serif" font-size="19" font-weight="800" fill="#ffffff">Kepala Gudang / Manajer Logistik</text>
+      <text x="102" y="72" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#60a5fa">Pengawas Operasional, Tata Letak, &amp; Akurasi Stok</text>
+
+      <g transform="translate(28, 96)">
+        <rect x="0" y="0" width="794" height="85" rx="12" fill="#0b1322" stroke="#16233b"/>
+        <text x="20" y="30" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#e2e8f0">• Kebutuhan: Mengetahui persis posisi barang dan tidak ada selisih stok saat audit opname.</text>
+        <text x="20" y="55" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#e2e8f0">• Pain Point: Pusing saat selisih stok fisik vs buku dan kebingungan mencari rak yang lowong.</text>
+      </g>
+    </g>
+
+    <!-- Persona 2: Picker / Packer -->
+    <g transform="translate(0, 235)" filter="url(#shadow4)">
+      <rect x="0" y="0" width="850" height="205" rx="18" fill="url(#cardGrad4)" stroke="#1e293b" stroke-width="1.5"/>
+      <rect x="28" y="24" width="56" height="56" rx="16" fill="#10b981" fill-opacity="0.18"/>
+      <text x="56" y="58" font-family="'Inter', sans-serif" font-size="24" text-anchor="middle">👷‍♂️</text>
+      <text x="102" y="48" font-family="'Inter', sans-serif" font-size="19" font-weight="800" fill="#ffffff">Staf Gudang / Operator Picker &amp; Packer</text>
+      <text x="102" y="72" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#34d399">Pelaksana Lapangan Barang Masuk &amp; Pengambilan Barang</text>
+
+      <g transform="translate(28, 96)">
+        <rect x="0" y="0" width="794" height="85" rx="12" fill="#0b1322" stroke="#16233b"/>
+        <text x="20" y="30" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#e2e8f0">• Kebutuhan: Input cepat barang masuk dan rute jelas mengambil barang tanpa tersesat.</text>
+        <text x="20" y="55" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#e2e8f0">• Pain Point: Lelah bolak-balik menyusuri lorong yang sama karena urutan kertas tidak urut lokasi.</text>
+      </g>
+    </g>
+
+    <!-- Persona 3: Business Owner -->
+    <g transform="translate(0, 470)" filter="url(#shadow4)">
+      <rect x="0" y="0" width="850" height="205" rx="18" fill="url(#cardGrad4)" stroke="#1e293b" stroke-width="1.5"/>
+      <rect x="28" y="24" width="56" height="56" rx="16" fill="#a855f7" fill-opacity="0.18"/>
+      <text x="56" y="58" font-family="'Inter', sans-serif" font-size="24" text-anchor="middle">👑</text>
+      <text x="102" y="48" font-family="'Inter', sans-serif" font-size="19" font-weight="800" fill="#ffffff">Pemilik Usaha / Executive Owner</text>
+      <text x="102" y="72" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#c084fc">Pengambil Keputusan Strategis &amp; Pemilik Modal</text>
+
+      <g transform="translate(28, 96)">
+        <rect x="0" y="0" width="794" height="85" rx="12" fill="#0b1322" stroke="#16233b"/>
+        <text x="20" y="30" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#e2e8f0">• Kebutuhan: Memantau perputaran modal barang, valuasi total stok, dan kecepatan pengiriman.</text>
+        <text x="20" y="55" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#e2e8f0">• Pain Point: Uang macet di barang usang (dead stock) dan sering rugi karena stok habis tiba-tiba.</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <g transform="translate(140, 1010)">
+    <text x="0" y="0" font-family="'Inter', sans-serif" font-size="14" font-weight="600" fill="#475569">GudangPro WMS • Profil Produk &amp; Analisis Pengguna</text>
+    <text x="1640" y="0" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#64748b">04 / 10</text>
+  </g>
+</svg>

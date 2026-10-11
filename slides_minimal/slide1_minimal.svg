@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <!-- Clean White Academic Canvas -->
+  <rect width="1920" height="1080" fill="#ffffff"/>
+
+  <!-- Subtle Top Academic Navy Bar -->
+  <rect x="0" y="0" width="1920" height="12" fill="#1e3a8a"/>
+
+  <!-- Content Container -->
+  <g transform="translate(180, 220)">
+    <!-- Small Category Label -->
+    <text x="0" y="40" font-family="'Calibri', 'Segoe UI', Arial, sans-serif" font-size="20" font-weight="700" fill="#1e3a8a" letter-spacing="1">
+      TUGAS EKSPLORASI PRODUK DAN PERANCANGAN FITUR
+    </text>
+
+    <!-- Main Title -->
+    <text x="0" y="130" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="64" font-weight="700" fill="#0f172a">
+      GudangPro
+    </text>
+    <text x="0" y="200" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="44" font-weight="400" fill="#334155">
+      Sistem Manajemen Pergudangan &amp; Penataan Stok Berbasis Web
+    </text>
+
+    <!-- Accent Dividing Line -->
+    <line x1="0" y1="250" x2="600" y2="250" stroke="#cbd5e1" stroke-width="2"/>
+
+    <!-- Subtitle / Context -->
+    <text x="0" y="310" font-family="'Calibri', 'Segoe UI', Arial, sans-serif" font-size="24" font-weight="400" fill="#64748b">
+      Belajar dari Mibebi Kasir sebelum Menyusun PRD dan Memulai Vibe Coding
+    </text>
+
+    <!-- Presenter & Links Details -->
+    <g transform="translate(0, 390)">
+      <text x="0" y="30" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="600" fill="#0f172a">
+        Topik Presentasi:
+      </text>
+      <text x="180" y="30" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="400" fill="#334155">
+        Identifikasi Fitur Inti vs Fitur Bernilai Tambah (WMS)
+      </text>
+
+      <text x="0" y="70" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="600" fill="#0f172a">
+        Prototipe Web:
+      </text>
+      <text x="180" y="70" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="600" fill="#1d4ed8">
+        https://gudang-pro-flame.vercel.app/
+      </text>
+
+      <text x="0" y="110" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="600" fill="#0f172a">
+        Status Proyek:
+      </text>
+      <text x="180" y="110" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="400" fill="#059669">
+        Tahap Pra-PRD &amp; Arsitektur Konseptual
+      </text>
+    </g>
+  </g>
+
+  <!-- Slide Number Bottom Right -->
+  <g transform="translate(180, 1000)">
+    <line x1="0" y1="0" x2="1560" y2="0" stroke="#f1f5f9" stroke-width="1.5"/>
+    <text x="0" y="35" font-family="'Segoe UI', Arial, sans-serif" font-size="16" fill="#94a3b8">Seminar Rancang Bangun Perangkat Lunak</text>
+    <text x="1530" y="35" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="600" fill="#64748b">1 / 6</text>
+  </g>
+</svg>

@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#bg3)"/>
+
+  <!-- Top Title -->
+  <g transform="translate(140, 100)">
+    <text x="0" y="30" font-family="'Inter', sans-serif" font-size="16" font-weight="700" fill="#f87171" letter-spacing="1.5">IDENTIFIKASI MASALAH NYATA</text>
+    <text x="0" y="75" font-family="'Inter', sans-serif" font-size="44" font-weight="900" fill="#ffffff">
+      3 Kesakitan Utama di Operasional Gudang
+    </text>
+    <text x="0" y="110" font-family="'Inter', sans-serif" font-size="18" font-weight="500" fill="#94a3b8">
+      Fokus pada masalah nyata manusia dan bisnis — bukan sekadar "belum pakai AI" atau "belum pakai cloud".
+    </text>
+  </g>
+
+  <!-- 3 Problem Cards -->
+  <g transform="translate(140, 260)">
+    <!-- Problem 1 -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="520" height="620" rx="20" fill="#171013" stroke="#7f1d1d" stroke-width="1.5"/>
+      <rect x="32" y="32" width="130" height="32" rx="8" fill="#ef4444" fill-opacity="0.2"/>
+      <text x="97" y="53" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#fca5a5" text-anchor="middle">MASALAH 01</text>
+
+      <text x="32" y="105" font-family="'Inter', sans-serif" font-size="26" font-weight="800" fill="#ffffff">Selisih Stok</text>
+      <text x="32" y="132" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#f87171">Catatan Sistem ≠ Barang Fisik</text>
+
+      <g transform="translate(32, 160)">
+        <rect x="0" y="0" width="456" height="140" rx="12" fill="#0b0809"/>
+        <text x="20" y="30" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#fca5a5">PENYEBAB UTAMA:</text>
+        <text x="20" y="58" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">• Input data manual di Excel sering telat.</text>
+        <text x="20" y="84" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">• Barang keluar tanpa surat mutasi resmi.</text>
+        <text x="20" y="110" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">• Hilang pengawasan saat perpindahan rak.</text>
+      </g>
+
+      <g transform="translate(32, 320)">
+        <text x="0" y="24" font-family="'Inter', sans-serif" font-size="15" font-weight="700" fill="#ffffff">Dampak Bisnis Fatal:</text>
+        <text x="0" y="54" font-family="'Inter', sans-serif" font-size="14" font-weight="500" fill="#f87171">❌ Order dibatalkan pelanggan (kecewa).</text>
+        <text x="0" y="82" font-family="'Inter', sans-serif" font-size="14" font-weight="500" fill="#f87171">❌ Opname berhari-hari menutup gudang.</text>
+      </g>
+
+      <g transform="translate(32, 450)">
+        <rect x="0" y="0" width="456" height="135" rx="14" fill="#0d2621" stroke="#059669"/>
+        <text x="20" y="30" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#34d399">SOLUSI GUDANGPRO:</text>
+        <text x="20" y="58" font-family="'Inter', sans-serif" font-size="16" font-weight="800" fill="#ffffff">Sinkronisasi Real-Time</text>
+        <text x="20" y="85" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#a7f3d0">Stok langsung diperbarui setiap kali</text>
+        <text x="20" y="105" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#ffffff">barang masuk atau keluar dari pintu gudang.</text>
+      </g>
+    </g>
+
+    <!-- Problem 2 -->
+    <g transform="translate(560, 0)">
+      <rect x="0" y="0" width="520" height="620" rx="20" fill="#18130a" stroke="#b45309" stroke-width="1.5"/>
+      <rect x="32" y="32" width="130" height="32" rx="8" fill="#f59e0b" fill-opacity="0.2"/>
+      <text x="97" y="53" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#fcd34d" text-anchor="middle">MASALAH 02</text>
+
+      <text x="32" y="105" font-family="'Inter', sans-serif" font-size="26" font-weight="800" fill="#ffffff">Ambil Barang Lambat</text>
+      <text x="32" y="132" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#fbbf24">Staf Lelah Menyusuri Lorong Acak</text>
+
+      <g transform="translate(32, 160)">
+        <rect x="0" y="0" width="456" height="140" rx="12" fill="#0c0905"/>
+        <text x="20" y="30" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#fcd34d">PENYEBAB UTAMA:</text>
+        <text x="20" y="58" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">• Rak tidak memiliki kode alamat baku.</text>
+        <text x="20" y="84" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">• Kertas order diurutkan acak (bukan lorong).</text>
+        <text x="20" y="110" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">• Petugas bolak-balik zigzag di area yang sama.</text>
+      </g>
+
+      <g transform="translate(32, 320)">
+        <text x="0" y="24" font-family="'Inter', sans-serif" font-size="15" font-weight="700" fill="#ffffff">Dampak Bisnis Fatal:</text>
+        <text x="0" y="54" font-family="'Inter', sans-serif" font-size="14" font-weight="500" fill="#fbbf24">❌ 50% waktu kerja terbuang di jalan kaki.</text>
+        <text x="0" y="82" font-family="'Inter', sans-serif" font-size="14" font-weight="500" fill="#fbbf24">❌ Pengiriman pesanan terlambat ke kurir.</text>
+      </g>
+
+      <g transform="translate(32, 450)">
+        <rect x="0" y="0" width="456" height="135" rx="14" fill="#082236" stroke="#0284c7"/>
+        <text x="20" y="30" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#38bdf8">SOLUSI GUDANGPRO:</text>
+        <text x="20" y="58" font-family="'Inter', sans-serif" font-size="16" font-weight="800" fill="#ffffff">Rute Satu Arah S-Shape</text>
+        <text x="20" y="85" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#bae6fd">Memandu urutan langkah petugas menyusuri rak</text>
+        <text x="20" y="105" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#ffffff">terdekat secara sekuensial tanpa balik arah.</text>
+      </g>
+    </g>
+
+    <!-- Problem 3 -->
+    <g transform="translate(1120, 0)">
+      <rect x="0" y="0" width="520" height="620" rx="20" fill="#150f1d" stroke="#7e22ce" stroke-width="1.5"/>
+      <rect x="32" y="32" width="130" height="32" rx="8" fill="#a855f7" fill-opacity="0.2"/>
+      <text x="97" y="53" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#d8b4fe" text-anchor="middle">MASALAH 03</text>
+
+      <text x="32" y="105" font-family="'Inter', sans-serif" font-size="26" font-weight="800" fill="#ffffff">Dead Stock</text>
+      <text x="32" y="132" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#c084fc">Barang Tertimbun &amp; Modal Macet</text>
+
+      <g transform="translate(32, 160)">
+        <rect x="0" y="0" width="456" height="140" rx="12" fill="#0a070f"/>
+        <text x="20" y="30" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#d8b4fe">PENYEBAB UTAMA:</text>
+        <text x="20" y="58" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">• Barang baru menumpuk barang lama di rak.</text>
+        <text x="20" y="84" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">• Tidak ada pencatatan umur hari barang.</text>
+        <text x="20" y="110" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">• Owner tidak tahu ada barang tak berputar.</text>
+      </g>
+
+      <g transform="translate(32, 320)">
+        <text x="0" y="24" font-family="'Inter', sans-serif" font-size="15" font-weight="700" fill="#ffffff">Dampak Bisnis Fatal:</text>
+        <text x="0" y="54" font-family="'Inter', sans-serif" font-size="14" font-weight="500" fill="#c084fc">❌ Uang modal puluhan juta macet terkunci.</text>
+        <text x="0" y="82" font-family="'Inter', sans-serif" font-size="14" font-weight="500" fill="#c084fc">❌ Barang kadaluwarsa / rusak kemasan.</text>
+      </g>
+
+      <g transform="translate(32, 450)">
+        <rect x="0" y="0" width="456" height="135" rx="14" fill="#201036" stroke="#7c3aed"/>
+        <text x="20" y="30" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#c084fc">SOLUSI GUDANGPRO:</text>
+        <text x="20" y="58" font-family="'Inter', sans-serif" font-size="16" font-weight="800" fill="#ffffff">Aging Stock Analyzer</text>
+        <text x="20" y="85" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#ddd6fe">Otomatis deteksi barang &gt;90 hari dan beri</text>
+        <text x="20" y="105" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#ffffff">rekomendasi retur supplier atau cuci gudang.</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Slide Footer -->
+  <g transform="translate(140, 990)">
+    <text x="0" y="0" font-family="'Inter', sans-serif" font-size="14" font-weight="600" fill="#64748b">Analisis Masalah Domain • GudangPro</text>
+    <text x="1640" y="0" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#64748b">03 / 06</text>
+  </g>
+</svg>

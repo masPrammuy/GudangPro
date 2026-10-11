@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <filter id="subtleShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- Clean Academic Off-White Canvas -->
+  <rect width="1920" height="1080" fill="#f8fafc"/>
+
+  <!-- Left Accent Structural Stripe -->
+  <rect x="0" y="0" width="16" height="1080" fill="#2563eb"/>
+
+  <!-- Top Header Minimal Bar -->
+  <g transform="translate(120, 70)">
+    <!-- Small Brand Badge -->
+    <rect x="0" y="0" width="140" height="40" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.2" filter="url(#subtleShadow)"/>
+    <rect x="8" y="8" width="24" height="24" rx="5" fill="#2563eb"/>
+    <text x="20" y="25" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="800" fill="#ffffff" text-anchor="middle">GP</text>
+    <text x="40" y="26" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="15" font-weight="700" fill="#0f172a">GudangPro</text>
+
+    <!-- Context Pill -->
+    <rect x="156" y="4" width="340" height="32" rx="6" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+    <text x="170" y="25" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="600" fill="#1d4ed8">Tugas Eksplorasi Produk &amp; Fitur Bernilai Tambah</text>
+
+    <!-- Right Live Web Badge -->
+    <g transform="translate(1330, 0)">
+      <rect x="0" y="0" width="350" height="40" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.2" filter="url(#subtleShadow)"/>
+      <circle cx="20" cy="20" r="5" fill="#10b981"/>
+      <text x="34" y="25" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="500" fill="#64748b">Live Demo:</text>
+      <text x="105" y="25" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="700" fill="#2563eb">gudang-pro-flame.vercel.app</text>
+    </g>
+  </g>
+
+  <!-- Main Hero Presentation Section -->
+  <g transform="translate(120, 200)">
+    <!-- Category Tag -->
+    <text x="0" y="40" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="16" font-weight="700" fill="#2563eb" letter-spacing="1.5">
+      SEMINAR RANCANG BANGUN PERANGKAT LUNAK
+    </text>
+
+    <!-- Main Title -->
+    <text x="0" y="110" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="52" font-weight="800" fill="#0f172a" letter-spacing="-0.5">
+      Eksplorasi Produk &amp; Perancangan
+    </text>
+    <text x="0" y="175" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="52" font-weight="800" fill="#0f172a" letter-spacing="-0.5">
+      Fitur Bernilai Tambah pada <tspan fill="#2563eb">GudangPro</tspan>
+    </text>
+
+    <!-- Subtitle Line -->
+    <rect x="0" y="210" width="80" height="4" rx="2" fill="#2563eb"/>
+
+    <text x="0" y="260" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="22" font-weight="400" fill="#475569">
+      Studi Komparatif Berbasis Mibebi Kasir untuk Membangun Sistem Pergudangan
+    </text>
+    <text x="0" y="295" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="22" font-weight="600" fill="#1e293b">
+      yang Mencegah Kehabisan Stok (Stock-Out) dan Mengoptimalkan Waktu Pengambilan Barang.
+    </text>
+
+    <!-- Bottom Structural Pillars (3 Cards) -->
+    <g transform="translate(0, 360)">
+      <!-- Card 1 -->
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="300" height="150" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.2" filter="url(#subtleShadow)"/>
+        <rect x="24" y="24" width="36" height="28" rx="6" fill="#f1f5f9"/>
+        <text x="42" y="43" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="800" fill="#475569" text-anchor="middle">01</text>
+        <text x="70" y="43" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="14" font-weight="700" fill="#0f172a">Studi Benchmark</text>
+        <text x="24" y="85" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="14" font-weight="600" fill="#334155">Mibebi Kasir (F&amp;B POS)</text>
+        <text x="24" y="110" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="400" fill="#64748b">Analisis pola pikir &amp; 6 pilar bisnis</text>
+      </g>
+
+      <!-- Card 2 -->
+      <g transform="translate(330, 0)">
+        <rect x="0" y="0" width="300" height="150" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.2" filter="url(#subtleShadow)"/>
+        <rect x="24" y="24" width="36" height="28" rx="6" fill="#eff6ff"/>
+        <text x="42" y="43" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="800" fill="#2563eb" text-anchor="middle">02</text>
+        <text x="70" y="43" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="14" font-weight="700" fill="#0f172a">Aplikasi Sasaran</text>
+        <text x="24" y="85" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="14" font-weight="600" fill="#334155">GudangPro WMS</text>
+        <text x="24" y="110" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="400" fill="#64748b">Manajemen stok &amp; tata letak rak</text>
+      </g>
+
+      <!-- Card 3 -->
+      <g transform="translate(660, 0)">
+        <rect x="0" y="0" width="300" height="150" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.2" filter="url(#subtleShadow)"/>
+        <rect x="24" y="24" width="36" height="28" rx="6" fill="#ecfdf5"/>
+        <text x="42" y="43" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="800" fill="#059669" text-anchor="middle">03</text>
+        <text x="70" y="43" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="14" font-weight="700" fill="#0f172a">Luaran Akhir</text>
+        <text x="24" y="85" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="14" font-weight="600" fill="#334155">PRD &amp; Rencana Vibe Coding</text>
+        <text x="24" y="110" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="400" fill="#64748b">Ruang lingkup &amp; arsitektur terkunci</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Right Visual Card: Clean Architecture Overview -->
+  <g transform="translate(1160, 200)">
+    <rect x="0" y="0" width="640" height="670" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#subtleShadow)"/>
+    
+    <!-- Header of Card -->
+    <rect x="0" y="0" width="640" height="60" rx="16" fill="#f8fafc"/>
+    <line x1="0" y1="60" x2="640" y2="60" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="32" y="38" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="15" font-weight="700" fill="#0f172a">Arsitektur Dua Lapisan (Two-Layered Value)</text>
+
+    <!-- Inside Card Content -->
+    <g transform="translate(32, 85)">
+      <!-- Layer 1 -->
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="576" height="190" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+        <rect x="20" y="16" width="140" height="26" rx="6" fill="#e2e8f0"/>
+        <text x="90" y="33" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="11" font-weight="800" fill="#475569" text-anchor="middle">LAPISAN 1: CORE WMS</text>
+        <text x="20" y="72" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="16" font-weight="700" fill="#0f172a">Fondasi Fungsional Minimum (Wajib Ada)</text>
+        <text x="20" y="98" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="400" fill="#64748b">Menjalankan alur kerja fisik pergudangan dasar:</text>
+
+        <!-- Process Pills -->
+        <g transform="translate(20, 118)">
+          <rect x="0" y="0" width="96" height="34" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+          <text x="48" y="22" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="600" fill="#1e293b" text-anchor="middle">Master SKU</text>
+          
+          <text x="108" y="22" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="14" font-weight="700" fill="#94a3b8">→</text>
+          
+          <rect x="124" y="0" width="90" height="34" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+          <text x="169" y="22" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="600" fill="#1e293b" text-anchor="middle">Inbound</text>
+          
+          <text x="226" y="22" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="14" font-weight="700" fill="#94a3b8">→</text>
+          
+          <rect x="242" y="0" width="85" height="34" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+          <text x="284" y="22" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="600" fill="#1e293b" text-anchor="middle">Rak (Bin)</text>
+          
+          <text x="338" y="22" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="14" font-weight="700" fill="#94a3b8">→</text>
+
+          <rect x="354" y="0" width="90" height="34" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+          <text x="399" y="22" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="600" fill="#1e293b" text-anchor="middle">Outbound</text>
+
+          <text x="456" y="22" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="14" font-weight="700" fill="#94a3b8">→</text>
+
+          <rect x="472" y="0" width="60" height="34" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+          <text x="502" y="22" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="600" fill="#1e293b" text-anchor="middle">Log</text>
+        </g>
+      </g>
+
+      <!-- Upward Connector -->
+      <g transform="translate(288, 205)">
+        <text x="0" y="16" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="12" font-weight="700" fill="#059669" text-anchor="middle">▲ MENOPANG DATA UNTUK ▲</text>
+      </g>
+
+      <!-- Layer 2 -->
+      <g transform="translate(0, 235)">
+        <rect x="0" y="0" width="576" height="295" rx="10" fill="#f0fdf4" stroke="#86efac" stroke-width="1.2"/>
+        <rect x="20" y="16" width="165" height="26" rx="6" fill="#dcfce7"/>
+        <text x="102" y="33" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="11" font-weight="800" fill="#15803d" text-anchor="middle">LAPISAN 2: VALUE-ADDED</text>
+        <text x="20" y="72" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="16" font-weight="700" fill="#14532d">Inovasi Pembeda &amp; Dampak Terukur</text>
+        <text x="20" y="98" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="400" fill="#166534">Menjadikan sistem proaktif dan bernilai ekonomis:</text>
+
+        <!-- 3 Items in Layer 2 -->
+        <g transform="translate(20, 118)">
+          <!-- Row 1 -->
+          <rect x="0" y="0" width="536" height="42" rx="6" fill="#ffffff" stroke="#bbf7d0"/>
+          <text x="16" y="26" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="700" fill="#15803d">1. Smart Reorder Point (ROP):</text>
+          <text x="220" y="26" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="500" fill="#334155">Pencegahan kehabisan stok otomatis</text>
+
+          <!-- Row 2 -->
+          <rect x="0" y="52" width="536" height="42" rx="6" fill="#ffffff" stroke="#bbf7d0"/>
+          <text x="16" y="78" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="700" fill="#15803d">2. S-Shape Batch Picking:</text>
+          <text x="195" y="78" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="500" fill="#334155">Rute terpendek pengambilan barang</text>
+
+          <!-- Row 3 -->
+          <rect x="0" y="104" width="536" height="42" rx="6" fill="#ffffff" stroke="#bbf7d0"/>
+          <text x="16" y="130" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="700" fill="#15803d">3. Dead Stock Aging Engine:</text>
+          <text x="215" y="130" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="500" fill="#334155">Deteksi &amp; likuidasi modal barang macet</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom Academic Footer Bar -->
+  <g transform="translate(120, 1000)">
+    <line x1="0" y1="0" x2="1680" y2="0" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="0" y="32" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="500" fill="#64748b">Program Studi Informatika / Sistem Informasi • Dokumen Presentasi Ujian</text>
+    <text x="1650" y="32" font-family="'Segoe UI', 'Inter', Arial, sans-serif" font-size="13" font-weight="700" fill="#0f172a">01 / 06</text>
+  </g>
+</svg>

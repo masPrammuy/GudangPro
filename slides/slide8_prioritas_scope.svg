@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <linearGradient id="bgGrad8" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070b14"/>
+      <stop offset="50%" stop-color="#0b1220"/>
+      <stop offset="100%" stop-color="#080e1a"/>
+    </linearGradient>
+    <linearGradient id="cardGrad8" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141f36"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <filter id="shadow8" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="url(#bgGrad8)"/>
+
+  <!-- Top Header Navigation -->
+  <g transform="translate(140, 70)">
+    <rect x="0" y="0" width="1640" height="70" rx="16" fill="#0f172a" stroke="#1e293b" stroke-width="1.2"/>
+    <text x="32" y="42" font-family="'Inter', 'Segoe UI', sans-serif" font-size="14" font-weight="700" fill="#a855f7" letter-spacing="1.5">BAGIAN II: PRIORITAS &amp; BATASAN RUANG LINGKUP</text>
+    <text x="445" y="42" font-family="'Inter', 'Segoe UI', sans-serif" font-size="14" font-weight="500" fill="#64748b">|</text>
+    <text x="465" y="42" font-family="'Inter', 'Segoe UI', sans-serif" font-size="14" font-weight="600" fill="#cbd5e1">MoSCoW Framework &amp; Scope Guard: Menjamin Skripsi Selesai Tepat Waktu</text>
+    <text x="1560" y="43" font-family="'Inter', 'Segoe UI', sans-serif" font-size="16" font-weight="800" fill="#64748b">08 / 10</text>
+  </g>
+
+  <!-- Title & Subtitle -->
+  <g transform="translate(140, 180)">
+    <text x="0" y="32" font-family="'Inter', 'Segoe UI', sans-serif" font-size="38" font-weight="900" fill="#ffffff">
+      Prioritas Fitur &amp; Penguncian Scope
+    </text>
+    <text x="0" y="68" font-family="'Inter', 'Segoe UI', sans-serif" font-size="18" font-weight="400" fill="#94a3b8">
+      Mencegah *Feature Creep* dengan menyeimbangkan besarnya dampak bisnis terhadap kompleksitas dan durasi skripsi.
+    </text>
+  </g>
+
+  <!-- Main Content: Left MoSCoW (900px), Right In/Out Scope (700px) -->
+  <g transform="translate(140, 275)">
+    <!-- LEFT: MoSCoW Prioritization Table -->
+    <g transform="translate(0, 0)" filter="url(#shadow8)">
+      <rect x="0" y="0" width="880" height="675" rx="20" fill="url(#cardGrad8)" stroke="#1e293b" stroke-width="1.5"/>
+      <text x="36" y="44" font-family="'Inter', sans-serif" font-size="18" font-weight="800" fill="#ffffff">Matriks Prioritas Fitur Nilai Tambah (MoSCoW)</text>
+      <text x="36" y="68" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#94a3b8">Pertimbangan: Dampak Bisnis, Kebutuhan User, Kompleksitas Kode, &amp; Waktu Riset</text>
+
+      <!-- MoSCoW Item 1: MUST HAVE -->
+      <g transform="translate(36, 100)">
+        <rect x="0" y="0" width="808" height="155" rx="14" fill="#0d241d" stroke="#059669" stroke-width="1.4"/>
+        <rect x="20" y="20" width="130" height="28" rx="6" fill="#059669"/>
+        <text x="85" y="38" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle">MUST HAVE</text>
+        <text x="165" y="40" font-family="'Inter', sans-serif" font-size="17" font-weight="800" fill="#ffffff">Smart Reorder Point (ROP) &amp; Stock-Out Alert</text>
+
+        <text x="20" y="76" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#34d399">ALASAN KELAYAKAN:</text>
+        <text x="20" y="98" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">• Dampak: Sangat Tinggi (Mencegah kehabisan stok yang merupakan isu #1 di gudang).</text>
+        <text x="20" y="118" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">• Kompleksitas: Menengah (Algoritma deterministik dari riwayat konsumsi harian).</text>
+        <text x="20" y="138" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#6ee7b7">• Keputusan: WAJIB DIIMPLEMENTASIKAN dalam prototipe rilis awal.</text>
+      </g>
+
+      <!-- MoSCoW Item 2: SHOULD HAVE -->
+      <g transform="translate(36, 275)">
+        <rect x="0" y="0" width="808" height="155" rx="14" fill="#1f1430" stroke="#7c3aed" stroke-width="1.4"/>
+        <rect x="20" y="20" width="140" height="28" rx="6" fill="#7c3aed"/>
+        <text x="90" y="38" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle">SHOULD HAVE</text>
+        <text x="175" y="40" font-family="'Inter', sans-serif" font-size="17" font-weight="800" fill="#ffffff">Dead Stock Aging Analyzer &amp; Clearance Engine</text>
+
+        <text x="20" y="76" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#c084fc">ALASAN KELAYAKAN:</text>
+        <text x="20" y="98" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">• Dampak: Tinggi (Memberikan wawasan aset modal macet langsung kepada pemilik usaha).</text>
+        <text x="20" y="118" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">• Kompleksitas: Menengah (Kalkulasi selisih hari tanggal Inbound ke tanggal hari ini).</text>
+        <text x="20" y="138" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#ddd6fe">• Keputusan: SANGAT DISARANKAN untuk disertakan dalam pengujian skripsi.</text>
+      </g>
+
+      <!-- MoSCoW Item 3: COULD HAVE -->
+      <g transform="translate(36, 450)">
+        <rect x="0" y="0" width="808" height="155" rx="14" fill="#0c1d2e" stroke="#0284c7" stroke-width="1.4"/>
+        <rect x="20" y="20" width="130" height="28" rx="6" fill="#0284c7"/>
+        <text x="85" y="38" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle">COULD HAVE</text>
+        <text x="165" y="40" font-family="'Inter', sans-serif" font-size="17" font-weight="800" fill="#ffffff">Guided Batch Picking Route Optimizer (S-Shape)</text>
+
+        <text x="20" y="76" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#38bdf8">ALASAN KELAYAKAN:</text>
+        <text x="20" y="98" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">• Dampak: Sangat Tinggi bagi gudang luas berskala besar (hemat 40% langkah kaki).</text>
+        <text x="20" y="118" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">• Kompleksitas: Cukup Tinggi (Membutuhkan graf koordinat spasial lorong x, y, z).</text>
+        <text x="20" y="138" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#7dd3fc">• Keputusan: FITUR PENGEMBANGAN LANJUTAN jika waktu coding mencukupi.</text>
+      </g>
+    </g>
+
+    <!-- RIGHT: In-Scope vs Out-of-Scope -->
+    <g transform="translate(920, 0)" filter="url(#shadow8)">
+      <rect x="0" y="0" width="720" height="675" rx="20" fill="url(#cardGrad8)" stroke="#1e293b" stroke-width="1.5"/>
+
+      <!-- In-Scope Section -->
+      <g transform="translate(32, 28)">
+        <rect x="0" y="0" width="656" height="300" rx="16" fill="#091b15" stroke="#059669" stroke-width="1.2"/>
+        <rect x="20" y="20" width="120" height="28" rx="6" fill="#10b981"/>
+        <text x="80" y="38" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle">IN-SCOPE (DIBUAT)</text>
+        <text x="20" y="74" font-family="'Inter', sans-serif" font-size="15" font-weight="700" fill="#ffffff">Ruang Lingkup yang Wajib Diselesaikan:</text>
+
+        <g transform="translate(20, 92)">
+          <text x="0" y="20" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#34d399">✓ Autentikasi Pengguna &amp; Role:</text>
+          <text x="210" y="20" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">Google OAuth 2.0 &amp; Manual Admin.</text>
+
+          <text x="0" y="46" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#34d399">✓ Master Data Barang:</text>
+          <text x="160" y="46" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">SKU, Barcode, Kategori, Satuan, Min-Stock.</text>
+
+          <text x="0" y="72" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#34d399">✓ Inbound &amp; Outbound:</text>
+          <text x="165" y="72" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">Pencatatan real-time penerimaan &amp; pengeluaran.</text>
+
+          <text x="0" y="98" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#34d399">✓ Pemetaan Rak (Bin Map):</text>
+          <text x="180" y="98" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">Alamat rak penyimpanan per barang.</text>
+
+          <text x="0" y="124" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#34d399">✓ Dashboard &amp; Stock Alert:</text>
+          <text x="190" y="124" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">Notifikasi stok menipis &amp; kartu stok log.</text>
+
+          <text x="0" y="150" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#34d399">✓ Laporan Usia Barang:</text>
+          <text x="170" y="150" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">Pendeteksi barang macet (&gt;90 hari).</text>
+        </g>
+      </g>
+
+      <!-- Out-of-Scope Section -->
+      <g transform="translate(32, 345)">
+        <rect x="0" y="0" width="656" height="300" rx="16" fill="#1f0e11" stroke="#991b1b" stroke-width="1.2"/>
+        <rect x="20" y="20" width="165" height="28" rx="6" fill="#dc2626"/>
+        <text x="102" y="38" font-family="'Inter', sans-serif" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle">OUT-OF-SCOPE (DIBATASI)</text>
+        <text x="20" y="74" font-family="'Inter', sans-serif" font-size="15" font-weight="700" fill="#ffffff">Sengaja Tidak Dibuat (Menjaga Fokus):</text>
+
+        <g transform="translate(20, 92)">
+          <text x="0" y="20" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#f87171">✕ Sensor Timbangan IoT:</text>
+          <text x="180" y="20" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">Hardware fisik rak tidak diintegrasikan.</text>
+
+          <text x="0" y="46" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#f87171">✕ Sistem Kasir / POS Retail:</text>
+          <text x="195" y="46" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">Fokus pada WMS fisik, bukan struk kasir.</text>
+
+          <text x="0" y="72" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#f87171">✕ Robotik AGV Otomatis:</text>
+          <text x="185" y="72" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">Navigasi robot gudang di luar ranah skripsi web.</text>
+
+          <text x="0" y="98" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#f87171">✕ GPS Tracking Armada Truk:</text>
+          <text x="205" y="98" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">Pelacakan jalan raya adalah ranah Fleet System.</text>
+
+          <text x="0" y="124" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#f87171">✕ Integrasi Akuntansi Lengkap:</text>
+          <text x="215" y="124" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#cbd5e1">Bukan sistem ERP neraca laba rugi penuh.</text>
+
+          <text x="0" y="150" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#fca5a5">Mencegah aplikasi over-scope dan gagal lulus tepat waktu.</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <g transform="translate(140, 1010)">
+    <text x="0" y="0" font-family="'Inter', sans-serif" font-size="14" font-weight="600" fill="#475569">GudangPro WMS • Prioritisasi &amp; Batasan Ruang Lingkup</text>
+    <text x="1640" y="0" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#64748b">08 / 10</text>
+  </g>
+</svg>
