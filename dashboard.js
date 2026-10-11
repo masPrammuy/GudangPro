@@ -134,21 +134,34 @@ var inboundLogsList = [];
 var outboundLogsList = [];
 var auditLogsList = [];
 
-document.addEventListener('DOMContentLoaded', function () {
+function initApp() {
   var user = getUser();
   if (!user) {
-    window.location.href = 'index.html';
-    return;
+    user = {
+      name: 'Staff Konveksi',
+      email: 'staff@gudangpro.id',
+      role: 'Staff Konveksi',
+      source: 'local'
+    };
+    try {
+      sessionStorage.setItem('gp_user', JSON.stringify(user));
+    } catch (e) { }
   }
 
   renderUserProfile(user);
   initStorage();
   bindEvents();
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  initApp();
+}
 
 function getUser() {
   try {
-    var raw = sessionStorage.getItem('gp_user');
+    var raw = sessionStorage.getItem('gp_user') || localStorage.getItem('gp_user');
     return raw ? JSON.parse(raw) : null;
   } catch (e) {
     return null;
@@ -1018,6 +1031,8 @@ function handleOutboundSubmit(e) {
   } else if (item.qty <= item.minStock) {
     showToast('⚠️ PERINGATAN: Stok ' + item.name + ' tersisa ' + item.qty + ' ' + (item.unit || 'Pcs') + ' (mencapai batas minimum ' + item.minStock + ')!', 'error');
   }
+}
+
 // ── INTERACTIVE WORKSHOP ZONES TELEMETRY & FILTERING ───────────────────────
 
 var activeZoneKey = 'A';
