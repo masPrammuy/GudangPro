@@ -31,7 +31,7 @@ class ItemCard extends StatelessWidget {
       elevation: 0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
-        side: const BorderSide(color: AppColors.border, width: 1),
+        side: BorderSide(color: _zoneColor.withOpacity(0.5), width: 1.2),
       ),
       color: Colors.white,
       child: InkWell(
