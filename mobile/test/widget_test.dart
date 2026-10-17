@@ -1,30 +1,51 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
-import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:mobile/main.dart';
+import 'package:mobile/app.dart';
+import 'package:mobile/features/inventory/data/item_model.dart';
+import 'package:mobile/features/inventory/providers/inventory_providers.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  final mockItems = [
+    ItemModel(
+      id: 'item-1',
+      sku: 'KAN-CMB-01',
+      name: 'Kain Katun Combed 30s',
+      category: 'Kain & Bahan Baku',
+      qty: 45,
+      unit: 'Roll',
+      minStock: 15,
+      location: 'Rak A-01',
+      zone: 'A',
+      status: 'Tersedia',
+    ),
+  ];
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+  testWidgets('GudangProApp integrates 4 operational modules with adaptive navigation', (tester) async {
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          inventoryListProvider.overrideWith((ref) => AsyncValue.data(mockItems)),
+        ],
+        child: const GudangProApp(),
+      ),
+    );
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    // Initial tab: Stok
+    expect(find.text('Stok Master Garmen'), findsOneWidget);
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // Navigate to Bahan Masuk
+    await tester.tap(find.text('Bahan Masuk'));
+    await tester.pumpAndSettle();
+    expect(find.text('Penerimaan Bahan Masuk (PO)'), findsOneWidget);
+
+    // Navigate to Kirim Baju
+    await tester.tap(find.text('Kirim Baju'));
+    await tester.pumpAndSettle();
+    expect(find.text('Surat Jalan Pengiriman (DO)'), findsOneWidget);
+
+    // Navigate to Opname
+    await tester.tap(find.text('Opname'));
+    await tester.pumpAndSettle();
+    expect(find.text('Stock Opname & Audit Fisik'), findsOneWidget);
   });
 }
