@@ -58,9 +58,9 @@ class _InboundScreenState extends ConsumerState<InboundScreen> {
       ),
       body: itemsAsync.when(
         data: (items) {
-          if (items.isNotEmpty && _selectedItemId == null) {
-            _selectedItemId = items.first.id;
-          }
+          final effectiveSelectedId = items.any((i) => i.id == _selectedItemId)
+              ? _selectedItemId
+              : (items.isNotEmpty ? items.first.id : null);
 
           return SingleChildScrollView(
             padding: const EdgeInsets.all(16.0),
@@ -109,7 +109,7 @@ class _InboundScreenState extends ConsumerState<InboundScreen> {
                       const SizedBox(height: 16),
                       DropdownButtonFormField<String>(
                         isExpanded: true,
-                        value: _selectedItemId,
+                        value: effectiveSelectedId,
                         decoration: const InputDecoration(
                           labelText: 'Pilih Bahan / Item Garmen',
                           border: OutlineInputBorder(),

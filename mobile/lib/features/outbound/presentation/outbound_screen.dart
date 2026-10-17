@@ -59,14 +59,13 @@ class _OutboundScreenState extends ConsumerState<OutboundScreen> {
       ),
       body: itemsAsync.when(
         data: (items) {
-          if (items.isNotEmpty && _selectedItemId == null) {
-            _selectedItemId = items.first.id;
-          }
+          final effectiveSelectedId = items.any((i) => i.id == _selectedItemId)
+              ? _selectedItemId
+              : (items.isNotEmpty ? items.first.id : null);
 
           ItemModel? selectedItem;
-          if (_selectedItemId != null) {
-            selectedItem = items.where((i) => i.id == _selectedItemId).firstOrNull ??
-                (items.isNotEmpty ? items.first : null);
+          if (effectiveSelectedId != null) {
+            selectedItem = items.where((i) => i.id == effectiveSelectedId).firstOrNull;
           }
 
           final requestedQty = int.tryParse(_qtyController.text) ?? 0;
@@ -123,7 +122,7 @@ class _OutboundScreenState extends ConsumerState<OutboundScreen> {
                       const SizedBox(height: 16),
                       DropdownButtonFormField<String>(
                         isExpanded: true,
-                        value: _selectedItemId,
+                        value: effectiveSelectedId,
                         decoration: const InputDecoration(
                           labelText: 'Pilih Baju Jadi / Produk Siap Kirim',
                           border: OutlineInputBorder(),

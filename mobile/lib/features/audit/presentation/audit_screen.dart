@@ -53,15 +53,22 @@ class _AuditScreenState extends ConsumerState<AuditScreen> {
       ),
       body: itemsAsync.when(
         data: (items) {
-          if (items.isNotEmpty && _selectedItemId == null) {
-            _selectedItemId = items.first.id;
-            _physicalQtyController.text = '${items.first.qty}';
-          }
+          final effectiveSelectedId = items.any((i) => i.id == _selectedItemId)
+              ? _selectedItemId
+              : (items.isNotEmpty ? items.first.id : null);
 
           ItemModel? selectedItem;
-          if (_selectedItemId != null) {
-            selectedItem = items.where((i) => i.id == _selectedItemId).firstOrNull ??
-                (items.isNotEmpty ? items.first : null);
+          if (effectiveSelectedId != null) {
+            selectedItem = items.where((i) => i.id == effectiveSelectedId).firstOrNull;
+          }
+
+          if (selectedItem != null && _physicalQtyController.text.isEmpty) {
+            final initialQty = selectedItem.qty;
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              if (mounted && _physicalQtyController.text.isEmpty) {
+                _physicalQtyController.text = '$initialQty';
+              }
+            });
           }
 
           final systemStock = selectedItem?.qty ?? 0;
@@ -114,7 +121,7 @@ class _AuditScreenState extends ConsumerState<AuditScreen> {
                       const Divider(height: 24),
                       DropdownButtonFormField<String>(
                         isExpanded: true,
-                        value: _selectedItemId,
+                        value: effectiveSelectedId,
                         decoration: const InputDecoration(
                           labelText: 'Pilih Item Garmen yang Diaudit',
                           border: OutlineInputBorder(),
