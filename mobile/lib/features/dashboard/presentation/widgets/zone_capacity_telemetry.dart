@@ -29,9 +29,11 @@ class ZoneCapacityTelemetry extends StatelessWidget {
                   children: [
                     Icon(Icons.dashboard_customize_outlined, size: 20, color: AppColors.darkSlatePrimary),
                     SizedBox(width: 8),
-                    Text(
-                      'Denah & Kapasitas 4 Zona Workshop Konveksi Pakaian',
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: AppColors.darkSlatePrimary),
+                    Flexible(
+                      child: Text(
+                        'Denah & Kapasitas 4 Zona Workshop Konveksi Pakaian',
+                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: AppColors.darkSlatePrimary),
+                      ),
                     ),
                   ],
                 ),

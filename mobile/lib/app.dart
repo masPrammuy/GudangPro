@@ -7,6 +7,7 @@ import 'features/auth/presentation/login_screen.dart';
 import 'features/auth/presentation/user_management_screen.dart';
 import 'features/auth/providers/auth_providers.dart';
 import 'features/dashboard/presentation/admin_dashboard_screen.dart';
+import 'features/dashboard/presentation/workshop_telemetry_dashboard_screen.dart';
 import 'features/inbound/presentation/inbound_screen.dart';
 import 'features/inventory/presentation/inventory_screen.dart';
 import 'features/outbound/presentation/outbound_screen.dart';
@@ -59,38 +60,46 @@ class _MainNavigationScaffoldState
 
     final destinations = isAdmin
         ? const [
-            AdaptiveDestination(icon: Icons.dashboard, label: 'Dashboard'),
-            AdaptiveDestination(icon: Icons.inventory_2, label: 'Stok'),
-            AdaptiveDestination(icon: Icons.move_to_inbox, label: 'Bahan Masuk'),
-            AdaptiveDestination(icon: Icons.outbox, label: 'Kirim Baju'),
-            AdaptiveDestination(icon: Icons.fact_check, label: 'Opname'),
-            AdaptiveDestination(icon: Icons.people, label: 'Pengguna'),
-            AdaptiveDestination(icon: Icons.person, label: 'Profil'),
+            AdaptiveDestination(icon: Icons.dashboard_outlined, label: 'Beranda'),
+            AdaptiveDestination(icon: Icons.bar_chart_outlined, label: 'Grafik'),
+            AdaptiveDestination(icon: Icons.inventory_2_outlined, label: 'Stok'),
+            AdaptiveDestination(icon: Icons.arrow_downward, label: 'Bahan Masuk'),
+            AdaptiveDestination(icon: Icons.arrow_upward, label: 'Kirim Baju'),
+            AdaptiveDestination(icon: Icons.fact_check_outlined, label: 'Opname'),
+            AdaptiveDestination(icon: Icons.people_outline, label: 'Pengguna'),
+            AdaptiveDestination(icon: Icons.person_outline, label: 'Profil'),
           ]
         : const [
-            AdaptiveDestination(icon: Icons.inventory_2, label: 'Stok'),
-            AdaptiveDestination(icon: Icons.move_to_inbox, label: 'Bahan Masuk'),
-            AdaptiveDestination(icon: Icons.outbox, label: 'Kirim Baju'),
-            AdaptiveDestination(icon: Icons.fact_check, label: 'Opname'),
-            AdaptiveDestination(icon: Icons.person, label: 'Profil'),
+            AdaptiveDestination(icon: Icons.dashboard_outlined, label: 'Beranda'),
+            AdaptiveDestination(icon: Icons.inventory_2_outlined, label: 'Stok'),
+            AdaptiveDestination(icon: Icons.arrow_downward, label: 'Bahan Masuk'),
+            AdaptiveDestination(icon: Icons.arrow_upward, label: 'Kirim Baju'),
+            AdaptiveDestination(icon: Icons.fact_check_outlined, label: 'Opname'),
+            AdaptiveDestination(icon: Icons.person_outline, label: 'Profil'),
           ];
 
     final screens = isAdmin
-        ? const [
-            AdminDashboardScreen(),
-            InventoryScreen(),
-            InboundScreen(),
-            OutboundScreen(),
-            AuditScreen(),
-            UserManagementScreen(),
-            ProfileScreen(),
+        ? [
+            WorkshopTelemetryDashboardScreen(
+              onNavigateToInventory: () => setState(() => _currentIndex = 2),
+            ),
+            const AdminDashboardScreen(),
+            const InventoryScreen(),
+            const InboundScreen(),
+            const OutboundScreen(),
+            const AuditScreen(),
+            const UserManagementScreen(),
+            const ProfileScreen(),
           ]
-        : const [
-            InventoryScreen(),
-            InboundScreen(),
-            OutboundScreen(),
-            AuditScreen(),
-            ProfileScreen(),
+        : [
+            WorkshopTelemetryDashboardScreen(
+              onNavigateToInventory: () => setState(() => _currentIndex = 1),
+            ),
+            const InventoryScreen(),
+            const InboundScreen(),
+            const OutboundScreen(),
+            const AuditScreen(),
+            const ProfileScreen(),
           ];
 
     final safeIndex = _currentIndex < screens.length ? _currentIndex : 0;
