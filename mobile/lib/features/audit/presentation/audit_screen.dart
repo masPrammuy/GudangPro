@@ -25,8 +25,13 @@ class _AuditScreenState extends ConsumerState<AuditScreen> {
     super.dispose();
   }
 
-  void _handleSubmit() {
+  void _handleSubmit([String? effectiveId]) {
     if (_formKey.currentState?.validate() ?? false) {
+      final physicalQty = int.tryParse(_physicalQtyController.text) ?? 0;
+      final targetId = _selectedItemId ?? effectiveId;
+      if (targetId != null) {
+        ref.read(inventoryRepositoryProvider).setPhysicalStock(targetId, physicalQty);
+      }
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Hasil audit fisik berhasil disinkronkan ke master stok!'),
@@ -35,6 +40,7 @@ class _AuditScreenState extends ConsumerState<AuditScreen> {
       );
     }
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -252,8 +258,9 @@ class _AuditScreenState extends ConsumerState<AuditScreen> {
                       ),
                       const SizedBox(height: 24),
                       ElevatedButton.icon(
-                        onPressed: _handleSubmit,
+                        onPressed: () => _handleSubmit(effectiveSelectedId),
                         icon: const Icon(Icons.sync),
+
                         label: const Text(
                           'Sinkronisasi Master Stok',
                           style: TextStyle(fontWeight: FontWeight.bold),

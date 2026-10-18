@@ -31,16 +31,24 @@ class _OutboundScreenState extends ConsumerState<OutboundScreen> {
     super.dispose();
   }
 
-  void _handleSubmit() {
+  void _handleSubmit([String? effectiveId]) {
     if (_formKey.currentState?.validate() ?? false) {
+      final qty = int.tryParse(_qtyController.text) ?? 0;
+      final targetId = _selectedItemId ?? effectiveId;
+      if (targetId != null && qty > 0) {
+        ref.read(inventoryRepositoryProvider).deductStock(targetId, qty);
+      }
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Surat Jalan ${_doController.text} berhasil diterbitkan!'),
+          content: Text('Surat Jalan ${_doController.text} berhasil diterbitkan (-$qty)!'),
           backgroundColor: AppColors.emeraldSuccess,
         ),
       );
+      _qtyController.clear();
+      _notesController.clear();
     }
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -258,8 +266,9 @@ class _OutboundScreenState extends ConsumerState<OutboundScreen> {
                       ),
                       const SizedBox(height: 24),
                       ElevatedButton.icon(
-                        onPressed: isButtonEnabled ? _handleSubmit : null,
+                        onPressed: isButtonEnabled ? () => _handleSubmit(effectiveSelectedId) : null,
                         icon: const Icon(Icons.send),
+
                         label: const Text(
                           'Terbitkan Surat Jalan DO',
                           style: TextStyle(fontWeight: FontWeight.bold),

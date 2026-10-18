@@ -30,16 +30,25 @@ class _InboundScreenState extends ConsumerState<InboundScreen> {
     super.dispose();
   }
 
-  void _handleSubmit() {
+  void _handleSubmit([String? effectiveId]) {
     if (_formKey.currentState?.validate() ?? false) {
+      final qty = int.tryParse(_qtyController.text) ?? 0;
+      final targetId = _selectedItemId ?? effectiveId;
+      if (targetId != null && qty > 0) {
+        ref.read(inventoryRepositoryProvider).addStock(targetId, qty);
+      }
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Bahan masuk ${_poController.text} berhasil dicatat!'),
           backgroundColor: AppColors.emeraldSuccess,
         ),
       );
+      _qtyController.clear();
+      _lotController.clear();
+      _notesController.clear();
     }
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -197,8 +206,9 @@ class _InboundScreenState extends ConsumerState<InboundScreen> {
                       ),
                       const SizedBox(height: 24),
                       ElevatedButton.icon(
-                        onPressed: _handleSubmit,
+                        onPressed: () => _handleSubmit(effectiveSelectedId),
                         icon: const Icon(Icons.save),
+
                         label: const Text(
                           'Catat Bahan Masuk',
                           style: TextStyle(fontWeight: FontWeight.bold),

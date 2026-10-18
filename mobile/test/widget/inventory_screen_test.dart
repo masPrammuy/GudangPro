@@ -37,4 +37,19 @@ void main() {
     expect(find.text('Kain Katun Combed 30s'), findsOneWidget);
     expect(find.text('Zona A'), findsWidgets);
   });
+
+  testWidgets('InventoryScreen renders default demo apparel items when Supabase is not configured (no infinite loading)', (tester) async {
+    await tester.pumpWidget(
+      const ProviderScope(
+        child: MaterialApp(
+          home: InventoryScreen(),
+        ),
+      ),
+    );
+    await tester.pump();
+
+    expect(find.byType(CircularProgressIndicator), findsNothing);
+    expect(find.text('KAN-CMB-01'), findsOneWidget);
+  });
 }
+
