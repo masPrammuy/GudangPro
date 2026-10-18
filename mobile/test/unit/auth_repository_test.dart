@@ -94,6 +94,13 @@ void main() {
       expect(reattempt, isNotNull);
     });
 
+    test('toggleUserStatus throws exception if user not found', () async {
+      expect(
+        () => repo.toggleUserStatus('nonexistent-id', false),
+        throwsA(isA<Exception>()),
+      );
+    });
+
     test('updatePassword allows login with new password', () async {
       await repo.updatePassword('operator@gudangpro.com', 'newpass456');
 

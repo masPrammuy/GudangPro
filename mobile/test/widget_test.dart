@@ -81,6 +81,28 @@ void main() {
       expect(find.text('Pengguna'), findsNothing);
     });
 
+    testWidgets('GudangProApp displays LoginScreen when currentUser is deactivated (isActive == false)', (tester) async {
+      final repo = AuthRepository();
+      final deactivatedUser = testNormalUser.copyWith(isActive: false);
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            authRepositoryProvider.overrideWithValue(repo),
+            inventoryListProvider.overrideWith((ref) => AsyncValue.data(mockItems)),
+            currentUserProvider.overrideWith(
+              (ref) => FakeCurrentUserNotifier(repo, deactivatedUser),
+            ),
+          ],
+          child: const GudangProApp(),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      // Verify redirected to LoginScreen
+      expect(find.byType(LoginScreen), findsOneWidget);
+      expect(find.text('Masuk ke Sistem WMS'), findsOneWidget);
+    });
+
     testWidgets('GudangProApp displays Admin tabs (Dashboard, Pengguna) when authenticated as Admin', (tester) async {
       final repo = AuthRepository();
       await tester.pumpWidget(

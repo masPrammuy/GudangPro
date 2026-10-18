@@ -61,7 +61,7 @@ class _EditProfileDialogState extends ConsumerState<EditProfileDialog> {
 
     try {
       final updated = widget.targetUser.copyWith(
-        nik: _nikController.text.trim(),
+        nik: _nikController.text.trim().toUpperCase(),
         name: _nameController.text.trim(),
         email: _emailController.text.trim(),
         phone: _phoneController.text.trim(),
@@ -109,8 +109,9 @@ class _EditProfileDialogState extends ConsumerState<EditProfileDialog> {
   @override
   Widget build(BuildContext context) {
     final currentUser = ref.watch(currentUserProvider);
+    final isSelf = currentUser?.id == widget.targetUser.id;
     final bool canEditAll =
-        widget.isEditingOther && (currentUser?.isAdmin ?? false);
+        !isSelf && widget.isEditingOther && (currentUser?.isAdmin ?? false);
 
     return AlertDialog(
       shape: RoundedRectangleBorder(
@@ -190,6 +191,7 @@ class _EditProfileDialogState extends ConsumerState<EditProfileDialog> {
                   key: const Key('edit_nik_field'),
                   controller: _nikController,
                   readOnly: !canEditAll,
+                  textCapitalization: TextCapitalization.characters,
                   decoration: InputDecoration(
                     prefixIcon: Icon(
                       canEditAll ? Icons.badge_outlined : Icons.lock,

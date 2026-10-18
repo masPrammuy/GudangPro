@@ -44,7 +44,7 @@ class _AddUserDialogState extends ConsumerState<AddUserDialog> {
     try {
       final newUser = UserModel(
         id: 'user-${DateTime.now().millisecondsSinceEpoch}',
-        nik: _nikController.text.trim(),
+        nik: _nikController.text.trim().toUpperCase(),
         name: _nameController.text.trim(),
         email: _emailController.text.trim(),
         phone: _phoneController.text.trim(),
@@ -138,6 +138,7 @@ class _AddUserDialogState extends ConsumerState<AddUserDialog> {
                 TextFormField(
                   key: const Key('add_nik_field'),
                   controller: _nikController,
+                  textCapitalization: TextCapitalization.characters,
                   decoration: InputDecoration(
                     prefixIcon: const Icon(Icons.badge_outlined,
                         size: 20, color: AppColors.textMuted),

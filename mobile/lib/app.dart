@@ -33,7 +33,7 @@ class AuthGate extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final currentUser = ref.watch(currentUserProvider);
 
-    if (currentUser == null) {
+    if (currentUser == null || !currentUser.isActive) {
       return const LoginScreen();
     }
     return const MainNavigationScaffold();

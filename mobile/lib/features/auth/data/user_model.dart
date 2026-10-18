@@ -58,14 +58,11 @@ class UserModel {
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
     final rawCreatedAt = json['created_at'] ?? json['createdAt'];
-    final DateTime parsedCreatedAt;
-    if (rawCreatedAt is DateTime) {
-      parsedCreatedAt = rawCreatedAt;
-    } else if (rawCreatedAt is String && rawCreatedAt.isNotEmpty) {
-      parsedCreatedAt = DateTime.parse(rawCreatedAt);
-    } else {
-      parsedCreatedAt = DateTime.now();
-    }
+    final DateTime parsedCreatedAt = rawCreatedAt is DateTime
+        ? rawCreatedAt
+        : (rawCreatedAt != null
+            ? (DateTime.tryParse(rawCreatedAt.toString()) ?? DateTime.now())
+            : DateTime.now());
 
     final roleStr = json['role'] as String? ?? 'user';
     final role = roleStr.toLowerCase() == 'admin' ? UserRole.admin : UserRole.user;

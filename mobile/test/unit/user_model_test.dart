@@ -65,5 +65,27 @@ void main() {
       expect(updated.nik, equals('STF-042'));
       expect(updated.role, equals(UserRole.user));
     });
+
+    test('UserModel.fromJson safely parses valid, invalid, and null createdAt', () {
+      final jsonWithMalformedDate = {
+        'id': 'usr-003',
+        'nik': 'STF-003',
+        'name': 'Test',
+        'email': 'test@test.com',
+        'created_at': 'not-a-valid-date-string',
+      };
+      final user = UserModel.fromJson(jsonWithMalformedDate);
+      expect(user.createdAt, isNotNull);
+
+      final jsonWithNullDate = {
+        'id': 'usr-004',
+        'nik': 'STF-004',
+        'name': 'Test',
+        'email': 'test@test.com',
+        'created_at': null,
+      };
+      final userNull = UserModel.fromJson(jsonWithNullDate);
+      expect(userNull.createdAt, isNotNull);
+    });
   });
 }

@@ -89,7 +89,9 @@ class AuthRepository {
       final old = _users[index];
       _users[index] = old.copyWith(isActive: isActive);
       _usersStreamController.add(List.unmodifiable(_users));
+      return;
     }
+    throw Exception('User tidak ditemukan');
   }
 
   Future<void> updatePassword(String email, String newPassword) async {

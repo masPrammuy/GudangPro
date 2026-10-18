@@ -308,5 +308,109 @@ void main() {
       expect(savedUser!.email, equals('newoperator@gudangpro.com'));
       expect(savedUser!.isActive, isFalse);
     });
+
+    testWidgets(
+        'Self-lockout guard: Admin editing self keeps canEditAll false and prevents modifying role/status',
+        (tester) async {
+      final repo = AuthRepository();
+
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            authRepositoryProvider.overrideWithValue(repo),
+            currentUserProvider.overrideWith(
+              (ref) => FakeCurrentUserNotifier(
+                repo,
+                testAdminUser,
+              ),
+            ),
+          ],
+          child: MaterialApp(
+            home: Scaffold(
+              body: Builder(
+                builder: (context) => ElevatedButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (_) => EditProfileDialog(
+                        targetUser: testAdminUser,
+                        isEditingOther: true, // Even if isEditingOther is set
+                      ),
+                    );
+                  },
+                  child: const Text('Open Self Edit'),
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
+
+      await tester.tap(find.text('Open Self Edit'));
+      await tester.pumpAndSettle();
+
+      // NIK and Email must be readOnly because isSelf is true
+      final nikField = tester.widget<TextField>(find.descendant(
+          of: find.byKey(const Key('edit_nik_field')),
+          matching: find.byType(TextField)));
+      expect(nikField.readOnly, isTrue);
+
+      // Role and Status switch should NOT be rendered
+      expect(find.byKey(const Key('edit_role_dropdown')), findsNothing);
+      expect(find.byKey(const Key('edit_status_switch')), findsNothing);
+    });
+
+    testWidgets(
+        'Editing NIK automatically converts input to uppercase',
+        (tester) async {
+      final repo = AuthRepository();
+      UserModel? savedUser;
+
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            authRepositoryProvider.overrideWithValue(repo),
+            currentUserProvider.overrideWith(
+              (ref) => FakeCurrentUserNotifier(
+                repo,
+                testAdminUser,
+              ),
+            ),
+          ],
+          child: MaterialApp(
+            home: Scaffold(
+              body: Builder(
+                builder: (context) => ElevatedButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (_) => EditProfileDialog(
+                        targetUser: testNormalUser,
+                        isEditingOther: true,
+                        onSaved: (user) {
+                          savedUser = user;
+                        },
+                      ),
+                    );
+                  },
+                  child: const Text('Open Dialog'),
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
+
+      await tester.tap(find.text('Open Dialog'));
+      await tester.pumpAndSettle();
+
+      // Input lowercase nik
+      await tester.enterText(find.byKey(const Key('edit_nik_field')), 'stf-lowercase');
+      await tester.tap(find.byKey(const Key('save_profile_button')));
+      await tester.pumpAndSettle();
+
+      expect(savedUser, isNotNull);
+      expect(savedUser!.nik, equals('STF-LOWERCASE'));
+    });
   });
 }

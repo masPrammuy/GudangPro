@@ -168,6 +168,48 @@ void main() {
     });
 
     testWidgets(
+        'Submitting AddUserDialog with lowercase NIK automatically converts it to uppercase',
+        (tester) async {
+      final repo = AuthRepository();
+
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            authRepositoryProvider.overrideWithValue(repo),
+            currentUserProvider.overrideWith(
+              (ref) => FakeCurrentUserNotifier(repo, testAdminUser),
+            ),
+          ],
+          child: const MaterialApp(
+            home: UserManagementScreen(),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('Tambah Akun User'));
+      await tester.pumpAndSettle();
+
+      // Enter lowercase NIK
+      await tester.enterText(
+          find.byKey(const Key('add_nik_field')), 'stf-auto-upper');
+      await tester.enterText(
+          find.byKey(const Key('add_name_field')), 'Auto Upper User');
+      await tester.enterText(
+          find.byKey(const Key('add_email_field')), 'upper@gudangpro.com');
+      await tester.enterText(
+          find.byKey(const Key('add_password_field')), 'password123');
+      await tester.pump();
+
+      await tester.tap(find.byKey(const Key('submit_user_button')));
+      await tester.pumpAndSettle();
+
+      final users = await repo.getAllUsers();
+      final added = users.firstWhere((u) => u.email == 'upper@gudangpro.com');
+      expect(added.nik, equals('STF-AUTO-UPPER'));
+    });
+
+    testWidgets(
         'Tapping edit on a user card opens EditProfileDialog with isEditingOther: true allowing full edit',
         (tester) async {
       final repo = AuthRepository();
