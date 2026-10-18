@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static const Color slateDark = Color(0xFF0F172A);
+  static const Color darkSlatePrimary = Color(0xFF0F172A);
   static const Color slateCard = Color(0xFF1E293B);
   static const Color background = Color(0xFFF8FAFC);
   static const Color border = Color(0xFFE2E8F0);
