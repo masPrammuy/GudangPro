@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/constants/app_colors.dart';
+import '../../../../core/services/pdf_invoice_service.dart';
+import '../../auth/providers/auth_providers.dart';
+import '../../inventory/data/item_model.dart';
 import '../../inventory/providers/inventory_providers.dart';
 
 class InboundScreen extends ConsumerStatefulWidget {
@@ -49,6 +52,23 @@ class _InboundScreenState extends ConsumerState<InboundScreen> {
     }
   }
 
+  void _handlePrintPdf(ItemModel? selectedItem) {
+    if (selectedItem == null) return;
+    final currentUser = ref.read(currentUserProvider);
+    final qty = int.tryParse(_qtyController.text) ?? 1;
+
+    PdfInvoiceService.printInboundPo(
+      poNumber: _poController.text.isNotEmpty ? _poController.text : 'PO-TX-${DateTime.now().year}-001',
+      supplier: _supplierController.text.isNotEmpty ? _supplierController.text : 'Supplier Tekstil Utama',
+      lotNumber: _lotController.text.isNotEmpty ? _lotController.text : 'LOT-TX-001',
+      item: selectedItem,
+      qty: qty > 0 ? qty : 1,
+      receiverName: currentUser?.name ?? 'Petugas Gudang Inbound',
+      receiverNik: currentUser?.nik ?? 'STF-001',
+      notes: _notesController.text,
+    );
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -70,6 +90,11 @@ class _InboundScreenState extends ConsumerState<InboundScreen> {
           final effectiveSelectedId = items.any((i) => i.id == _selectedItemId)
               ? _selectedItemId
               : (items.isNotEmpty ? items.first.id : null);
+
+          ItemModel? effectiveSelectedItem;
+          if (effectiveSelectedId != null) {
+            effectiveSelectedItem = items.where((i) => i.id == effectiveSelectedId).firstOrNull;
+          }
 
           return SingleChildScrollView(
             padding: const EdgeInsets.all(16.0),
@@ -208,7 +233,6 @@ class _InboundScreenState extends ConsumerState<InboundScreen> {
                       ElevatedButton.icon(
                         onPressed: () => _handleSubmit(effectiveSelectedId),
                         icon: const Icon(Icons.save),
-
                         label: const Text(
                           'Catat Bahan Masuk',
                           style: TextStyle(fontWeight: FontWeight.bold),
@@ -220,6 +244,16 @@ class _InboundScreenState extends ConsumerState<InboundScreen> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
                           ),
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      OutlinedButton.icon(
+                        onPressed: () => _handlePrintPdf(effectiveSelectedItem),
+                        icon: const Icon(Icons.print_outlined),
+                        label: const Text('Cetak Surat Masuk (PDF)'),
+                        style: OutlinedButton.styleFrom(
+                          foregroundColor: AppColors.indigoWip,
+                          minimumSize: const Size.fromHeight(46),
                         ),
                       ),
                     ],

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/constants/app_colors.dart';
+import '../../../../core/services/pdf_invoice_service.dart';
+import '../../auth/providers/auth_providers.dart';
 import '../../inventory/data/item_model.dart';
 import '../../inventory/providers/inventory_providers.dart';
 
@@ -47,6 +49,22 @@ class _OutboundScreenState extends ConsumerState<OutboundScreen> {
       _qtyController.clear();
       _notesController.clear();
     }
+  }
+
+  void _handlePrintPdf(ItemModel? selectedItem) {
+    if (selectedItem == null) return;
+    final currentUser = ref.read(currentUserProvider);
+    final qty = int.tryParse(_qtyController.text) ?? 1;
+
+    PdfInvoiceService.printOutboundDo(
+      doNumber: _doController.text.isNotEmpty ? _doController.text : 'DO-GP-${DateTime.now().year}-001',
+      recipient: _recipientController.text.isNotEmpty ? _recipientController.text : 'Distributor / Pemesan Baju',
+      item: selectedItem,
+      qty: qty > 0 ? qty : 1,
+      senderName: currentUser?.name ?? 'Staf Gudang Outbound',
+      senderNik: currentUser?.nik ?? 'STF-001',
+      notes: _notesController.text,
+    );
   }
 
 
@@ -268,7 +286,6 @@ class _OutboundScreenState extends ConsumerState<OutboundScreen> {
                       ElevatedButton.icon(
                         onPressed: isButtonEnabled ? () => _handleSubmit(effectiveSelectedId) : null,
                         icon: const Icon(Icons.send),
-
                         label: const Text(
                           'Terbitkan Surat Jalan DO',
                           style: TextStyle(fontWeight: FontWeight.bold),
@@ -282,6 +299,16 @@ class _OutboundScreenState extends ConsumerState<OutboundScreen> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
                           ),
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      OutlinedButton.icon(
+                        onPressed: () => _handlePrintPdf(selectedItem),
+                        icon: const Icon(Icons.picture_as_pdf_outlined),
+                        label: const Text('Cetak Surat Jalan (PDF)'),
+                        style: OutlinedButton.styleFrom(
+                          foregroundColor: AppColors.indigoWip,
+                          minimumSize: const Size.fromHeight(46),
                         ),
                       ),
                     ],
