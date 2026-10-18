@@ -18,6 +18,7 @@ void main() {
 
       // Verify logo / branding
       expect(find.text('GudangPro Apparel'), findsOneWidget);
+      expect(find.text('Masuk ke Sistem WMS'), findsOneWidget);
       expect(find.byIcon(Icons.warehouse_rounded), findsWidgets);
 
       // Verify form fields by Key

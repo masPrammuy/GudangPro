@@ -38,6 +38,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   }
 
   void _fillAdmin() {
+    FocusScope.of(context).unfocus();
     setState(() {
       _emailController.text = 'admin@gudangpro.com';
       _passwordController.text = 'admin123';
@@ -46,6 +47,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   }
 
   void _fillOperator() {
+    FocusScope.of(context).unfocus();
     setState(() {
       _emailController.text = 'operator@gudangpro.com';
       _passwordController.text = 'user123';
@@ -54,11 +56,12 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   }
 
   Future<void> _handleLogin() async {
+    FocusScope.of(context).unfocus();
     setState(() {
       _errorMessage = null;
     });
 
-    if (!_formKey.currentState!.validate()) {
+    if (!(_formKey.currentState?.validate() ?? false)) {
       return;
     }
 
@@ -149,7 +152,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                         ),
                         const SizedBox(height: 6),
                         const Text(
-                          'Sistem Manajemen Logistik & Inventaris',
+                          'Masuk ke Sistem WMS',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 13,
